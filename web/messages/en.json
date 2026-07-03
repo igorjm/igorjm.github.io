@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "title": "Igor Melo — Senior Software Engineer",
+    "description": "Personal portfolio of Igor Melo, Senior Software Engineer in Florianópolis, Brazil. Java, Node.js, React, TypeScript, and cloud.",
+    "og_description": "Building software with intentionality and craft."
+  },
+  "nav": {
+    "brand": "Igor Melo",
+    "work": "Work",
+    "about": "About",
+    "tech": "Tech",
+    "timeline": "Timeline",
+    "contact": "Contact",
+    "menu_open": "Open menu",
+    "menu_close": "Close menu",
+    "theme_light": "Switch to light mode",
+    "theme_dark": "Switch to dark mode",
+    "locale_en": "English",
+    "locale_pt": "Português"
+  },
+  "hero": {
+    "headline": "I'm Igor, building software with intentionality and craft.",
+    "subtitle": "Senior Software Engineer specializing in Java, Node.js, React, and TypeScript — nearly 8 years building scalable, user-centric applications.",
+    "cta_primary": "View Projects",
+    "cta_secondary": "Download Resume",
+    "resume_unavailable": "Resume coming soon"
+  },
+  "about": {
+    "label": "01. About",
+    "body": "I'm a software developer with nearly 8 years of experience across backend and frontend, currently at Cognyte in Florianópolis. I work with Java, Node.js, React, and React Native to build scalable, high-performance applications. Passionate about clean code, modern architectures, and user-centric design, I thrive in collaborative environments and focus on delivering measurable value."
+  },
+  "tech": {
+    "label": "02. Stack",
+    "languages": "Languages",
+    "frameworks": "Frameworks",
+    "tools": "Tools"
+  },
+  "experience": {
+    "label": "03. Experience",
+    "cognyte": {
+      "title": "Senior Software Engineer",
+      "company": "Cognyte",
+      "period": "Feb 2022 — Present",
+      "description": "Designed and implemented features for an investigative analytics platform using Java and React. Built scalable data visualization tools, reduced processing times by 25% through refactoring, and delivered dynamic reporting with JasperReports and Bold Report."
+    },
+    "konviva": {
+      "title": "Frontend Developer",
+      "company": "Konviva Edtech",
+      "period": "Aug 2019 — Feb 2022",
+      "description": "Developed customized frontend solutions for EdTech platforms from detailed prototypes. Implemented a version control system for customer themes and maintained legacy systems while collaborating with design and backend teams."
+    },
+    "animati": {
+      "title": "Fullstack Software Developer",
+      "company": "Animati netPACS",
+      "period": "Feb 2017 — Aug 2019",
+      "description": "Built features for a radiology web platform focused on image visualization and report generation. Assisted in SCRUM team management, handled version control and product releases, and maintained PostgreSQL databases for healthcare clients."
+    },
+    "animatiIntern": {
+      "title": "Intern Software Developer",
+      "company": "Animati netPACS",
+      "period": "Feb 2016 — Feb 2017",
+      "description": "Contributed to the evolution of a radiology platform using Java, Spring MVC, PostgreSQL, and JavaScript. Developed reports, printing models, and new features for medical imaging workflows."
+    }
+  },
+  "projects": {
+    "label": "04. Work",
+    "view_live": "View live",
+    "view_code": "Source",
+    "no_deploy": "No live demo",
+    "preview_unavailable": "Preview unavailable",
+    "cogJackpot": {
+      "description": "Internal team pool application built with Next.js and TypeScript, deployed on Vercel."
+    },
+    "cryptoTracker": {
+      "description": "Real-time crypto price tracker built with React and Next.js, consuming an external API."
+    },
+    "mealPlanSaas": {
+      "description": "AI SaaS full-stack app with Next.js, TailwindCSS, Clerk authentication, and Stripe payments."
+    },
+    "mernClient": {
+      "description": "Full-stack MERN application with GraphQL on the client side."
+    },
+    "mernApi": {
+      "description": "GraphQL API server built with the MERN stack."
+    },
+    "portfolio": {
+      "description": "Personal portfolio website — this site."
+    }
+  },
+  "contact": {
+    "headline": "Let's build something remarkable.",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "twitter": "Twitter",
+    "email": "Email",
+    "copyright": "© {year} Igor Melo. Built with intentionality."
+  }
+}
