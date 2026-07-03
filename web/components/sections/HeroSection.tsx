@@ -1,9 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { HeroBackground } from "@/components/ui/HeroBackground";
 import { Reveal } from "@/components/ui/Reveal";
+import { ASSETS } from "@/lib/constants/assets";
 import { profile } from "@/lib/data/profile";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
@@ -18,8 +20,25 @@ export function HeroSection() {
   return (
     <HeroBackground>
       <motion.div style={{ y: contentY, opacity: contentOpacity }}>
-        <div className="grid grid-cols-1 md:grid-cols-12">
-          <div className="md:col-span-8">
+        <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-12 md:gap-8">
+          <Reveal
+            direction="up"
+            delay={0.05}
+            className="order-first flex justify-center md:order-last md:col-span-4 md:col-start-9 md:row-start-1"
+          >
+            <div className="relative size-44 shrink-0 overflow-hidden rounded-full border border-section bg-surface-container-high shadow-[0_0_0_1px_color-mix(in_srgb,var(--color-outline-variant)_40%,transparent),0_24px_48px_color-mix(in_srgb,var(--color-background)_40%,transparent)] sm:size-52 md:size-56 lg:size-64">
+              <Image
+                src={ASSETS.profile}
+                alt={profile.name}
+                width={256}
+                height={256}
+                priority
+                className="size-full object-cover object-top grayscale transition-[filter] duration-500 hover:grayscale-0"
+              />
+            </div>
+          </Reveal>
+
+          <div className="md:col-span-8 md:row-start-1">
             <Reveal direction="up" delay={0.1}>
               <h1 className="text-display-lg mb-6 text-on-surface">{t("headline")}</h1>
             </Reveal>
