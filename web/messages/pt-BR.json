@@ -68,6 +68,7 @@
     "view_code": "Código",
     "no_deploy": "Sem demo",
     "preview_unavailable": "Preview indisponível",
+    "wip": "Em desenvolvimento",
     "cogJackpot": {
       "description": "Aplicação interna de bolão para times, construída com Next.js e TypeScript, deploy na Vercel."
     },
@@ -85,6 +86,9 @@
     },
     "portfolio": {
       "description": "Site de portfólio pessoal — este site."
+    },
+    "brewra": {
+      "description": "Plataforma de cervejas artesanais com React Native e recomendações por IA — em desenvolvimento ativo."
     }
   },
   "contact": {

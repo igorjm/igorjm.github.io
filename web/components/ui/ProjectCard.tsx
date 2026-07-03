@@ -77,6 +77,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <article className="group relative overflow-hidden rounded-lg border border-section bg-surface-container-low transition-transform duration-300 hover:-translate-y-1">
+      {project.status === "wip" && (
+        <span className="text-label-mono absolute right-3 top-3 z-10 flex items-center gap-1.5 rounded-full border border-tertiary/40 bg-surface-container/90 px-2.5 py-1 text-tertiary backdrop-blur-sm">
+          <span className="size-1.5 animate-pulse rounded-full bg-tertiary" aria-hidden />
+          {t("wip")}
+        </span>
+      )}
       <a
         href={primaryHref}
         target="_blank"

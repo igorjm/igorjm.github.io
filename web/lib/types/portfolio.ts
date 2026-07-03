@@ -8,6 +8,7 @@ export type Project = {
   previewImage?: string | null;
   language: string;
   tags: string[];
+  status?: "wip";
 };
 
 export type ExperienceEntry = {
