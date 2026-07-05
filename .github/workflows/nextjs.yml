@@ -11,9 +11,11 @@ permissions:
   pages: write
   id-token: write
 
+# Allow only one concurrent deployment; do not cancel in-progress deploys —
+# canceling often leaves GitHub Pages in a bad state and causes transient failures.
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -46,10 +48,43 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: https://igorjm.github.io/
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages (attempt 1)
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+
+      - name: Wait before retry
+        if: steps.deployment.outcome == 'failure'
+        run: sleep 30
+
+      - name: Deploy to GitHub Pages (attempt 2)
+        id: deploy2
+        if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+
+      - name: Wait before final retry
+        if: steps.deployment.outcome == 'failure' && steps.deploy2.outcome == 'failure'
+        run: sleep 30
+
+      - name: Deploy to GitHub Pages (attempt 3)
+        id: deploy3
+        if: steps.deployment.outcome == 'failure' && steps.deploy2.outcome == 'failure'
+        uses: actions/deploy-pages@v5
+
+      - name: Verify deployment
+        env:
+          DEPLOY1: ${{ steps.deployment.outcome }}
+          DEPLOY2: ${{ steps.deploy2.outcome }}
+          DEPLOY3: ${{ steps.deploy3.outcome }}
+        run: |
+          if [ "$DEPLOY1" = "success" ] || [ "$DEPLOY2" = "success" ] || [ "$DEPLOY3" = "success" ]; then
+            echo "Pages deployment succeeded"
+            exit 0
+          fi
+          echo "All deploy attempts failed"
+          exit 1
