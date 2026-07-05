@@ -24,6 +24,28 @@ export const projects: Project[] = [
     tags: ["Next.js", "TypeScript", "Tailwind"],
   },
   {
+    id: "brewra",
+    name: "brewra",
+    descriptionKey: "projects.brewra.description",
+    repoUrl: "https://github.com/igorjm/brewra",
+    deployedUrl: "https://coffeebrewra.vercel.app/en",
+    screenshotUrl: getLivePreviewUrl("https://coffeebrewra.vercel.app/en"),
+    language: "TypeScript",
+    tags: ["React Native", "Next.js", "Stripe", "AI"],
+  },
+  {
+    id: "headshots-starter-clone",
+    name: "Headshots AI",
+    descriptionKey: "projects.headshotsAi.description",
+    repoUrl: "https://github.com/igorjm/headshots-starter-clone",
+    deployedUrl: "https://headshots-starter-clone-ashy-zeta.vercel.app",
+    screenshotUrl: getLivePreviewUrl(
+      "https://headshots-starter-clone-ashy-zeta.vercel.app"
+    ),
+    language: "TypeScript",
+    tags: ["Next.js", "Supabase", "AI", "Vercel"],
+  },
+  {
     id: "nextjs-crypto-tracker",
     name: "nextjs-crypto-tracker",
     descriptionKey: "projects.cryptoTracker.description",
@@ -42,15 +64,5 @@ export const projects: Project[] = [
     screenshotUrl: null,
     language: "TypeScript",
     tags: ["Next.js", "Clerk", "Stripe", "AI"],
-  },
-  {
-    id: "brewra",
-    name: "brewra",
-    descriptionKey: "projects.brewra.description",
-    repoUrl: "https://github.com/igorjm/brewra",
-    deployedUrl: "https://coffeebrewra.vercel.app/en",
-    screenshotUrl: getLivePreviewUrl("https://coffeebrewra.vercel.app/en"),
-    language: "TypeScript",
-    tags: ["React Native", "Next.js", "Stripe", "AI"],
   },
 ];

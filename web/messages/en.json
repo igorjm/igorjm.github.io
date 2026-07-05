@@ -89,6 +89,9 @@
     },
     "brewra": {
       "description": "AI-powered coffee brewing platform with React Native and Next.js — every cup, guided by intelligence."
+    },
+    "headshotsAi": {
+      "description": "AI-powered professional headshot generator — upload selfies and receive HD portraits in minutes."
     }
   },
   "contact": {

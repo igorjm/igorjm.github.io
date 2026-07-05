@@ -89,6 +89,9 @@
     },
     "brewra": {
       "description": "Plataforma de café com IA, React Native e Next.js — cada xícara guiada por inteligência."
+    },
+    "headshotsAi": {
+      "description": "Gerador de headshots profissionais com IA — envie selfies e receba retratos em HD em minutos."
     }
   },
   "contact": {
