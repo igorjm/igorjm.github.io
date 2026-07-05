@@ -48,10 +48,9 @@ export const projects: Project[] = [
     name: "brewra",
     descriptionKey: "projects.brewra.description",
     repoUrl: "https://github.com/igorjm/brewra",
-    deployedUrl: null,
-    screenshotUrl: null,
+    deployedUrl: "https://coffeebrewra.vercel.app/en",
+    screenshotUrl: getLivePreviewUrl("https://coffeebrewra.vercel.app/en"),
     language: "TypeScript",
     tags: ["React Native", "Next.js", "Stripe", "AI"],
-    status: "wip",
   },
 ];
