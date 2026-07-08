@@ -20,14 +20,21 @@
   },
   "hero": {
     "headline": "Sou Igor, construindo software com intenção e craft.",
-    "subtitle": "Engenheiro de Software Sênior especializado em Java, Node.js, React e TypeScript — quase 8 anos construindo aplicações escaláveis e centradas no usuário.",
+    "subtitle": "Engenheiro full-stack sênior com 8+ anos entregando produtos escaláveis — Java, Spring Boot, React e TypeScript, de saúde e EdTech a analytics de inteligência global.",
     "cta_primary": "Ver Projetos",
     "cta_secondary": "Baixar Currículo",
     "resume_unavailable": "Currículo em breve"
   },
   "about": {
     "label": "01. Sobre",
-    "body": "Sou desenvolvedor de software com quase 8 anos de experiência em backend e frontend, atualmente na Cognyte em Florianópolis. Trabalho com Java, Node.js, React e React Native para construir aplicações escaláveis e de alta performance. Apaixonado por código limpo, arquiteturas modernas e design centrado no usuário, prospero em ambientes colaborativos e foco em entregar valor mensurável."
+    "headline": "Engenheiro full-stack sênior entregando produto de alto impacto em domínios complexos.",
+    "body": "Lidero entregas de ponta a ponta no frontend e no backend — atualmente na Cognyte, construindo uma plataforma global de analytics investigativo usada por times de segurança e operações no mundo todo. Meu trabalho envolve Java, Spring Boot, React, TypeScript e PostgreSQL, com forte foco em performance, clareza e resultados mensuráveis.",
+    "body_secondary": "Antes disso, modelei experiências EdTech na Konviva e fluxos de saúde na Animati (imagem radiológica e laudos). Ao longo do caminho liderei squads multifuncionais, mentorei engenheiros e transformei ideias de hackathon em produto — incluindo um assistente com IA adotado como linha de produto global e um report builder flexível que reduziu pela metade o tempo de criação de relatórios.",
+    "facts": {
+      "experience": "8+ anos",
+      "location": "Florianópolis, Brasil",
+      "focus": "Engenharia de produto · Liderança frontend · Entrega full-stack"
+    }
   },
   "tech": {
     "label": "02. Stack",

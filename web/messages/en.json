@@ -20,14 +20,21 @@
   },
   "hero": {
     "headline": "I'm Igor, building software with intentionality and craft.",
-    "subtitle": "Senior Software Engineer specializing in Java, Node.js, React, and TypeScript — nearly 8 years building scalable, user-centric applications.",
+    "subtitle": "Senior full-stack engineer with 8+ years shipping scalable products — Java, Spring Boot, React, and TypeScript, from healthcare and EdTech to global intelligence analytics.",
     "cta_primary": "View Projects",
     "cta_secondary": "Download Resume",
     "resume_unavailable": "Resume coming soon"
   },
   "about": {
     "label": "01. About",
-    "body": "I'm a software developer with nearly 8 years of experience across backend and frontend, currently at Cognyte in Florianópolis. I work with Java, Node.js, React, and React Native to build scalable, high-performance applications. Passionate about clean code, modern architectures, and user-centric design, I thrive in collaborative environments and focus on delivering measurable value."
+    "headline": "Senior full-stack engineer shipping high-impact product in complex domains.",
+    "body": "I lead end-to-end delivery across frontend and backend — currently at Cognyte, building a global intelligence analytics platform used by security and operations teams worldwide. My work spans Java, Spring Boot, React, TypeScript, and PostgreSQL, with a strong bias toward performance, clarity, and measurable outcomes.",
+    "body_secondary": "Before that, I shaped EdTech experiences at Konviva and healthcare workflows at Animati (radiology imaging and reporting). Along the way I’ve led cross-functional squads, mentored engineers, and turned hackathon ideas into shipped product — including an AI assistant adopted as a global product line and a flexible report builder that cut report creation time in half.",
+    "facts": {
+      "experience": "8+ years",
+      "location": "Florianópolis, Brazil",
+      "focus": "Product engineering · Frontend leadership · Full-stack delivery"
+    }
   },
   "tech": {
     "label": "02. Stack",

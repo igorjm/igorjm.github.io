@@ -14,7 +14,7 @@ export function SectionGrid({ id, label, children, className }: SectionGridProps
   return (
     <section
       id={id}
-      className={`border-t border-section py-20 md:py-[80px] ${className ?? ""}`}
+      className={`border-t border-section py-14 md:py-16 ${className ?? ""}`}
     >
       <div className="grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-6">
         <div className="md:col-span-3">

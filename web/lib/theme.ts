@@ -56,7 +56,7 @@ export const spacing = {
   md: "24px",
   lg: "48px",
   xl: "80px",
-  sectionGap: "120px",
+  sectionGap: "0px",
   containerMax: "1200px",
   gutter: "24px",
 } as const;

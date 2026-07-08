@@ -18,10 +18,10 @@ export function ContactFooter() {
   return (
     <footer
       id="contact"
-      className="mx-auto w-full max-w-container-max px-gutter py-20"
+      className="mx-auto w-full max-w-container-max px-gutter py-14 md:py-16"
     >
       <Reveal direction="up">
-        <div className="flex flex-col items-center justify-between gap-6 border-t border-section pt-20 md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-6 border-t border-section pt-14 md:flex-row md:pt-16">
           <div className="text-headline-sm font-bold text-on-surface">{t("headline")}</div>
           <ul className="flex flex-wrap justify-center gap-4">
             {links.map((link, index) => (

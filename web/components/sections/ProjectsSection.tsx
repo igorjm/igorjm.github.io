@@ -9,8 +9,8 @@ export function ProjectsSection() {
   const t = useTranslations("projects");
 
   return (
-    <section id="projects" className="border-t border-section py-20 md:py-[80px]">
-      <div className="mb-12 grid grid-cols-1 md:grid-cols-12">
+    <section id="projects" className="border-t border-section py-14 md:py-16">
+      <div className="mb-10 grid grid-cols-1 md:grid-cols-12">
         <div className="md:col-span-3">
           <Reveal direction="left" delay={0.05}>
             <h2 className="text-label-mono uppercase tracking-widest text-on-surface-variant">

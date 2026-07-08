@@ -26,7 +26,7 @@ export default async function HomePage({ params }: Props) {
       <ScrollEffects />
       <Navbar />
       <HeroSection />
-      <main className="mx-auto flex max-w-container-max flex-col gap-section px-gutter pb-20">
+      <main className="mx-auto flex max-w-container-max flex-col gap-section px-gutter pb-14 md:pb-16">
         <AboutSection />
         <TechStackSection />
         <ExperienceSection />
