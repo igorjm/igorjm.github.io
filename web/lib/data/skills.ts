@@ -16,4 +16,9 @@ export const skillGroups: SkillGroup[] = [
     labelKey: "tech.tools",
     skills: ["PostgreSQL", "Docker", "Git", "Agile", "JasperReports"],
   },
+  {
+    id: "ai",
+    labelKey: "tech.ai",
+    skills: ["Cursor", "Claude", "GitHub Copilot"],
+  },
 ];

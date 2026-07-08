@@ -11,12 +11,12 @@ export function TechStackSection() {
 
   return (
     <SectionGrid id="tech" label={t("label")}>
-      <Stagger className="grid grid-cols-1 gap-12 sm:grid-cols-3" stagger={0.14}>
+      <Stagger className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4" stagger={0.14}>
         {skillGroups.map((group) => (
           <StaggerItem key={group.id}>
             <div>
               <h3 className="text-headline-sm mb-4 border-b border-section pb-2 text-on-surface">
-                {t(group.id as "languages" | "frameworks" | "tools")}
+                {t(group.id as "languages" | "frameworks" | "tools" | "ai")}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {group.skills.map((skill) => (
