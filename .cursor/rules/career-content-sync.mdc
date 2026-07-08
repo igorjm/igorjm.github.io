@@ -1,0 +1,39 @@
+---
+description: Keep career knowledge base in sync when portfolio career content changes
+globs: web/messages/**,web/lib/data/**,web/public/resume/**
+alwaysApply: false
+---
+
+# Career Content Sync
+
+When editing portfolio career content, keep the career advisor knowledge base aligned.
+
+## After changes to matched files
+
+1. Run from repo root:
+
+```bash
+node .cursor/career/scripts/sync-career-profile.mjs
+```
+
+2. Verify `.cursor/career/profile.md` reflects the updates.
+
+3. If narrative positioning changed (headline, about, achievements), also update:
+   - `.cursor/career/voice.md` — if tone/positioning shifted
+   - `.cursor/career/achievements.md` — if new metrics or STAR stories
+   - `.cursor/career/linkedin-baseline.md` — if LinkedIn was updated to match
+
+4. If resume PDF changed (`web/public/resume/`), flag consistency check:
+   - Titles and dates vs `profile.md`
+   - Frontend vs full-stack positioning vs target roles
+
+## Source of truth hierarchy
+
+| Layer | Location | Role |
+|-------|----------|------|
+| Public portfolio | `web/messages/`, `web/lib/data/` | Canonical for site |
+| Career KB | `.cursor/career/profile.md` | Auto-synced facts for agents |
+| Resume PDF | `web/public/resume/` | Formal CV — read on demand |
+| Private goals | `.cursor/career/goals.md` | User-maintained targets |
+
+Do not duplicate resume content into markdown — avoids drift.
