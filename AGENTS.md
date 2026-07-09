@@ -25,14 +25,53 @@ Location: [`.cursor/career/`](.cursor/career/)
 | `goals.md` | Target roles and preferences (you maintain) |
 | `gaps.md` | Missing data agents must not invent |
 | `linkedin-baseline.md` | Current LinkedIn text for audits |
+| `exports/linkedin-profile.pdf` | Latest LinkedIn PDF export (authoritative after manual edits) |
 | `first-audit.md` | Initial advisor audit (baseline) |
 | `references/` | LinkedIn, CV/ATS, tech recruiting playbooks |
+| `content/` | Ready-to-publish LinkedIn posts, Projects copy, 8-week calendar |
+
+### LinkedIn content series
+
+Location: [`.cursor/career/content/`](.cursor/career/content/)
+
+| File | Purpose |
+|------|---------|
+| [linkedin-posts.md](.cursor/career/content/linkedin-posts.md) | 8 bilingual posts — copy/paste |
+| [linkedin-projects.md](.cursor/career/content/linkedin-projects.md) | Projects + Featured + GitHub pins (Phase 0) |
+| [posting-calendar.md](.cursor/career/content/posting-calendar.md) | Schedule, checkboxes, metrics |
+| [README.md](.cursor/career/content/README.md) | Quick start |
+
+```
+@linkedin-specialist Polish Post 1 from content/linkedin-posts.md before I publish
+```
 
 ### Sync after portfolio edits
 
 ```bash
 node .cursor/career/scripts/sync-career-profile.mjs
 ```
+
+### LinkedIn audit (repeatable)
+
+**After LinkedIn changes:** export PDF → save as `.cursor/career/exports/linkedin-profile.pdf` → import → audit.
+
+From **`web/`**:
+
+```bash
+npm run career:import-linkedin
+npm run career:audit-linkedin -- --update-baseline
+```
+
+From **repo root**:
+
+```bash
+node .cursor/career/scripts/import-linkedin-pdf.mjs
+node .cursor/career/scripts/audit-linkedin.mjs --update-baseline
+```
+
+Writes `.cursor/career/audits/YYYY-MM-DD-linkedin.md`.
+
+> Live HTML fetch is often stale/partial. **PDF export + snapshot cache** is the source of truth after manual profile updates.
 
 Cursor rule [`.cursor/rules/career-content-sync.mdc`](.cursor/rules/career-content-sync.mdc) applies when editing `web/messages/`, `web/lib/data/`, or resume files.
 

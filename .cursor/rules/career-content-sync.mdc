@@ -8,6 +8,14 @@ alwaysApply: false
 
 When editing portfolio career content, keep the career advisor knowledge base aligned.
 
+## LinkedIn audit
+
+```bash
+node .cursor/career/scripts/audit-linkedin.mjs
+```
+
+Writes `.cursor/career/audits/YYYY-MM-DD-linkedin.md`. Refresh `.cursor/career/.cache/linkedin-snapshot.md` for full skills/experience parsing.
+
 ## After changes to matched files
 
 1. Run from repo root:

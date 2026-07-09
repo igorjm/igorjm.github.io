@@ -15,6 +15,9 @@ Read from `.cursor/career/`:
 - `references/linkedin-playbook.md` — structure and best practices
 - `linkedin-baseline.md` — current live profile (if pasted)
 - `gaps.md` — do not invent missing data
+- `content/linkedin-posts.md` — 8 ready-to-publish bilingual posts
+- `content/linkedin-projects.md` — Projects + Featured + GitHub Phase 0 copy
+- `content/posting-calendar.md` — publish schedule and checkboxes
 
 Portfolio: https://igorjm.github.io  
 LinkedIn: https://www.linkedin.com/in/igorjm

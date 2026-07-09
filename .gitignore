@@ -33,3 +33,6 @@ pnpm-debug.log*
 
 # TypeScript (auto-generated)
 next-env.d.ts
+
+# Career — local LinkedIn PDF exports (use .txt / .cache snapshot in repo)
+.cursor/career/exports/*.pdf
