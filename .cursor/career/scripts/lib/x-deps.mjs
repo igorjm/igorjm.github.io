@@ -1,13 +1,15 @@
 import { createRequire } from "module";
 import { join } from "path";
-import { REPO_ROOT } from "./x-paths.mjs";
+import { SCRIPTS_DIR } from "./x-paths.mjs";
 
-const webRequire = createRequire(join(REPO_ROOT, "web/package.json"));
+const scriptsRequire = createRequire(join(SCRIPTS_DIR, "package.json"));
 
-export function requireWebDevDep(name) {
+export function requireScriptDep(name) {
   try {
-    return webRequire(name);
+    return scriptsRequire(name);
   } catch {
-    throw new Error(`${name} not found. Run: cd web && npm install`);
+    throw new Error(
+      `${name} not found. Run: cd .cursor/career/scripts && npm install`,
+    );
   }
 }

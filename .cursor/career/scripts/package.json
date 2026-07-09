@@ -1,0 +1,9 @@
+{
+  "name": "igorjm-career-scripts",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "playwright": "^1.52.0",
+    "sharp": "^0.34.2"
+  }
+}

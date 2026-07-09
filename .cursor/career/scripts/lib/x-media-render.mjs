@@ -2,7 +2,7 @@ import { createHash } from "crypto";
 import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { join } from "path";
 import { X_MEDIA_CACHE_DIR } from "./x-paths.mjs";
-import { requireWebDevDep } from "./x-deps.mjs";
+import { requireScriptDep } from "./x-deps.mjs";
 
 const CARD_WIDTH = 1200;
 const CARD_HEIGHT = 675;
@@ -87,7 +87,7 @@ function buildQuoteCardSvg({ text, label }) {
 }
 
 async function loadSharp() {
-  return requireWebDevDep("sharp");
+  return requireScriptDep("sharp");
 }
 
 export async function renderQuoteCard({ text, label = null }) {

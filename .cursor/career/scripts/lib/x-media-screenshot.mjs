@@ -2,7 +2,7 @@ import { createHash } from "crypto";
 import { existsSync, mkdirSync } from "fs";
 import { join } from "path";
 import { X_MEDIA_CACHE_DIR } from "./x-paths.mjs";
-import { requireWebDevDep } from "./x-deps.mjs";
+import { requireScriptDep } from "./x-deps.mjs";
 
 const VIEWPORT = { width: 1200, height: 630 };
 
@@ -12,7 +12,7 @@ function cachePathFor(url, key) {
 }
 
 function loadPlaywright() {
-  return requireWebDevDep("playwright");
+  return requireScriptDep("playwright");
 }
 
 export async function captureProjectScreenshot(url, key = "project") {

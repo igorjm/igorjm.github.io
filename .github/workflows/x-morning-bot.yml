@@ -62,8 +62,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install career script deps (media)
+        if: env.X_MEDIA_ENABLED == 'true' || env.X_SCREENSHOT_ENABLED == 'true'
+        working-directory: .cursor/career/scripts
+        run: npm ci
+
       - name: Install Playwright (screenshots)
         if: env.X_SCREENSHOT_ENABLED == 'true'
+        working-directory: .cursor/career/scripts
         run: npx playwright install chromium --with-deps
 
       - name: Determine mode

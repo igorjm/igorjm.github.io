@@ -56,3 +56,4 @@ Set `X_AUTO_POST=false` or disable GitHub Action workflow to stop all publishing
 - Requires `X_MEDIA_ENABLED=true` and OAuth scope `media.write` (re-run `npm run career:x:setup`)
 - Quote-tweet slots stay text-only (quote card is redundant)
 - Cached assets: `.cursor/career/.cache/x/media/` (gitignored)
+- Media deps: `cd .cursor/career/scripts && npm install` (sharp, playwright)
