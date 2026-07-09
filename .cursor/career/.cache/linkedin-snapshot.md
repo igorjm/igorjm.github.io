@@ -1,22 +1,11 @@
-# LinkedIn Baseline — Igor Melo
+# Igor Melo
 
-Profile URL: https://www.linkedin.com/in/igorjm
-
-> **Last synced:** 2026-07-09 from LinkedIn PDF export (`.cursor/career/exports/linkedin-profile.pdf`).
-
----
-
-## Headline (current)
-
-```
 Senior Software Engineer | Full-Stack (Java, Spring Boot, React, TypeScript) | Investigative Analytics & Product Engineering
-```
 
----
+Florianópolis, Santa Catarina, Brazil
 
-## About (current)
+## About
 
-```
 Senior Software Engineer with 8+ years building full-stack product across investigative analytics, healthcare, and EdTech.
 
 At Cognyte, I deliver features for a global intelligence analytics platform used by security and operations teams worldwide, including a 25% reduction in processing times, dynamic reporting at scale, and a hackathon AI assistant adopted as a global product line.
@@ -26,61 +15,25 @@ Stack: Java, Spring Boot, React, TypeScript, PostgreSQL. I also ship side projec
 English (professional) · Based in Florianópolis, Brazil · Open to global remote opportunities.
 
 Portfolio & projects → igorjm.github.io
-```
 
----
+## Experience
 
-## Top skills (pinned)
+### Senior Software Engineer - Cognyte (Current)
 
-- Agile Software Development
-- Remote Work
-- Object-Oriented Programming (OOP)
-
----
-
-## Cognyte (current role)
-
-**Title:** Senior Software Engineer
-
-```
 • Design and ship features for a global investigative analytics platform (Java, Spring Boot, React, TypeScript, PostgreSQL)
 • Reduced data processing times by 25% through targeted refactoring of backend and frontend pipelines
 • Built scalable data visualization and dynamic reporting (JasperReports, Bold Report), cutting report creation time by 50%
 • Turned a hackathon AI assistant into a product adopted as a global product line
 • Mentor engineers and collaborate across cross-functional squads in a global R&D organization
-```
 
----
+## Skills
 
-## Education (from PDF export)
+Agile Software Development • Remote Work • Object-Oriented Programming (OOP)
 
-- XP Educação
-- Postgraduate Degree, Software Architecture · (April 2025 - 2026)
-- Full Cycle
-- · (November 2023 - November 2024)
-- XP Educação
-- Master of Business Administration - MBA, Fullstack Development · (2020 - 2021)
-- Rocketseat
-- Bootcamp OmniStack 9.0 · (2019)
-- freeCodeCamp
-- Front End Development Certificate, Computer Software Engineering · (2018 - 2018)
+## Languages
 
----
-
-## Recommended skill pins (intl search)
-
-Java · React.js · TypeScript · Spring Boot · PostgreSQL
-
----
-
-## Featured (current)
-
-<!-- Update manually -->
-
----
-
-## Audit history
-
-| Date | Notes |
-|------|-------|
-| 2026-07-09 | Imported from LinkedIn PDF export |
+French (Elementary)
+Portuguese (Native or Bilingual)
+French (Elementary)
+Italian (Elementary)
+Spanish (Elementary)

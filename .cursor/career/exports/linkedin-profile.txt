@@ -1,0 +1,70 @@
+Contact
++55 (48)9 9996-5191 (Mobile)
+igorjmelo4@gmail.com
+www.linkedin.com/in/igorjm
+(LinkedIn)
+github.com/igorjm (Portfolio)
+Top Skills
+Agile Software Development
+Remote Work
+Object-Oriented Programming (OOP)
+Languages
+French (Elementary)
+English (Full Professional)
+Portuguese (Native or Bilingual)
+French (Elementary)
+Italian (Elementary)
+Spanish (Elementary)
+Certifications
+Produtividade e Gestão do Tempo
+Startup University
+How to Boost Your Productivity with AI Tools
+Getting Hands-On with GPT-4: Tips and Tricks
+Igor Melo
+Senior Software Engineer | Full-Stack (Java, Spring Boot, React,
+TypeScript) | Investigative Analytics & Product Engineering
+Florianópolis, Santa Catarina, Brazil
+Summary
+Senior Software Engineer with 8+ years building full-stack product
+across investigative analytics, healthcare, and EdTech.At Cognyte,
+I deliver features for a global intelligence analytics platform used by
+security and operations teams worldwide, including a 25% reduction
+in processing times, dynamic reporting at scale, and a hackathon
+AI assistant adopted as a global product line.Stack: Java, Spring
+Boot, React, TypeScript, PostgreSQL. I also ship side projects with
+Next.js, AI, Stripe, and Supabase.English (professional) · Based in
+Florianópolis, Brazil · Open to global remote opportunities.Portfolio
+& projects → igorjm.github.io
+Experience
+Cognyte
+Senior Software Engineer
+February 2022 - Present (4 years 6 months)
+Florianópolis, Santa Catarina, Brazil
+• Design and ship features for a global investigative analytics platform (Java,
+Spring Boot, React, TypeScript, PostgreSQL)
+• Reduced data processing times by 25% through targeted refactoring of
+backend and frontend pipelines
+• Built scalable data visualization and dynamic reporting (JasperReports, Bold
+Report), cutting report creation time by 50%
+• Turned a hackathon AI assistant into a product adopted as a global product
+line
+• Mentor engineers and collaborate across cross-functional squads in a global
+R&D organization
+Konviva Edtech
+Frontend Developer
+August 2019 - February 2022 (2 years 7 months)
+Florianópolis
+Animati netPACS
+Fullstack Software Developer
+February 2017 - August 2019 (2 years 7 months)
+Education
+XP Educação
+Postgraduate Degree, Software Architecture · (April 2025 - 2026)
+Full Cycle
+· (November 2023 - November 2024)
+XP Educação
+Master of Business Administration - MBA, Fullstack Development · (2020 - 2021)
+Rocketseat
+Bootcamp OmniStack 9.0 · (2019)
+freeCodeCamp
+Front End Development Certificate, Computer Software Engineering · (2018 - 2018)
