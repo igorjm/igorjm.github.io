@@ -5,9 +5,10 @@
  * Usage (from web/):
  *   npm run career:x:setup
  *
- * Requires: X_CLIENT_ID, X_CLIENT_SECRET
+ * Env: web/.env.x (auto-loaded). Requires X_CLIENT_ID, X_CLIENT_SECRET
  */
 
+import "./lib/load-web-env.mjs";
 import { runOAuthSetup } from "./lib/x-auth.mjs";
 
 runOAuthSetup().catch((err) => {

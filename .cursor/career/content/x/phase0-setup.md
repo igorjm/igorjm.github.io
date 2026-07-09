@@ -18,7 +18,7 @@ One-time setup (~1 hour). Do this before the morning pipeline posts anything.
    - Callback URL: `http://localhost:8080/callback`
    - Also add: `http://localhost:8081/callback` (if Docker uses 8080)
    - Website URL: `https://igorjm.github.io`
-4. **Scopes:** `tweet.read`, `tweet.write`, `users.read`, `offline.access`
+4. **Scopes:** `tweet.read`, `tweet.write`, `users.read`, `media.write`, `offline.access`
 5. Copy **Client ID** and **Client Secret**
 
 ## 3. Local OAuth (capture refresh token)
@@ -33,7 +33,9 @@ npm run career:x:setup
 
 Complete browser login as @igoorjm. Script prints `X_REFRESH_TOKEN` for GitHub Secrets.
 
-Optional: save to `web/.env.local` (gitignored):
+**After adding `media.write`:** re-run setup so the refresh token includes image upload scope.
+
+Optional: save to `web/.env.x` (gitignored, auto-loaded by `npm run career:x:*`):
 
 ```
 X_CLIENT_ID=...
@@ -42,6 +44,7 @@ X_REFRESH_TOKEN=...
 ANTHROPIC_API_KEY=...
 X_DRY_RUN=true
 X_AUTO_POST=false
+X_MEDIA_ENABLED=false
 ```
 
 ## 4. LLM API key

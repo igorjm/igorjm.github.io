@@ -5,9 +5,10 @@
  * Usage (from web/):
  *   npm run career:x:post
  *
- * Env: X_AUTO_POST (required true to publish), X_DRY_RUN
+ * Env: web/.env.x (auto-loaded), X_AUTO_POST, X_DRY_RUN, X_MEDIA_ENABLED
  */
 
+import "./lib/load-web-env.mjs";
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 import {
@@ -18,6 +19,7 @@ import {
 } from "./lib/x-paths.mjs";
 import { createTweet } from "./lib/x-client.mjs";
 import { getDuePosts } from "./lib/x-schedule.mjs";
+import { preparePostMedia } from "./lib/x-media.mjs";
 
 function loadQueue() {
   if (!existsSync(POST_QUEUE_FILE)) {
@@ -44,6 +46,7 @@ function appendPublishedLog(dateStr, entry) {
 async function main() {
   const dryRun = envFlag("X_DRY_RUN", true);
   const autoPost = envFlag("X_AUTO_POST", false);
+  const mediaEnabled = envFlag("X_MEDIA_ENABLED", false);
   const dateStr = todayDateStr();
 
   const queue = loadQueue();
@@ -54,29 +57,54 @@ async function main() {
     return;
   }
 
-  console.log(`Due posts: ${due.length} (dryRun=${dryRun}, autoPost=${autoPost})`);
+  console.log(
+    `Due posts: ${due.length} (dryRun=${dryRun}, autoPost=${autoPost}, media=${mediaEnabled})`,
+  );
 
   for (const item of due) {
     const idx = queue.tweets.findIndex(
       (t) => t.scheduledAt === item.scheduledAt && t.text === item.text,
     );
 
+    const imageNote =
+      item.imageStrategy && item.imageStrategy !== "none"
+        ? ` [${item.imageStrategy}]`
+        : "";
+
     if (dryRun || !autoPost) {
-      console.log(`[SKIP] Would post at ${item.scheduledAt}:`);
+      console.log(`[SKIP] Would post at ${item.scheduledAt}${imageNote}:`);
       console.log(item.text);
       continue;
     }
 
     try {
+      let mediaIds;
+      let mediaPath;
+      let mediaId;
+
+      if (mediaEnabled && item.imageStrategy && item.imageStrategy !== "none") {
+        const media = await preparePostMedia(item);
+        mediaId = media.mediaId;
+        mediaPath = media.mediaPath;
+        if (mediaId) {
+          mediaIds = [mediaId];
+        }
+      }
+
       const res = await createTweet({
         text: item.text,
         quoteTweetId: item.quoteTweetId ?? undefined,
+        mediaIds,
       });
 
       const tweetId = res?.data?.id;
       queue.tweets[idx].posted = true;
       queue.tweets[idx].tweetId = tweetId;
       queue.tweets[idx].postedAt = new Date().toISOString();
+      if (mediaId) {
+        queue.tweets[idx].mediaId = mediaId;
+        queue.tweets[idx].mediaPath = mediaPath;
+      }
 
       appendPublishedLog(dateStr, {
         tweetId,
@@ -84,6 +112,8 @@ async function main() {
         type: item.type,
         language: item.language,
         sourceInspiration: item.sourceInspiration,
+        imageStrategy: item.imageStrategy ?? null,
+        mediaId: mediaId ?? null,
         postedAt: queue.tweets[idx].postedAt,
       });
 

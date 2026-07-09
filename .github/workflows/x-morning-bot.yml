@@ -43,6 +43,9 @@ jobs:
       X_DRY_RUN: ${{ vars.X_DRY_RUN || 'true' }}
       X_AUTO_POST: ${{ vars.X_AUTO_POST || 'false' }}
       X_MAX_POSTS_PER_DAY: ${{ vars.X_MAX_POSTS_PER_DAY || '4' }}
+      X_MEDIA_ENABLED: ${{ vars.X_MEDIA_ENABLED || 'false' }}
+      X_IMAGE_POSTS_PER_DAY: ${{ vars.X_IMAGE_POSTS_PER_DAY || '1' }}
+      X_SCREENSHOT_ENABLED: ${{ vars.X_SCREENSHOT_ENABLED || 'false' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -56,6 +59,10 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Install Playwright (screenshots)
+        if: env.X_SCREENSHOT_ENABLED == 'true'
+        run: npx playwright install chromium --with-deps
 
       - name: Determine mode
         id: mode

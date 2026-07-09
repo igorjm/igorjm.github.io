@@ -103,8 +103,8 @@ export function loadTokenCache() {
 }
 
 export async function getAccessToken() {
-  const envRefresh = process.env.X_REFRESH_TOKEN;
-  const envAccess = process.env.X_ACCESS_TOKEN;
+  const envRefresh = process.env.X_REFRESH_TOKEN?.trim() || undefined;
+  const envAccess = process.env.X_ACCESS_TOKEN?.trim() || undefined;
 
   if (envAccess && !envRefresh) {
     return envAccess;

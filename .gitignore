@@ -42,3 +42,4 @@ next-env.d.ts
 .cursor/mcp.json
 .cursor/career/.cache/x/tokens*
 .cursor/career/.cache/x/post-queue.json
+.cursor/career/.cache/x/media/

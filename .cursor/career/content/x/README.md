@@ -44,4 +44,4 @@ X_AUTO_POST=true npm run career:x:pipeline
 
 ## Env vars
 
-See [phase0-setup.md](phase0-setup.md). Key flags: `X_DRY_RUN`, `X_AUTO_POST`, `X_MAX_POSTS_PER_DAY`.
+See [phase0-setup.md](phase0-setup.md). Key flags: `X_DRY_RUN`, `X_AUTO_POST`, `X_MAX_POSTS_PER_DAY`, `X_MEDIA_ENABLED`, `X_IMAGE_POSTS_PER_DAY`, `X_SCREENSHOT_ENABLED`.

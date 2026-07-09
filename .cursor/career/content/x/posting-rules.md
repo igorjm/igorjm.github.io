@@ -44,3 +44,14 @@ Default `X_MAX_POSTS_PER_DAY=4`.
 ## Kill switch
 
 Set `X_AUTO_POST=false` or disable GitHub Action workflow to stop all publishing.
+
+## Images (automated)
+
+- **Never** copy or remix images from watchlist / inspiration posts
+- Max **1 image post per day** (`X_IMAGE_POSTS_PER_DAY=1`)
+- Strategies:
+  - `quote_card` — branded PNG rendered from tweet text (default)
+  - `project_screenshot` — Playwright capture of your own project URL (`X_SCREENSHOT_ENABLED=true`)
+- Requires `X_MEDIA_ENABLED=true` and OAuth scope `media.write` (re-run `npm run career:x:setup`)
+- Quote-tweet slots stay text-only (quote card is redundant)
+- Cached assets: `.cursor/career/.cache/x/media/` (gitignored)

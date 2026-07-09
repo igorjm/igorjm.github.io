@@ -1,0 +1,13 @@
+{
+  "date": "2026-07-09",
+  "posts": [
+    {
+      "tweetId": "2075301863142957545",
+      "text": "GPT-5.6 Sol: minor accuracy bump, higher hallucination rate vs 5.5. Classic benchmark treadmill. For production RAG, I'd take lower hallucination over 2% accuracy gains every time.",
+      "type": "original",
+      "language": "en",
+      "sourceInspiration": "https://x.com/ArtificialAnlys/status/2075268990004605023",
+      "postedAt": "2026-07-09T19:31:36.312Z"
+    }
+  ]
+}

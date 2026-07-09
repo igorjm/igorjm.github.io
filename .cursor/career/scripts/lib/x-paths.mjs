@@ -7,6 +7,7 @@ export const REPO_ROOT = join(__dirname, "../../../..");
 export const CAREER_DIR = join(REPO_ROOT, ".cursor/career");
 export const SCRIPTS_DIR = join(CAREER_DIR, "scripts");
 export const X_CACHE_DIR = join(CAREER_DIR, ".cache/x");
+export const X_MEDIA_CACHE_DIR = join(X_CACHE_DIR, "media");
 export const X_DAILY_DIR = join(CAREER_DIR, "content/x/daily");
 export const X_PUBLISHED_DIR = join(CAREER_DIR, "content/x/published");
 export const POST_QUEUE_FILE = join(X_CACHE_DIR, "post-queue.json");
@@ -25,6 +26,7 @@ export const OAUTH_SCOPES = [
   "tweet.read",
   "tweet.write",
   "users.read",
+  "media.write",
   "offline.access",
 ].join(" ");
 

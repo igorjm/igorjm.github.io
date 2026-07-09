@@ -68,10 +68,13 @@ export async function getTrends(woeid = "1") {
   }
 }
 
-export async function createTweet({ text, quoteTweetId }) {
+export async function createTweet({ text, quoteTweetId, mediaIds }) {
   const body = { text };
   if (quoteTweetId) {
     body.quote_tweet_id = quoteTweetId;
+  }
+  if (mediaIds?.length) {
+    body.media = { media_ids: mediaIds };
   }
   return xFetch("/2/tweets", {
     method: "POST",

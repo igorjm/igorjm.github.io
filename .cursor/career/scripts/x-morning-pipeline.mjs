@@ -5,9 +5,10 @@
  * Usage (from web/):
  *   npm run career:x:brief
  *
- * Env: X_DRY_RUN, X_MAX_POSTS_PER_DAY, X_WOEID, LLM API key
+ * Env: web/.env.x (auto-loaded), X_DRY_RUN, X_MAX_POSTS_PER_DAY, X_WOEID, LLM API key
  */
 
+import "./lib/load-web-env.mjs";
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 import {
@@ -69,6 +70,11 @@ async function main() {
     console.log(`Trends/signals: ${trends.length}`);
   } catch (err) {
     console.warn("Trend fetch failed:", err.message);
+    if (String(err.message).includes("401")) {
+      console.warn(
+        "Hint: after enabling X API billing, re-run: npm run career:x:setup",
+      );
+    }
     trends = [{ note: "API unavailable — using LLM/fallback only" }];
   }
 

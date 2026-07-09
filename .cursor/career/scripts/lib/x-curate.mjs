@@ -1,6 +1,7 @@
 import { readFileSync } from "fs";
 import { PROFILE_MD, VOICE_X_MD } from "./x-paths.mjs";
 import { getPostSlotsForDay, isPtBrDay } from "./x-schedule.mjs";
+import { assignImageStrategies } from "./x-media.mjs";
 
 function readMd(path) {
   return readFileSync(path, "utf8");
@@ -18,7 +19,7 @@ async function callAnthropic(prompt) {
       "content-type": "application/json",
     },
     body: JSON.stringify({
-      model: process.env.ANTHROPIC_MODEL ?? "claude-sonnet-4-20250514",
+      model: process.env.ANTHROPIC_MODEL ?? "claude-sonnet-4-6",
       max_tokens: 2000,
       messages: [{ role: "user", content: prompt }],
     }),
@@ -78,6 +79,14 @@ async function callLLM(prompt) {
   if (process.env.OPENAI_API_KEY) return callOpenAI(prompt);
   if (process.env.XAI_API_KEY) return callXAI(prompt);
   return null;
+}
+
+function hasLlmKey() {
+  return Boolean(
+    process.env.ANTHROPIC_API_KEY ||
+      process.env.OPENAI_API_KEY ||
+      process.env.XAI_API_KEY,
+  );
 }
 
 function buildPrompt({ trends, watchlistSignals, dateStr, maxPosts }) {
@@ -183,24 +192,35 @@ export async function curateTweets({
 }) {
   const prompt = buildPrompt({ trends, watchlistSignals, dateStr, maxPosts });
   let drafts = null;
+  let fallbackReason = null;
 
-  try {
-    const raw = await callLLM(prompt);
-    if (raw) {
-      drafts = parseJsonArray(raw);
+  if (!hasLlmKey()) {
+    fallbackReason =
+      "no LLM API key in web/.env.x (ANTHROPIC_API_KEY, OPENAI_API_KEY, or XAI_API_KEY)";
+  } else {
+    try {
+      const raw = await callLLM(prompt);
+      if (!raw) {
+        fallbackReason = "LLM returned empty response";
+      } else {
+        drafts = parseJsonArray(raw);
+        if (!drafts?.length) {
+          fallbackReason = "LLM response was not a valid JSON array";
+        }
+      }
+    } catch (err) {
+      fallbackReason = err.message;
     }
-  } catch (err) {
-    console.warn("LLM curation failed, using fallback:", err.message);
   }
 
   if (!drafts?.length) {
-    console.warn("No LLM key or parse failed — using template drafts");
+    console.warn(`LLM curation unavailable (${fallbackReason}) — using template drafts`);
     drafts = fallbackDrafts({ watchlistSignals, dateStr, maxPosts });
   }
 
   const slots = getPostSlotsForDay(dateStr, drafts.length);
 
-  return drafts.map((d, i) => ({
+  const tweets = drafts.map((d, i) => ({
     text: d.text,
     type: d.type ?? "original",
     language: d.language ?? "en",
@@ -209,6 +229,8 @@ export async function curateTweets({
     scheduledAt: slots[i],
     posted: false,
   }));
+
+  return assignImageStrategies(tweets);
 }
 
 export function formatBriefingMarkdown({
@@ -246,11 +268,20 @@ export function formatBriefingMarkdown({
   lines.push("", "## Queued tweets", "");
 
   tweets.forEach((t, i) => {
-    lines.push(`### ${i + 1}. ${t.type} (${t.language}) — ${t.scheduledAt}`);
+    const imageNote =
+      t.imageStrategy && t.imageStrategy !== "none"
+        ? ` · image: ${t.imageStrategy}`
+        : "";
+    lines.push(
+      `### ${i + 1}. ${t.type} (${t.language}) — ${t.scheduledAt}${imageNote}`,
+    );
     lines.push("");
     lines.push("```");
     lines.push(t.text);
     lines.push("```");
+    if (t.imageLabel) {
+      lines.push(`Image label: ${t.imageLabel}`);
+    }
     if (t.sourceInspiration) {
       lines.push(`Inspiration: ${t.sourceInspiration}`);
     }
