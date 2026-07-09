@@ -20,9 +20,10 @@ Default `X_MAX_POSTS_PER_DAY=4`.
 
 ## Safety
 
-- Max **280 characters** per tweet
+- Max **280 characters** per tweet (except pure retweets — no text)
 - Max **1 URL** per day across all posts
-- Max **2 quote-tweets** per day
+- Max **2 quote-tweets** per day (`X_MAX_QUOTE_TAKES_PER_DAY`)
+- Max **1 pure retweet** per day (`X_MAX_RETWEETS_PER_DAY`)
 - Blocked keywords: `giveaway`, `crypto moon`, `guaranteed returns`, `DM for`
 - No posts about Cognyte confidential products or internals
 - `X_AUTO_POST=true` required to publish (default `false`)
@@ -30,10 +31,10 @@ Default `X_MAX_POSTS_PER_DAY=4`.
 
 ## Content mix (daily target)
 
-- 2× AI/tech trend commentary (original)
-- 1× engineering / senior IC take
+- 1–2× AI/tech trend commentary (original)
+- 1–2× quote-tweet with take (retweet with comment)
+- 0–1× pure retweet (amplify high-engagement watchlist post)
 - 0–1× own project mention (rotate MealPlan, Brewra, portfolio)
-- 0–1× quote-tweet with take (if watchlist signal is strong)
 
 ## Monetization alignment
 

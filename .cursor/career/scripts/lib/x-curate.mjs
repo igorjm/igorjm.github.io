@@ -1,7 +1,11 @@
 import { readFileSync } from "fs";
-import { PROFILE_MD, VOICE_X_MD } from "./x-paths.mjs";
+import { PROFILE_MD, VOICE_X_MD, envInt } from "./x-paths.mjs";
 import { getPostSlotsForDay, isPtBrDay } from "./x-schedule.mjs";
 import { assignImageStrategies } from "./x-media.mjs";
+import {
+  rankSignalsByEngagement,
+  formatSignalForPrompt,
+} from "./x-engagement.mjs";
 
 function readMd(path) {
   return readFileSync(path, "utf8");
@@ -93,13 +97,15 @@ function buildPrompt({ trends, watchlistSignals, dateStr, maxPosts }) {
   const voice = readMd(VOICE_X_MD);
   const profile = readMd(PROFILE_MD).slice(0, 3000);
   const ptBr = isPtBrDay(dateStr);
+  const maxQuotes = envInt("X_MAX_QUOTE_TAKES_PER_DAY", 2);
+  const maxRetweets = envInt("X_MAX_RETWEETS_PER_DAY", 1);
 
   const trendBlock = JSON.stringify(trends, null, 2).slice(0, 2000);
-  const signalBlock = watchlistSignals
-    .filter((s) => s.text)
-    .slice(0, 8)
-    .map((s) => `- @${s.handle}: ${s.text}\n  ${s.url}`)
-    .join("\n");
+  const ranked = rankSignalsByEngagement(watchlistSignals);
+  const signalBlock = ranked
+    .slice(0, 10)
+    .map((s) => formatSignalForPrompt(s))
+    .join("\n\n");
 
   return `You draft original X (Twitter) posts for Igor Melo, Senior Software Engineer.
 
@@ -112,16 +118,24 @@ ${profile}
 TODAY'S TRENDS/SIGNAL:
 ${trendBlock}
 
-WATCHLIST POSTS (inspiration only — NEVER copy or paraphrase closely):
+WATCHLIST POSTS (ranked by engagement — inspiration only, NEVER copy text):
 ${signalBlock}
 
-Generate exactly ${maxPosts} tweet drafts as JSON array. Rules:
-- Max 280 chars each
-- Original engineer takes only
-- Mostly English${ptBr ? "; include 1 post in PT-BR as the last item" : ""}
-- Types: original, quote_take, project
-- For quote_take include quoteTweetId from watchlist signal id
-- Include sourceInspiration URL when inspired by watchlist (for logging)
+Generate exactly ${maxPosts} tweet drafts as JSON array.
+
+DAILY MIX (aim for this balance):
+- 1–2 original commentary (type: original)
+- 1–${maxQuotes} quote_take — retweet WITH your comment (quote tweet on X). Pick strong watchlist posts; add a sharp engineer take in text.
+- 0–${maxRetweets} retweet — pure amplify, NO comment text. Pick the highest-engagement watchlist post that fits Igor's AI/engineering lens.
+- 0–1 project mention (MealPlan AI, Brewra, portfolio)
+${ptBr ? "- Include 1 post in PT-BR as the last item" : ""}
+
+Rules:
+- Max 280 chars for any text field
+- Original synthesis only — do not paraphrase watchlist posts in your comment
+- quote_take: requires text + quoteTweetId (watchlist id)
+- retweet: text must be empty string "" + retweetTweetId (watchlist id). Never use both quoteTweetId and retweetTweetId on the same draft.
+- Include sourceInspiration URL when using a watchlist post
 - No hashtags unless 1-2 feel natural at end
 - No engagement bait, no job seeking
 
@@ -129,12 +143,55 @@ Respond with ONLY valid JSON array:
 [
   {
     "text": "...",
-    "type": "original|quote_take|project",
+    "type": "original|quote_take|retweet|project",
     "language": "en|pt-BR",
-    "quoteTweetId": "optional",
+    "quoteTweetId": "optional — quote_take only",
+    "retweetTweetId": "optional — retweet only",
     "sourceInspiration": "optional url"
   }
 ]`;
+}
+
+function normalizeDrafts(drafts, watchlistSignals) {
+  const validIds = new Set(
+    watchlistSignals.filter((s) => s.id).map((s) => String(s.id)),
+  );
+
+  return drafts.map((d) => {
+    const type = d.type ?? "original";
+    let quoteTweetId = d.quoteTweetId ? String(d.quoteTweetId) : null;
+    let retweetTweetId = d.retweetTweetId ? String(d.retweetTweetId) : null;
+
+    if (type === "quote_take") {
+      if (!quoteTweetId && retweetTweetId) quoteTweetId = retweetTweetId;
+      retweetTweetId = null;
+    } else if (type === "retweet") {
+      if (!retweetTweetId && quoteTweetId) retweetTweetId = quoteTweetId;
+      quoteTweetId = null;
+    } else {
+      retweetTweetId = null;
+      if (type !== "quote_take") quoteTweetId = null;
+    }
+
+    const targetId = retweetTweetId ?? quoteTweetId;
+    if (targetId && !validIds.has(targetId)) {
+      const fromUrl = watchlistSignals.find(
+        (s) => s.url && d.sourceInspiration?.includes(s.id),
+      );
+      if (fromUrl) {
+        if (type === "retweet") retweetTweetId = String(fromUrl.id);
+        else quoteTweetId = String(fromUrl.id);
+      }
+    }
+
+    return {
+      ...d,
+      type,
+      quoteTweetId: type === "quote_take" ? quoteTweetId : null,
+      retweetTweetId: type === "retweet" ? retweetTweetId : null,
+      text: type === "retweet" ? "" : (d.text ?? "").trim(),
+    };
+  });
 }
 
 function parseJsonArray(text) {
@@ -149,7 +206,9 @@ function parseJsonArray(text) {
 
 function fallbackDrafts({ watchlistSignals, dateStr, maxPosts }) {
   const drafts = [];
-  const signal = watchlistSignals.find((s) => s.text);
+  const ranked = rankSignalsByEngagement(watchlistSignals);
+  const top = ranked[0];
+  const second = ranked[1];
 
   drafts.push({
     text: "AI news moves fast. The builder question isn't which model — it's eval data, latency, and what you ship this week.",
@@ -157,14 +216,35 @@ function fallbackDrafts({ watchlistSignals, dateStr, maxPosts }) {
     language: "en",
   });
 
-  if (signal) {
+  if (second) {
     drafts.push({
       text: "Strong signal on AI eval this week. Most teams optimize models before they fix the data pipeline. That's backwards.",
       type: "quote_take",
       language: "en",
-      quoteTweetId: signal.id,
-      sourceInspiration: signal.url,
+      quoteTweetId: second.id,
+      sourceInspiration: second.url,
     });
+  } else if (top) {
+    drafts.push({
+      text: "Worth amplifying — this is the eval gap most production AI teams still ignore.",
+      type: "quote_take",
+      language: "en",
+      quoteTweetId: top.id,
+      sourceInspiration: top.url,
+    });
+  }
+
+  if (top && envInt("X_MAX_RETWEETS_PER_DAY", 1) > 0) {
+    const quotedId = drafts.find((d) => d.quoteTweetId)?.quoteTweetId;
+    if (top.id !== quotedId) {
+      drafts.push({
+        text: "",
+        type: "retweet",
+        language: "en",
+        retweetTweetId: top.id,
+        sourceInspiration: top.url,
+      });
+    }
   }
 
   drafts.push({
@@ -218,6 +298,8 @@ export async function curateTweets({
     drafts = fallbackDrafts({ watchlistSignals, dateStr, maxPosts });
   }
 
+  drafts = normalizeDrafts(drafts, watchlistSignals);
+
   const slots = getPostSlotsForDay(dateStr, drafts.length);
 
   const tweets = drafts.map((d, i) => ({
@@ -225,6 +307,7 @@ export async function curateTweets({
     type: d.type ?? "original",
     language: d.language ?? "en",
     quoteTweetId: d.quoteTweetId ?? null,
+    retweetTweetId: d.retweetTweetId ?? null,
     sourceInspiration: d.sourceInspiration ?? null,
     scheduledAt: slots[i],
     posted: false,
@@ -276,9 +359,21 @@ export function formatBriefingMarkdown({
       `### ${i + 1}. ${t.type} (${t.language}) — ${t.scheduledAt}${imageNote}`,
     );
     lines.push("");
-    lines.push("```");
-    lines.push(t.text);
-    lines.push("```");
+    if (t.type === "retweet") {
+      lines.push("```");
+      lines.push(`[pure retweet — no comment]`);
+      lines.push("```");
+      if (t.retweetTweetId) {
+        lines.push(`Target: https://x.com/i/web/status/${t.retweetTweetId}`);
+      }
+    } else {
+      lines.push("```");
+      lines.push(t.text);
+      lines.push("```");
+      if (t.quoteTweetId) {
+        lines.push(`Quote: https://x.com/i/web/status/${t.quoteTweetId}`);
+      }
+    }
     if (t.imageLabel) {
       lines.push(`Image label: ${t.imageLabel}`);
     }

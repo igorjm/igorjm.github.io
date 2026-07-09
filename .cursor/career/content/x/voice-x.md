@@ -19,7 +19,8 @@ LinkedIn = authority essays. **X = sharp takes.**
 ## Do
 
 - Original synthesis of trends (your engineer lens)
-- Quote-tweet with a clear take (max 1–2/day)
+- Quote-tweet with a clear take (max 1–2/day) — this is a "retweet with comment" on X
+- Pure retweet to amplify high-engagement watchlist posts (max 1/day, no comment)
 - Threads 1x/week on building (Brewra, MealPlan, cog-jackpot)
 - Occasional link to igorjm.github.io (max 1 link/day)
 - Questions that invite technical replies
@@ -38,6 +39,7 @@ LinkedIn = authority essays. **X = sharp takes.**
 |------|------|--------------|
 | Hot take | Trending AI news | "Benchmarks moved. What matters for builders:" |
 | Quote take | Strong watchlist post | "This. The part most teams skip is eval data." |
+| Pure retweet | High-engagement watchlist hit | (no text — amplifies the original) |
 | Ship log | Your projects | "Shipped X this week. Boring stack, real users." |
 | Thread | Weekly depth | "3 things I learned shipping internal tools to 30+ users:" |
 | PT-BR | Weekly Brazil | Same facts, natural PT, not literal translation |

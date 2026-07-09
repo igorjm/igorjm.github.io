@@ -1,6 +1,8 @@
 import { getAccessToken } from "./x-auth.mjs";
 import { X_API_BASE } from "./x-paths.mjs";
 
+let cachedUserId = null;
+
 async function xFetch(path, options = {}) {
   const token = await getAccessToken();
   const url = path.startsWith("http") ? path : `${X_API_BASE}${path}`;
@@ -68,6 +70,24 @@ export async function getTrends(woeid = "1") {
   }
 }
 
+export async function getAuthenticatedUserId() {
+  if (cachedUserId) return cachedUserId;
+  const res = await xFetch("/2/users/me");
+  cachedUserId = res?.data?.id;
+  if (!cachedUserId) {
+    throw new Error("Could not resolve authenticated user id");
+  }
+  return cachedUserId;
+}
+
+export async function createRetweet(tweetId) {
+  const userId = await getAuthenticatedUserId();
+  return xFetch(`/2/users/${userId}/retweets`, {
+    method: "POST",
+    body: JSON.stringify({ tweet_id: tweetId }),
+  });
+}
+
 export async function createTweet({ text, quoteTweetId, mediaIds }) {
   const body = { text };
   if (quoteTweetId) {
@@ -91,15 +111,21 @@ export async function fetchWatchlistSignal(handles) {
       const user = userRes?.data;
       if (!user?.id) continue;
 
-      const tweetsRes = await getUserTweets(user.id, 3);
+      const tweetsRes = await getUserTweets(user.id, 5);
       const tweets = tweetsRes?.data ?? [];
 
       for (const t of tweets) {
+        const metrics = t.public_metrics ?? {};
         signals.push({
           handle,
           id: t.id,
           text: t.text,
           created_at: t.created_at,
+          metrics,
+          engagementScore:
+            (metrics.like_count ?? 0) +
+            (metrics.retweet_count ?? 0) * 2 +
+            (metrics.reply_count ?? 0) * 1.5,
           url: `https://x.com/${handle.replace("@", "")}/status/${t.id}`,
         });
       }

@@ -17,7 +17,7 @@ import {
   todayDateStr,
   envFlag,
 } from "./lib/x-paths.mjs";
-import { createTweet } from "./lib/x-client.mjs";
+import { createTweet, createRetweet } from "./lib/x-client.mjs";
 import { getDuePosts } from "./lib/x-schedule.mjs";
 import { preparePostMedia } from "./lib/x-media.mjs";
 
@@ -66,38 +66,49 @@ async function main() {
       (t) => t.scheduledAt === item.scheduledAt && t.text === item.text,
     );
 
+    const typeNote = item.type === "retweet" ? " [retweet]" : "";
     const imageNote =
       item.imageStrategy && item.imageStrategy !== "none"
         ? ` [${item.imageStrategy}]`
         : "";
 
     if (dryRun || !autoPost) {
-      console.log(`[SKIP] Would post at ${item.scheduledAt}${imageNote}:`);
-      console.log(item.text);
+      console.log(`[SKIP] Would post at ${item.scheduledAt}${typeNote}${imageNote}:`);
+      if (item.type === "retweet") {
+        console.log(`  RT https://x.com/i/web/status/${item.retweetTweetId}`);
+      } else {
+        console.log(item.text);
+      }
       continue;
     }
 
     try {
+      let tweetId;
       let mediaIds;
       let mediaPath;
       let mediaId;
 
-      if (mediaEnabled && item.imageStrategy && item.imageStrategy !== "none") {
-        const media = await preparePostMedia(item);
-        mediaId = media.mediaId;
-        mediaPath = media.mediaPath;
-        if (mediaId) {
-          mediaIds = [mediaId];
+      if (item.type === "retweet") {
+        await createRetweet(item.retweetTweetId);
+        tweetId = item.retweetTweetId;
+      } else {
+        if (mediaEnabled && item.imageStrategy && item.imageStrategy !== "none") {
+          const media = await preparePostMedia(item);
+          mediaId = media.mediaId;
+          mediaPath = media.mediaPath;
+          if (mediaId) {
+            mediaIds = [mediaId];
+          }
         }
+
+        const res = await createTweet({
+          text: item.text,
+          quoteTweetId: item.quoteTweetId ?? undefined,
+          mediaIds,
+        });
+
+        tweetId = res?.data?.id;
       }
-
-      const res = await createTweet({
-        text: item.text,
-        quoteTweetId: item.quoteTweetId ?? undefined,
-        mediaIds,
-      });
-
-      const tweetId = res?.data?.id;
       queue.tweets[idx].posted = true;
       queue.tweets[idx].tweetId = tweetId;
       queue.tweets[idx].postedAt = new Date().toISOString();
@@ -108,16 +119,22 @@ async function main() {
 
       appendPublishedLog(dateStr, {
         tweetId,
-        text: item.text,
+        text: item.text || null,
         type: item.type,
         language: item.language,
+        quoteTweetId: item.quoteTweetId ?? null,
+        retweetTweetId: item.retweetTweetId ?? null,
         sourceInspiration: item.sourceInspiration,
         imageStrategy: item.imageStrategy ?? null,
         mediaId: mediaId ?? null,
         postedAt: queue.tweets[idx].postedAt,
       });
 
-      console.log(`Posted: https://x.com/i/web/status/${tweetId}`);
+      if (item.type === "retweet") {
+        console.log(`Retweeted: https://x.com/i/web/status/${item.retweetTweetId}`);
+      } else {
+        console.log(`Posted: https://x.com/i/web/status/${tweetId}`);
+      }
     } catch (err) {
       console.error(`Failed to post: ${err.message}`);
       queue.tweets[idx].error = err.message;

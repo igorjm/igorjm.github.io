@@ -68,6 +68,8 @@ export function assignImageStrategies(tweets) {
 
   const tryAssign = (idx, strategy, source, label) => {
     if (assigned >= maxImages || idx < 0) return;
+    const item = result[idx];
+    if (item.type === "retweet" || item.type === "quote_take") return;
     result[idx].imageStrategy = strategy;
     result[idx].imageSource = source;
     result[idx].imageLabel = label;
