@@ -1,12 +1,26 @@
-# LinkedIn Content — Igor Melo
+# Career Content — Igor Melo
 
-Ready-to-publish bilingual posts and profile copy for international authority building.
+Ready-to-publish posts and automation for LinkedIn + X.
+
+## LinkedIn
 
 | File | Purpose |
 |------|---------|
 | [linkedin-posts.md](linkedin-posts.md) | 8 posts — copy/paste into LinkedIn |
 | [linkedin-projects.md](linkedin-projects.md) | Projects + Featured + GitHub pin setup |
 | [posting-calendar.md](posting-calendar.md) | 8-week schedule, checkboxes, metrics |
+
+## X (Twitter)
+
+| File | Purpose |
+|------|---------|
+| [x/README.md](x/README.md) | Morning bot quick start |
+| [x/phase0-setup.md](x/phase0-setup.md) | OAuth, Premium, secrets |
+| [x/rollout.md](x/rollout.md) | 4-week dry-run → auto-post |
+
+```bash
+cd web && X_DRY_RUN=true npm run career:x:brief
+```
 
 ## Quick start
 

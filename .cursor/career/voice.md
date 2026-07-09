@@ -2,6 +2,8 @@
 
 Use this file for tone and framing across LinkedIn, CV, cover letters, and posts.
 
+**X (Twitter):** see [content/x/voice-x.md](content/x/voice-x.md) — punchy EN-first takes, higher frequency.
+
 ## Core positioning
 
 - **Tagline:** Building software with intentionality and craft.

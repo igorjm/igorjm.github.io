@@ -1,0 +1,46 @@
+# X Posting Rules — Igor Melo
+
+Automation guardrails for the morning pipeline and `x-post-queue.mjs`.
+
+## Volume
+
+| Phase | Posts/day | Slots (BRT) |
+|-------|-----------|-------------|
+| Week 1 (dry run) | 0 (draft only) | — |
+| Week 2 | 2 | 08:00, 17:00 |
+| Week 3+ | 3–4 | 08:00, 12:00, 17:00, 20:00 |
+
+Default `X_MAX_POSTS_PER_DAY=4`.
+
+## Language
+
+- **Default:** English
+- **PT-BR:** 1 post on Mondays (config: `X_PT_BR_WEEKDAY=1` = Monday)
+- Never auto-translate EN posts to PT in the same slot
+
+## Safety
+
+- Max **280 characters** per tweet
+- Max **1 URL** per day across all posts
+- Max **2 quote-tweets** per day
+- Blocked keywords: `giveaway`, `crypto moon`, `guaranteed returns`, `DM for`
+- No posts about Cognyte confidential products or internals
+- `X_AUTO_POST=true` required to publish (default `false`)
+- `X_DRY_RUN=true` writes briefing only, no queue publish
+
+## Content mix (daily target)
+
+- 2× AI/tech trend commentary (original)
+- 1× engineering / senior IC take
+- 0–1× own project mention (rotate MealPlan, Brewra, portfolio)
+- 0–1× quote-tweet with take (if watchlist signal is strong)
+
+## Monetization alignment
+
+- Original text only — inspiration URLs logged, never copied
+- Reply to comments on **your** posts manually (v1 — no auto-replies to strangers)
+- Pin tweet: portfolio + best AI project (update in [x-baseline.md](../../exports/x-baseline.md))
+
+## Kill switch
+
+Set `X_AUTO_POST=false` or disable GitHub Action workflow to stop all publishing.

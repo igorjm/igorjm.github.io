@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "xapi": {
+      "command": "npx",
+      "args": ["-y", "@xdevplatform/xurl", "mcp", "https://api.x.com/mcp"],
+      "env": {
+        "CLIENT_ID": "YOUR_X_APP_CLIENT_ID",
+        "CLIENT_SECRET": "YOUR_X_APP_CLIENT_SECRET"
+      }
+    },
+    "x-docs": {
+      "url": "https://docs.x.com/mcp"
+    }
+  }
+}

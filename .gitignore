@@ -15,6 +15,7 @@ web/out/
 # Environment
 .env
 .env*.local
+web/.env.x
 
 # OS & editors
 .DS_Store
@@ -36,3 +37,8 @@ next-env.d.ts
 
 # Career — local LinkedIn PDF exports (use .txt / .cache snapshot in repo)
 .cursor/career/exports/*.pdf
+
+# X bot — secrets and local cache
+.cursor/mcp.json
+.cursor/career/.cache/x/tokens*
+.cursor/career/.cache/x/post-queue.json

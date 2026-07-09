@@ -8,6 +8,7 @@ AI career advisor system for Igor Melo — HR + senior engineering recruiting ex
 |------|--------|
 | Career strategy, role fit | `@career-advisor` or skill `igor-career-advisor` |
 | LinkedIn profile or posts | `@linkedin-specialist` or skill `igor-linkedin` |
+| X profile, tweets, morning bot | `@x-specialist` or skill `igor-x` |
 | CV / resume tailoring | `@cv-resume-specialist` or skill `igor-cv-resume` |
 | Interview prep | `@tech-recruiting-coach` or skill `igor-job-application` |
 
@@ -43,6 +44,33 @@ Location: [`.cursor/career/content/`](.cursor/career/content/)
 
 ```
 @linkedin-specialist Polish Post 1 from content/linkedin-posts.md before I publish
+```
+
+### X (Twitter) authority bot
+
+Location: [`.cursor/career/content/x/`](.cursor/career/content/x/)
+
+| File | Purpose |
+|------|---------|
+| [phase0-setup.md](.cursor/career/content/x/phase0-setup.md) | X Premium, Developer app, OAuth, secrets |
+| [watchlist.md](.cursor/career/content/x/watchlist.md) | Inspiration accounts (@ArtificialAnlys, etc.) |
+| [voice-x.md](.cursor/career/content/x/voice-x.md) | EN-first punchy tone |
+| [rollout.md](.cursor/career/content/x/rollout.md) | 4-week dry-run → auto-post |
+| [metrics.md](.cursor/career/content/x/metrics.md) | Weekly tracking |
+
+**MCP:** copy [`.cursor/mcp.json.example`](.cursor/mcp.json.example) → `.cursor/mcp.json` (gitignored).
+
+From **`web/`**:
+
+```bash
+npm run career:x:setup      # one-time OAuth
+npm run career:x:brief      # morning briefing (X_DRY_RUN=true week 1)
+npm run career:x:post       # post next scheduled slot
+npm run career:x:pipeline   # brief + post first slot
+```
+
+```
+@x-specialist Research today's AI trends and draft 3 tweets
 ```
 
 ### Sync after portfolio edits
@@ -81,6 +109,7 @@ Cursor rule [`.cursor/rules/career-content-sync.mdc`](.cursor/rules/career-conte
 |-------|------|----------|
 | `career-advisor` | [`.cursor/agents/career-advisor.md`](.cursor/agents/career-advisor.md) | Strategy, role fit, growth plans |
 | `linkedin-specialist` | [`.cursor/agents/linkedin-specialist.md`](.cursor/agents/linkedin-specialist.md) | LinkedIn audits and posts |
+| `x-specialist` | [`.cursor/agents/x-specialist.md`](.cursor/agents/x-specialist.md) | X audits, tweets, trend research |
 | `cv-resume-specialist` | [`.cursor/agents/cv-resume-specialist.md`](.cursor/agents/cv-resume-specialist.md) | CV tailoring and ATS |
 | `tech-recruiting-coach` | [`.cursor/agents/tech-recruiting-coach.md`](.cursor/agents/tech-recruiting-coach.md) | Interview prep, recruiter lens |
 
@@ -90,6 +119,7 @@ Cursor rule [`.cursor/rules/career-content-sync.mdc`](.cursor/rules/career-conte
 |-------|------|
 | `igor-career-advisor` | `~/.cursor/skills/igor-career-advisor/` |
 | `igor-linkedin` | `~/.cursor/skills/igor-linkedin/` |
+| `igor-x` | `~/.cursor/skills/igor-x/` |
 | `igor-cv-resume` | `~/.cursor/skills/igor-cv-resume/` |
 | `igor-job-application` | `~/.cursor/skills/igor-job-application/` |
 
@@ -107,6 +137,8 @@ Skills resolve the knowledge base from this repo (`.cursor/career/`) or `~/works
 Use career-advisor: Should I apply for this Staff Engineer role? [paste JD]
 
 Use linkedin-specialist: Audit my About section and suggest EN + PT-BR rewrites
+
+Use x-specialist: Draft 3 tweets on today's AI trends inspired by my watchlist
 
 Use cv-resume-specialist: Tailor my Cognyte bullets for this job description
 
