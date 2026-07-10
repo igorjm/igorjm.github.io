@@ -1,5 +1,5 @@
 import { readFileSync } from "fs";
-import { PROFILE_MD, VOICE_X_MD, envInt } from "./x-paths.mjs";
+import { ACHIEVEMENTS_MD, VOICE_X_MD, envInt } from "./x-paths.mjs";
 import { getPostSlotsForDay, isPtBrDay } from "./x-schedule.mjs";
 import { assignImageStrategies } from "./x-media.mjs";
 import {
@@ -25,6 +25,7 @@ async function callAnthropic(prompt) {
     body: JSON.stringify({
       model: process.env.ANTHROPIC_MODEL ?? "claude-sonnet-4-6",
       max_tokens: 2000,
+      temperature: 0.88,
       messages: [{ role: "user", content: prompt }],
     }),
   });
@@ -47,7 +48,7 @@ async function callOpenAI(prompt) {
     body: JSON.stringify({
       model: process.env.OPENAI_MODEL ?? "gpt-4o-mini",
       messages: [{ role: "user", content: prompt }],
-      temperature: 0.7,
+      temperature: 0.88,
     }),
   });
 
@@ -69,7 +70,7 @@ async function callXAI(prompt) {
     body: JSON.stringify({
       model: process.env.XAI_MODEL ?? "grok-2-latest",
       messages: [{ role: "user", content: prompt }],
-      temperature: 0.7,
+      temperature: 0.88,
     }),
   });
 
@@ -93,60 +94,99 @@ function hasLlmKey() {
   );
 }
 
+function buildFactsBlock() {
+  const raw = readMd(ACHIEVEMENTS_MD);
+  const sideProjects = raw.match(
+    /## Side projects[\s\S]*?(?=\n## |\n---\n|$)/,
+  );
+  const metrics = [
+    "25% processing reduction (Cognyte analytics)",
+    "Hackathon AI assistant → global product line",
+    "50% report creation time cut",
+    "cog-jackpot: 30+ users",
+    "Side projects: Brewra, MealPlan AI, Headshots AI, igorjm.github.io",
+  ];
+  return `${metrics.map((m) => `- ${m}`).join("\n")}\n\n${sideProjects?.[0]?.slice(0, 600) ?? ""}`;
+}
+
+const FEW_SHOT_BAD_GOOD = `
+BAD (too LinkedIn / AI):
+"The delta between 'we bought Copilot' and 'we redesigned how work happens' is where ROI actually lives."
+
+GOOD (personal X):
+"everyone has copilot now. almost nobody changed how they actually work. same jira, new sidebar."
+
+BAD:
+"Eval data quality is the moat now."
+
+GOOD:
+"benchmarks moved again. my brewra eval set is still 40 examples and one bad prompt regresses prod lol"
+
+BAD quote_take:
+"The AI product naming chaos is real — and it slows down actual builders."
+
+GOOD quote_take:
+"yeah this. i shouldn't need a spreadsheet to pick which model api to call for one feature"
+`;
+
 function buildPrompt({ trends, watchlistSignals, dateStr, maxPosts }) {
   const voice = readMd(VOICE_X_MD);
-  const profile = readMd(PROFILE_MD).slice(0, 3000);
+  const facts = buildFactsBlock();
   const ptBr = isPtBrDay(dateStr);
   const maxQuotes = envInt("X_MAX_QUOTE_TAKES_PER_DAY", 2);
   const maxRetweets = envInt("X_MAX_RETWEETS_PER_DAY", 1);
 
-  const trendBlock = JSON.stringify(trends, null, 2).slice(0, 2000);
+  const trendBlock = JSON.stringify(trends, null, 2).slice(0, 1500);
   const ranked = rankSignalsByEngagement(watchlistSignals);
   const signalBlock = ranked
-    .slice(0, 10)
+    .slice(0, 8)
     .map((s) => formatSignalForPrompt(s))
     .join("\n\n");
 
-  return `You draft original X (Twitter) posts for Igor Melo, Senior Software Engineer.
+  return `You write X posts AS Igor Melo (@igoorjm) — a senior full-stack engineer shipping AI side projects.
 
-VOICE RULES:
+Sound like @simonw or @swyx texting between commits. NOT like LinkedIn thought leadership.
+
+VOICE (follow strictly):
 ${voice}
 
-PROFILE (facts only):
-${profile}
+FACTS (use only these — never invent):
+${facts}
 
-TODAY'S TRENDS/SIGNAL:
-${trendBlock}
+TONE CALIBRATION:
+${FEW_SHOT_BAD_GOOD}
 
-WATCHLIST POSTS (ranked by engagement — inspiration only, NEVER copy text):
+WATCHLIST (react to these — never copy their text):
 ${signalBlock}
 
-Generate exactly ${maxPosts} tweet drafts as JSON array.
+Trends JSON (low priority — watchlist is better signal):
+${trendBlock}
 
-DAILY MIX (aim for this balance):
-- 1–2 original commentary (type: original)
-- 1–${maxQuotes} quote_take — retweet WITH your comment (quote tweet on X). Pick strong watchlist posts; add a sharp engineer take in text.
-- 0–${maxRetweets} retweet — pure amplify, NO comment text. Pick the highest-engagement watchlist post that fits Igor's AI/engineering lens.
-- 0–1 project mention (MealPlan AI, Brewra, portfolio)
-${ptBr ? "- Include 1 post in PT-BR as the last item" : ""}
+Generate exactly ${maxPosts} drafts as JSON array.
 
-Rules:
-- Max 280 chars for any text field
-- Original synthesis only — do not paraphrase watchlist posts in your comment
-- quote_take: requires text + quoteTweetId (watchlist id)
-- retweet: text must be empty string "" + retweetTweetId (watchlist id). Never use both quoteTweetId and retweetTweetId on the same draft.
-- Include sourceInspiration URL when using a watchlist post
-- No hashtags unless 1-2 feel natural at end
-- No engagement bait, no job seeking
+Mix:
+- 1 ship log or personal original (type: original or project) — something Igor is building
+- 1–${maxQuotes} quote_take — 1–2 short sentences MAX. React ("yeah", "same", "this matches…") + one concrete detail
+- 0–${maxRetweets} retweet — empty text, highest-engagement watchlist id
+${ptBr ? "- Last item: PT-BR, casual dev Twitter (not manifesto)" : ""}
 
-Respond with ONLY valid JSON array:
+Hard rules:
+- Max 280 chars
+- Lowercase ok. Fragments ok. "I" / "my" encouraged
+- quote_take: text + quoteTweetId only
+- retweet: "" + retweetTweetId only
+- No consultant jargon (moat, delta, ROI lives, landscape, leverage)
+- No aphorism punchlines as last line
+- sourceInspiration URL when using watchlist
+
+JSON only:
 [
   {
     "text": "...",
     "type": "original|quote_take|retweet|project",
     "language": "en|pt-BR",
-    "quoteTweetId": "optional — quote_take only",
-    "retweetTweetId": "optional — retweet only",
+    "quoteTweetId": "optional",
+    "retweetTweetId": "optional",
     "sourceInspiration": "optional url"
   }
 ]`;
@@ -211,14 +251,14 @@ function fallbackDrafts({ watchlistSignals, dateStr, maxPosts }) {
   const second = ranked[1];
 
   drafts.push({
-    text: "AI news moves fast. The builder question isn't which model — it's eval data, latency, and what you ship this week.",
-    type: "original",
+    text: "shipped a small thing on brewra last night. nothing flashy — but the loop feels different when the app actually remembers context.",
+    type: "project",
     language: "en",
   });
 
   if (second) {
     drafts.push({
-      text: "Strong signal on AI eval this week. Most teams optimize models before they fix the data pipeline. That's backwards.",
+      text: "yeah this. matches what i see — everyone optimizes the model before fixing the eval data.",
       type: "quote_take",
       language: "en",
       quoteTweetId: second.id,
@@ -226,7 +266,7 @@ function fallbackDrafts({ watchlistSignals, dateStr, maxPosts }) {
     });
   } else if (top) {
     drafts.push({
-      text: "Worth amplifying — this is the eval gap most production AI teams still ignore.",
+      text: "this. the boring part is always the data pipeline, not the model pick.",
       type: "quote_take",
       language: "en",
       quoteTweetId: top.id,
@@ -248,14 +288,14 @@ function fallbackDrafts({ watchlistSignals, dateStr, maxPosts }) {
   }
 
   drafts.push({
-    text: "Side projects hit different when they're full-stack: auth, billing, deploy. That's the bar I use for MealPlan AI and Brewra.",
-    type: "project",
+    text: "cog-jackpot passed 30 users. internal pool app, nextjs + vercel. boring stack, people actually use it every week.",
+    type: "original",
     language: "en",
   });
 
   if (isPtBrDay(dateStr)) {
     drafts.push({
-      text: "Engenharia de IA não é só prompt — é pipeline de dados, eval e produto que alguém usa toda semana.",
+      text: "engenharia de IA no dia a dia é mais pipeline e eval do que prompt bonito. pelo menos nos meus side projects é.",
       type: "original",
       language: "pt-BR",
     });

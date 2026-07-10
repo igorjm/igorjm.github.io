@@ -16,6 +16,7 @@ export const TOKEN_CACHE_FILE = join(X_CACHE_DIR, "tokens.json");
 export const WATCHLIST_MD = join(CAREER_DIR, "content/x/watchlist.md");
 export const VOICE_X_MD = join(CAREER_DIR, "content/x/voice-x.md");
 export const POSTING_RULES_MD = join(CAREER_DIR, "content/x/posting-rules.md");
+export const ACHIEVEMENTS_MD = join(CAREER_DIR, "achievements.md");
 export const PROFILE_MD = join(CAREER_DIR, "profile.md");
 
 export const X_API_BASE = "https://api.x.com";

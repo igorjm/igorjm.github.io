@@ -31,10 +31,10 @@ Default `X_MAX_POSTS_PER_DAY=4`.
 
 ## Content mix (daily target)
 
-- 1–2× AI/tech trend commentary (original)
-- 1–2× quote-tweet with take (retweet with comment)
+- 1× ship log or build-in-public (Brewra, cog-jackpot, MealPlan)
+- 1–2× quote-tweet — short reaction, not a lecture ([voice-x.md](voice-x.md))
 - 0–1× pure retweet (amplify high-engagement watchlist post)
-- 0–1× own project mention (rotate MealPlan, Brewra, portfolio)
+- 0–1× quick take on AI news — personal, informal, first person
 
 ## Monetization alignment
 
