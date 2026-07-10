@@ -41,7 +41,10 @@ X_AUTO_POST=true npm run career:x:pipeline
 | `npm run career:x:brief` | Morning briefing + queue (respects DRY_RUN) |
 | `npm run career:x:post` | Post next scheduled slot |
 | `npm run career:x:pipeline` | Brief + post first slot |
+| `npm run career:x:notion-sync` | Push queue to Notion hub |
 
 ## Env vars
 
-See [phase0-setup.md](phase0-setup.md). Key flags: `X_DRY_RUN`, `X_AUTO_POST`, `X_MAX_POSTS_PER_DAY`, `X_MEDIA_ENABLED`, `X_IMAGE_POSTS_PER_DAY`, `X_SCREENSHOT_ENABLED`.
+See [phase0-setup.md](phase0-setup.md). Key flags: `X_DRY_RUN`, `X_AUTO_POST`, `X_MAX_POSTS_PER_DAY`, `X_MEDIA_ENABLED`, `X_IMAGE_POSTS_PER_DAY`, `X_SCREENSHOT_ENABLED`, `NOTION_TOKEN`, `NOTION_DATABASE_ID`.
+
+Notion setup: [../notion-hub.md](../notion-hub.md)

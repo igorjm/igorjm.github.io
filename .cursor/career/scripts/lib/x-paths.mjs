@@ -19,6 +19,17 @@ export const POSTING_RULES_MD = join(CAREER_DIR, "content/x/posting-rules.md");
 export const ACHIEVEMENTS_MD = join(CAREER_DIR, "achievements.md");
 export const PROFILE_MD = join(CAREER_DIR, "profile.md");
 
+export const CONTENT_DIR = join(CAREER_DIR, "content");
+export const LINKEDIN_POSTS_MD = join(CONTENT_DIR, "linkedin-posts.md");
+export const POSTING_CALENDAR_MD = join(CONTENT_DIR, "posting-calendar.md");
+export const MEDIA_DIR = join(CONTENT_DIR, "media");
+export const MEDIA_INDEX_FILE = join(MEDIA_DIR, "index.json");
+export const NOTION_HUB_MD = join(CONTENT_DIR, "notion-hub.md");
+
+export const GITHUB_REPO =
+  process.env.GITHUB_REPOSITORY ?? "igorjm/igorjm.github.io";
+export const GITHUB_BRIEFING_BASE = `https://github.com/${GITHUB_REPO}/blob/master/.cursor/career/content/x/daily`;
+
 export const X_API_BASE = "https://api.x.com";
 export const X_OAUTH_TOKEN_URL = "https://api.x.com/2/oauth2/token";
 export const X_OAUTH_AUTHORIZE_URL = "https://x.com/i/oauth2/authorize";

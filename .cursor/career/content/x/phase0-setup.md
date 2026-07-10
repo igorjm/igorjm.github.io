@@ -74,8 +74,30 @@ Repo → Settings → Secrets → Actions:
 - `X_CLIENT_SECRET`
 - `X_REFRESH_TOKEN`
 - `ANTHROPIC_API_KEY` (or your LLM provider)
+- `NOTION_TOKEN` (optional — content hub)
+- `NOTION_DATABASE_ID` (optional)
 
-## 7. Dry run week
+## 7. Notion content hub (optional)
+
+See [../notion-hub.md](../notion-hub.md) for database schema and views.
+
+After creating the integration and database:
+
+```bash
+# web/.env.x
+NOTION_TOKEN=secret_...
+NOTION_DATABASE_ID=...
+NOTION_ENABLED=true
+```
+
+```bash
+npm run career:x:brief
+npm run career:x:notion-sync
+```
+
+GitHub Action syncs automatically when `NOTION_TOKEN` secret is set.
+
+## 8. Dry run week
 
 ```bash
 cd web

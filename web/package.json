@@ -13,7 +13,9 @@
     "career:x:setup": "node ../.cursor/career/scripts/x-oauth-setup.mjs",
     "career:x:brief": "node ../.cursor/career/scripts/x-morning-pipeline.mjs",
     "career:x:post": "node ../.cursor/career/scripts/x-post-queue.mjs",
-    "career:x:pipeline": "node ../.cursor/career/scripts/x-pipeline.mjs"
+    "career:x:pipeline": "node ../.cursor/career/scripts/x-pipeline.mjs",
+    "career:x:notion-sync": "node ../.cursor/career/scripts/x-notion-sync.mjs",
+    "career:x:notion-diagnose": "node ../.cursor/career/scripts/x-notion-diagnose.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",

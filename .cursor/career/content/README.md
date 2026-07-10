@@ -17,6 +17,7 @@ Ready-to-publish posts and automation for LinkedIn + X.
 | [x/README.md](x/README.md) | Morning bot quick start |
 | [x/phase0-setup.md](x/phase0-setup.md) | OAuth, Premium, secrets |
 | [x/rollout.md](x/rollout.md) | 4-week dry-run → auto-post |
+| [notion-hub.md](notion-hub.md) | Notion database sync (X + LinkedIn + media) |
 
 ```bash
 cd web && X_DRY_RUN=true npm run career:x:brief

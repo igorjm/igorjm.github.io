@@ -48,6 +48,10 @@ jobs:
       X_MEDIA_ENABLED: ${{ vars.X_MEDIA_ENABLED || 'false' }}
       X_IMAGE_POSTS_PER_DAY: ${{ vars.X_IMAGE_POSTS_PER_DAY || '1' }}
       X_SCREENSHOT_ENABLED: ${{ vars.X_SCREENSHOT_ENABLED || 'false' }}
+      NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+      NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+      NOTION_ENABLED: ${{ vars.NOTION_ENABLED || 'true' }}
+      GITHUB_REPOSITORY: ${{ github.repository }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -87,9 +91,17 @@ jobs:
         if: steps.mode.outputs.mode == 'brief' || steps.mode.outputs.mode == 'pipeline'
         run: npm run career:x:brief
 
+      - name: Sync to Notion
+        if: (steps.mode.outputs.mode == 'brief' || steps.mode.outputs.mode == 'pipeline') && secrets.NOTION_TOKEN != ''
+        run: npm run career:x:notion-sync
+
       - name: Post due tweets
         if: steps.mode.outputs.mode == 'post' || steps.mode.outputs.mode == 'pipeline'
         run: npm run career:x:post
+
+      - name: Update Notion published status
+        if: (steps.mode.outputs.mode == 'post' || steps.mode.outputs.mode == 'pipeline') && secrets.NOTION_TOKEN != ''
+        run: npm run career:x:notion-sync -- --published
 
       - name: Commit briefing and logs
         if: steps.mode.outputs.mode == 'brief' || steps.mode.outputs.mode == 'pipeline'
