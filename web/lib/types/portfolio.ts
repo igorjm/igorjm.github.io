@@ -16,10 +16,33 @@ export type ExperienceEntry = {
   isCurrent?: boolean;
 };
 
+export type SkillIconKey =
+  | "java"
+  | "javascript"
+  | "typescript"
+  | "nodejs"
+  | "react"
+  | "react-native"
+  | "nextjs"
+  | "spring"
+  | "postgresql"
+  | "docker"
+  | "git"
+  | "agile"
+  | "jasper"
+  | "cursor"
+  | "claude"
+  | "copilot";
+
+export type Skill = {
+  name: string;
+  icon: SkillIconKey;
+};
+
 export type SkillGroup = {
   id: string;
   labelKey: string;
-  skills: string[];
+  skills: Skill[];
 };
 
 export type Profile = {

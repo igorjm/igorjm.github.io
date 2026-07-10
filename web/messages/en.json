@@ -38,6 +38,7 @@
   },
   "tech": {
     "label": "02. Stack",
+    "all": "All",
     "languages": "Languages",
     "frameworks": "Frameworks",
     "tools": "Tools",
