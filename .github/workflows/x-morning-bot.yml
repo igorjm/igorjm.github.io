@@ -91,8 +91,9 @@ jobs:
         if: steps.mode.outputs.mode == 'brief' || steps.mode.outputs.mode == 'pipeline'
         run: npm run career:x:brief
 
+      # Gate on env (NOTION_TOKEN is already job env) — secrets.* in if: breaks workflow parse
       - name: Sync to Notion
-        if: (steps.mode.outputs.mode == 'brief' || steps.mode.outputs.mode == 'pipeline') && secrets.NOTION_TOKEN != ''
+        if: (steps.mode.outputs.mode == 'brief' || steps.mode.outputs.mode == 'pipeline') && env.NOTION_TOKEN != ''
         run: npm run career:x:notion-sync
 
       - name: Post due tweets
@@ -100,7 +101,7 @@ jobs:
         run: npm run career:x:post
 
       - name: Update Notion published status
-        if: (steps.mode.outputs.mode == 'post' || steps.mode.outputs.mode == 'pipeline') && secrets.NOTION_TOKEN != ''
+        if: (steps.mode.outputs.mode == 'post' || steps.mode.outputs.mode == 'pipeline') && env.NOTION_TOKEN != ''
         run: npm run career:x:notion-sync -- --published
 
       - name: Commit briefing and logs
@@ -109,6 +110,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add ../.cursor/career/content/x/daily/ ../.cursor/career/content/x/published/ || true
+          # Persist queue for later post-slot runs (file is gitignored — force-add)
+          git add -f ../.cursor/career/.cache/x/post-queue.json || true
           git diff --staged --quiet || git commit -m "chore(x): daily briefing $(date -u +%Y-%m-%d)"
           git push || true
 

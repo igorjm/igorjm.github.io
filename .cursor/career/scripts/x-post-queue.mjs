@@ -23,7 +23,7 @@ import { preparePostMedia } from "./lib/x-media.mjs";
 
 function loadQueue() {
   if (!existsSync(POST_QUEUE_FILE)) {
-    throw new Error("No queue found. Run: npm run career:x:brief");
+    return null;
   }
   return JSON.parse(readFileSync(POST_QUEUE_FILE, "utf8"));
 }
@@ -50,6 +50,12 @@ async function main() {
   const dateStr = todayDateStr();
 
   const queue = loadQueue();
+  if (!queue) {
+    // Soft-skip: scheduled post slots must not fail the workflow when
+    // morning brief hasn't run yet (or queue wasn't restored from git).
+    console.log("No queue found. Run: npm run career:x:brief");
+    return;
+  }
   const due = getDuePosts(queue.tweets);
 
   if (due.length === 0) {
