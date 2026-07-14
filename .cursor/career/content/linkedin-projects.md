@@ -4,6 +4,24 @@ Use these when editing **LinkedIn → Add project**. Order matters for recruiter
 
 ---
 
+## 0. LeveCare
+
+| Field | Value |
+|-------|-------|
+| **Project name** | LeveCare |
+| **Associated with** | Personal project |
+| **Start date** | 2026 |
+| **End date** | Present |
+| **Project URL** | https://github.com/igorjm/levecare |
+
+**Description:**
+
+```
+Brazilian telehealth platform demo built with polyglot serverless microservices on AWS — Java 21 (Spring Boot + Lambda SnapStart) for the clinical core, Go for event-driven services, EventBridge/SQS async workflows, DynamoDB, Cognito, and CDK-provisioned infrastructure running near $0/month. Includes a real productization study: Brazilian telemedicine regulation (CFM 2.314/2022, ANVISA RDC 1.000/2025, LGPD), competitor analysis, and business model. Demonstrates cloud architecture and backend range beyond my Java/React day job.
+```
+
+---
+
 ## 1. MealPlan AI
 
 | Field | Value |

@@ -99,6 +99,9 @@
     "brewra": {
       "description": "Plataforma de café com IA, React Native e Next.js — cada xícara guiada por inteligência."
     },
+    "levecare": {
+      "description": "Demo de telessaúde brasileira em AWS serverless — microsserviços em Java (Spring Boot + Lambda SnapStart) e Go, arquitetura orientada a eventos com EventBridge, e estudo de produtização cobrindo CFM/ANVISA/LGPD."
+    },
     "headshotsAi": {
       "description": "Gerador de headshots profissionais com IA — envie selfies e receba retratos em HD em minutos."
     }

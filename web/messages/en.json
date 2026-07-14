@@ -99,6 +99,9 @@
     "brewra": {
       "description": "AI-powered coffee brewing platform with React Native and Next.js — every cup, guided by intelligence."
     },
+    "levecare": {
+      "description": "Brazilian telehealth demo on AWS serverless — Java (Spring Boot + Lambda SnapStart) and Go microservices, event-driven with EventBridge, plus a productization study covering CFM/ANVISA/LGPD."
+    },
     "headshotsAi": {
       "description": "AI-powered professional headshot generator — upload selfies and receive HD portraits in minutes."
     }

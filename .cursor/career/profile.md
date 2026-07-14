@@ -1,6 +1,6 @@
 # Igor Melo — Career Profile
 
-> Auto-generated factual sections. Last synced: 2026-07-08
+> Auto-generated factual sections. Last synced: 2026-07-14
 > Run `node .cursor/career/scripts/sync-career-profile.mjs` after portfolio updates.
 > Narrative voice and STAR stories live in `voice.md` and `achievements.md`.
 
@@ -78,14 +78,23 @@ Antes disso, modelei experiências EdTech na Konviva e fluxos de saúde na Anima
 
 ## Projects
 
-### cog-jackpot
+### LeveCare
 
-- **Tags:** Next.js, TypeScript, Vercel
+- **Tags:** Java, Go, AWS, Microservices, Serverless
+- **Language:** Java
+- **Repo:** https://github.com/igorjm/levecare
+- **Live:** —
+- **EN:** Brazilian telehealth demo on AWS serverless — Java (Spring Boot + Lambda SnapStart) and Go microservices, event-driven with EventBridge, plus a productization study covering CFM/ANVISA/LGPD.
+- **PT-BR:** Demo de telessaúde brasileira em AWS serverless — microsserviços em Java (Spring Boot + Lambda SnapStart) e Go, arquitetura orientada a eventos com EventBridge, e estudo de produtização cobrindo CFM/ANVISA/LGPD.
+
+### brewra
+
+- **Tags:** React Native, Next.js, Stripe, AI
 - **Language:** TypeScript
-- **Repo:** https://github.com/igorjm/cog-jackpot
-- **Live:** https://bolao-cog.vercel.app/login
-- **EN:** Internal team pool application built with Next.js and TypeScript, deployed on Vercel.
-- **PT-BR:** Aplicação interna de bolão para times, construída com Next.js e TypeScript, deploy na Vercel.
+- **Repo:** https://github.com/igorjm/brewra
+- **Live:** https://coffeebrewra.vercel.app/en
+- **EN:** AI-powered coffee brewing platform with React Native and Next.js — every cup, guided by intelligence.
+- **PT-BR:** Plataforma de café com IA, React Native e Next.js — cada xícara guiada por inteligência.
 
 ### igorjm.github.io
 
@@ -96,14 +105,23 @@ Antes disso, modelei experiências EdTech na Konviva e fluxos de saúde na Anima
 - **EN:** Personal portfolio website — this site.
 - **PT-BR:** Site de portfólio pessoal — este site.
 
-### brewra
+### MealPlan AI
 
-- **Tags:** React Native, Next.js, Stripe, AI
+- **Tags:** Next.js, Clerk, Stripe, AI
 - **Language:** TypeScript
-- **Repo:** https://github.com/igorjm/brewra
-- **Live:** https://coffeebrewra.vercel.app/en
-- **EN:** AI-powered coffee brewing platform with React Native and Next.js — every cup, guided by intelligence.
-- **PT-BR:** Plataforma de café com IA, React Native e Next.js — cada xícara guiada por inteligência.
+- **Repo:** https://github.com/igorjm/nextjs-meal-plan-saas
+- **Live:** https://nextjs-meal-plan-saas.vercel.app
+- **EN:** AI SaaS full-stack app with Next.js, TailwindCSS, Clerk authentication, and Stripe payments.
+- **PT-BR:** SaaS full-stack com IA usando Next.js, TailwindCSS, autenticação Clerk e pagamentos Stripe.
+
+### cog-jackpot
+
+- **Tags:** Next.js, TypeScript, Vercel
+- **Language:** TypeScript
+- **Repo:** https://github.com/igorjm/cog-jackpot
+- **Live:** https://bolao-cog.vercel.app/login
+- **EN:** Internal team pool application built with Next.js and TypeScript, deployed on Vercel.
+- **PT-BR:** Aplicação interna de bolão para times, construída com Next.js e TypeScript, deploy na Vercel.
 
 ### Headshots AI
 
@@ -123,21 +141,12 @@ Antes disso, modelei experiências EdTech na Konviva e fluxos de saúde na Anima
 - **EN:** Real-time crypto price tracker built with React and Next.js, consuming an external API.
 - **PT-BR:** Rastreador de preços de criptomoedas em tempo real com React e Next.js, consumindo API externa.
 
-### MealPlan AI
-
-- **Tags:** Next.js, Clerk, Stripe, AI
-- **Language:** TypeScript
-- **Repo:** https://github.com/igorjm/nextjs-meal-plan-saas
-- **Live:** https://nextjs-meal-plan-saas.vercel.app
-- **EN:** AI SaaS full-stack app with Next.js, TailwindCSS, Clerk authentication, and Stripe payments.
-- **PT-BR:** SaaS full-stack com IA usando Next.js, TailwindCSS, autenticação Clerk e pagamentos Stripe.
-
 ## Skills
 
-- **languages:** Java, JavaScript, TypeScript, Node.js
-- **frameworks:** React, React Native, Next.js, Spring MVC
-- **tools:** PostgreSQL, Docker, Git, Agile, JasperReports
-- **ai:** Cursor, Claude, GitHub Copilot
+- **languages:** Java, java, JavaScript, javascript, TypeScript, typescript, Node.js, nodejs
+- **frameworks:** React, react, React Native, react-native, Next.js, nextjs, Spring MVC, spring
+- **tools:** PostgreSQL, postgresql, Docker, docker, Git, git, Agile, agile, JasperReports, jasper
+- **ai:** Cursor, cursor, Claude, claude, GitHub Copilot, copilot
 
 ## SEO / Metadata
 

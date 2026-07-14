@@ -4,6 +4,16 @@ import type { Project } from "@/lib/types/portfolio";
 /** Sourced from GitHub — https://github.com/igorjm pinned repos */
 export const projects: Project[] = [
   {
+    id: "levecare",
+    name: "LeveCare",
+    descriptionKey: "projects.levecare.description",
+    repoUrl: "https://github.com/igorjm/levecare",
+    deployedUrl: null,
+    screenshotUrl: null,
+    language: "Java",
+    tags: ["Java", "Go", "AWS", "Microservices", "Serverless"],
+  },
+  {
     id: "brewra",
     name: "brewra",
     descriptionKey: "projects.brewra.description",
