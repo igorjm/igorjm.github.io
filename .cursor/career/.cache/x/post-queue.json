@@ -1,16 +1,16 @@
 {
-  "date": "2026-07-17",
-  "createdAt": "2026-07-17T11:19:52.519Z",
+  "date": "2026-07-18",
+  "createdAt": "2026-07-18T11:02:09.989Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been adding streaming responses to brewra this week. tiny ux change but it makes the app feel way more alive. waterfall json blobs were killing the vibe.",
+      "text": "spent two hours debugging mealplan ai's stripe webhook. turned out i was checking the wrong env var in prod. classic. shipped the fix, wrote a note, will forget by next week anyway.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-07-17T11:00:00.000Z",
+      "scheduledAt": "2026-07-18T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah. everyone ships the copilot license, nobody rewrites the ticket. same standup, new autocomplete.",
+      "text": "yeah. i have this exact problem on brewra — model swapped, same prompt, outputs feel subtly different and i don't catch it until a real user does",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-07-17T15:00:00.000Z",
+      "scheduledAt": "2026-07-18T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "mealplan ai tá acumulando usuários no trial sem converter. preciso olhar o onboarding essa semana. provavelmente tô pedindo cartão cedo demais.",
+      "text": "cog-jackpot tá em 30+ usuários. app interno, nada glamouroso. mas ver colega usando todo dia é diferente de qualquer side project que ficou no readme.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-07-17T20:00:00.000Z",
+      "scheduledAt": "2026-07-18T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. i have a 40-example eval set on brewra and one prompt tweak breaks three of them. more evals don't help if the cases are bad.",
+      "text": "same. headshots ai taught me more about supabase storage edge cases than any tutorial. nothing like a real user uploading a 14mb jpeg at 2am",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-07-17T23:00:00.000Z",
+      "scheduledAt": "2026-07-18T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
