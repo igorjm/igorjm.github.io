@@ -1,4 +1,8 @@
-import { normalizeHomepageUrl, getLivePreviewUrl } from "@/lib/preview";
+import {
+  normalizeHomepageUrl,
+  getLivePreviewUrl,
+  getLocalPreviewPath,
+} from "@/lib/preview";
 import type { Project } from "@/lib/types/portfolio";
 
 /** Sourced from GitHub — https://github.com/igorjm pinned repos */
@@ -9,6 +13,7 @@ export const projects: Project[] = [
     descriptionKey: "projects.levecare.description",
     repoUrl: "https://github.com/igorjm/levecare",
     deployedUrl: "https://dc5s9mmmdrudy.cloudfront.net/",
+    previewImage: getLocalPreviewPath("levecare"),
     screenshotUrl: getLivePreviewUrl("https://dc5s9mmmdrudy.cloudfront.net/"),
     language: "Java",
     tags: ["Java", "Go", "AWS", "Microservices", "Serverless"],
@@ -19,6 +24,7 @@ export const projects: Project[] = [
     descriptionKey: "projects.brewra.description",
     repoUrl: "https://github.com/igorjm/brewra",
     deployedUrl: "https://coffeebrewra.vercel.app/en",
+    previewImage: getLocalPreviewPath("brewra"),
     screenshotUrl: getLivePreviewUrl("https://coffeebrewra.vercel.app/en"),
     language: "TypeScript",
     tags: ["React Native", "Next.js", "Stripe", "AI"],
@@ -29,6 +35,7 @@ export const projects: Project[] = [
     descriptionKey: "projects.portfolio.description",
     repoUrl: "https://github.com/igorjm/igorjm.github.io",
     deployedUrl: "https://igorjm.github.io",
+    previewImage: getLocalPreviewPath("igorjm-github-io"),
     screenshotUrl: getLivePreviewUrl("https://igorjm.github.io"),
     language: "TypeScript",
     tags: ["Next.js", "TypeScript", "Tailwind"],
@@ -39,6 +46,7 @@ export const projects: Project[] = [
     descriptionKey: "projects.mealPlanSaas.description",
     repoUrl: "https://github.com/igorjm/nextjs-meal-plan-saas",
     deployedUrl: "https://nextjs-meal-plan-saas.vercel.app",
+    previewImage: getLocalPreviewPath("nextjs-meal-plan-saas"),
     screenshotUrl: getLivePreviewUrl("https://nextjs-meal-plan-saas.vercel.app"),
     language: "TypeScript",
     tags: ["Next.js", "Clerk", "Stripe", "AI"],
@@ -49,6 +57,7 @@ export const projects: Project[] = [
     descriptionKey: "projects.cogJackpot.description",
     repoUrl: "https://github.com/igorjm/cog-jackpot",
     deployedUrl: "https://bolao-cog.vercel.app/login",
+    previewImage: getLocalPreviewPath("cog-jackpot"),
     screenshotUrl: getLivePreviewUrl("https://bolao-cog.vercel.app/login"),
     language: "TypeScript",
     tags: ["Next.js", "TypeScript", "Vercel"],
@@ -59,6 +68,7 @@ export const projects: Project[] = [
     descriptionKey: "projects.headshotsAi.description",
     repoUrl: "https://github.com/igorjm/headshots-starter-clone",
     deployedUrl: "https://headshots-starter-clone-ashy-zeta.vercel.app",
+    previewImage: getLocalPreviewPath("headshots-starter-clone"),
     screenshotUrl: getLivePreviewUrl(
       "https://headshots-starter-clone-ashy-zeta.vercel.app"
     ),
@@ -71,6 +81,7 @@ export const projects: Project[] = [
     descriptionKey: "projects.cryptoTracker.description",
     repoUrl: "https://github.com/igorjm/nextjs-crypto-tracker",
     deployedUrl: normalizeHomepageUrl("nextjs-crypto-tracker-rho.vercel.app"),
+    previewImage: getLocalPreviewPath("nextjs-crypto-tracker"),
     screenshotUrl: getLivePreviewUrl("https://nextjs-crypto-tracker-rho.vercel.app"),
     language: "JavaScript",
     tags: ["Next.js", "React", "API"],

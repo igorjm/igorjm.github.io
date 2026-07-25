@@ -33,6 +33,7 @@ function ProjectThumbnail({
 
   const [sourceIndex, setSourceIndex] = useState(0);
   const [exhausted, setExhausted] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   const src = sources[sourceIndex] ?? null;
 
@@ -50,22 +51,36 @@ function ProjectThumbnail({
   }
 
   return (
-    <Image
-      key={src}
-      src={src}
-      alt={project.name}
-      width={640}
-      height={360}
-      className="size-full object-cover object-top opacity-80 transition-all duration-500 group-hover:scale-105 group-hover:opacity-100"
-      unoptimized
-      onError={() => {
-        if (sourceIndex < sources.length - 1) {
-          setSourceIndex((index) => index + 1);
-        } else {
-          setExhausted(true);
-        }
-      }}
-    />
+    <div className="relative size-full">
+      <div
+        className={cn(
+          "absolute inset-0 bg-surface-container-highest transition-opacity duration-500",
+          loaded ? "opacity-0" : "animate-pulse opacity-100"
+        )}
+        aria-hidden
+      />
+      <Image
+        key={src}
+        src={src}
+        alt={project.name}
+        width={640}
+        height={360}
+        className={cn(
+          "size-full object-cover object-top transition-all duration-500 group-hover:scale-105",
+          loaded ? "opacity-80 group-hover:opacity-100" : "opacity-0"
+        )}
+        unoptimized
+        onLoad={() => setLoaded(true)}
+        onError={() => {
+          setLoaded(false);
+          if (sourceIndex < sources.length - 1) {
+            setSourceIndex((index) => index + 1);
+          } else {
+            setExhausted(true);
+          }
+        }}
+      />
+    </div>
   );
 }
 

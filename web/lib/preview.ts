@@ -19,7 +19,11 @@ export function getLivePreviewUrl(deployedUrl: string): string {
   return `https://api.microlink.io/?url=${encoded}&screenshot=true&embed=screenshot.url&viewport.width=1280&viewport.height=720`;
 }
 
-/** Optional local override: add `web/public/projects/{id}.png` */
+/**
+ * Local pre-generated preview served from our own origin (instant, no cold
+ * start). Generate with `npm run previews:generate`. Cards fall back to the
+ * live Microlink URL if a local file is ever missing.
+ */
 export function getLocalPreviewPath(projectId: string): string {
-  return `${PROJECT_PREVIEW_DIR}/${projectId}.png`;
+  return `${PROJECT_PREVIEW_DIR}/${projectId}.webp`;
 }

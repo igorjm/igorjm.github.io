@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "previews:generate": "node scripts/generate-previews.mjs",
     "career:sync": "node ../.cursor/career/scripts/sync-career-profile.mjs",
     "career:import-linkedin": "node ../.cursor/career/scripts/import-linkedin-pdf.mjs",
     "career:audit-linkedin": "node ../.cursor/career/scripts/audit-linkedin.mjs",
