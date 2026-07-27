@@ -1,16 +1,16 @@
 {
-  "date": "2026-07-26",
-  "createdAt": "2026-07-26T11:16:59.880Z",
+  "date": "2026-07-27",
+  "createdAt": "2026-07-27T12:54:05.044Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been adding streaming responses to brewra this week. tiny ux thing but the app feels way more alive. waterfall api calls were killing the vibe",
+      "text": "spent 2h debugging a brewra issue that turned out to be a stale clerk session. not an AI problem. not a Next.js problem. just me not reading the error message properly the first time.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-07-26T11:00:00.000Z",
+      "scheduledAt": "2026-07-27T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah. i have copilot at the day job and still paste stuff into claude on the side. the tool isn't the workflow",
+      "text": "yeah. i hit this with mealplan ai — users churn before they ever see the good part because onboarding assumes they already get it",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-07-26T15:00:00.000Z",
+      "scheduledAt": "2026-07-27T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot tá em 30+ usuários. app interno, nada de especial. next.js + vercel, pessoas reais usando todo dia. às vezes simples funciona",
+      "text": "cog-jackpot tá em 30+ usuários. app interno, nada fancy. nextjs + vercel, galera usando todo dia. às vezes o melhor side project é o que resolve um problema chato do trabalho",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-07-26T20:00:00.000Z",
+      "scheduledAt": "2026-07-27T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. mealplan ai usa clerk + stripe e cada novo modelo de billing quebra alguma assumption que eu tinha. docs ficam velhos rápido",
+      "text": "same. modelo novo toda semana mas meu eval set do brewra ainda tem 40 exemplos e um prompt ruim quebra tudo em prod. benchmark não resolve isso não",
       "type": "quote_take",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-07-26T23:00:00.000Z",
+      "scheduledAt": "2026-07-27T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
