@@ -1,16 +1,16 @@
 {
-  "date": "2026-07-29",
-  "createdAt": "2026-07-29T11:59:21.587Z",
+  "date": "2026-07-30",
+  "createdAt": "2026-07-30T11:50:05.502Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "spent saturday wiring up persistent memory on brewra. small thing. but the app finally feels like it knows you instead of starting cold every session.",
+      "text": "been adding streak tracking to mealplan ai this week. tiny feature. but retention numbers changed immediately. sometimes the boring gamification stuff just works.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-07-29T11:00:00.000Z",
+      "scheduledAt": "2026-07-30T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah this. i have the same problem with mealplan ai — users churn before the product even has context on them. onboarding is doing too much work",
+      "text": "yeah this. i have the same problem on brewra — model swaps mid-sprint break things in ways you don't catch until a real user hits it",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-07-29T15:00:00.000Z",
+      "scheduledAt": "2026-07-30T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot tá em 30+ usuários. app interno de bolão, nada sofisticado. next.js + vercel, pessoas reais usando todo dia. às vezes isso é suficiente.",
+      "text": "cog-jackpot tá em 30+ usuários agora. app interno de bolão, nada sofisticado. nextjs + vercel, funciona. às vezes o projeto mais simples é o que as pessoas realmente usam.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-07-29T20:00:00.000Z",
+      "scheduledAt": "2026-07-30T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. benchmark sobe, o meu eval set do brewra continua sendo 40 exemplos e um prompt ruim derruba prod inteiro lol",
+      "text": "same. context window got huge but my actual workflow is still: paste, tweak, paste again. the tooling didn't catch up to the capability yet",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-07-29T23:00:00.000Z",
+      "scheduledAt": "2026-07-30T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
