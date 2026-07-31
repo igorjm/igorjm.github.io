@@ -1,16 +1,16 @@
 {
-  "date": "2026-07-30",
-  "createdAt": "2026-07-30T11:50:05.502Z",
+  "date": "2026-07-31",
+  "createdAt": "2026-07-31T11:56:53.965Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been adding streak tracking to mealplan ai this week. tiny feature. but retention numbers changed immediately. sometimes the boring gamification stuff just works.",
+      "text": "been wiring up persistent sessions on brewra this week. not glamorous but the app finally feels like it knows you. small thing, big difference in feel.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-07-30T11:00:00.000Z",
+      "scheduledAt": "2026-07-31T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah this. i have the same problem on brewra — model swaps mid-sprint break things in ways you don't catch until a real user hits it",
+      "text": "yeah. i hit this on mealplan ai — added three models in a month and now my own codebase has an if-else chain just to pick which api to call. not great.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-07-30T15:00:00.000Z",
+      "scheduledAt": "2026-07-31T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot tá em 30+ usuários agora. app interno de bolão, nada sofisticado. nextjs + vercel, funciona. às vezes o projeto mais simples é o que as pessoas realmente usam.",
+      "text": "cog-jackpot tá em 30+ usuários. app interno, nada glamouroso. next.js + vercel, pessoas reais usando todo dia. às vezes o projeto mais simples é o que roda de verdade.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-07-30T20:00:00.000Z",
+      "scheduledAt": "2026-07-31T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. context window got huge but my actual workflow is still: paste, tweak, paste again. the tooling didn't catch up to the capability yet",
+      "text": "same. everyone's running evals now but the dataset is vibes and 40 examples. my brewra set regresses on one bad prompt. quantity of benchmarks went up, quality of signal didn't.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-07-30T23:00:00.000Z",
+      "scheduledAt": "2026-07-31T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
