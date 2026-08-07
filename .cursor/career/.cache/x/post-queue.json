@@ -1,16 +1,16 @@
 {
-  "date": "2026-08-06",
-  "createdAt": "2026-08-06T12:00:50.646Z",
+  "date": "2026-08-07",
+  "createdAt": "2026-08-07T10:50:00.613Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "spent the weekend wiring up persistent chat history on brewra. tiny change. app finally feels like it knows you instead of starting cold every time.",
+      "text": "been rebuilding the brewra onboarding flow this week. small thing but first-time users were dropping before they even picked a brew method. fixed the empty state, added one prompt. retention looks better already.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-06T11:00:00.000Z",
+      "scheduledAt": "2026-08-07T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah this. i have 40 eval examples on brewra and one weird prompt just broke a flow i thought was solid. benchmarks don't catch that.",
+      "text": "yeah same. i have a mealplan ai user who's been on the free tier for 3 months. never converted. opened the app 40+ times. no idea what they're waiting for and the data doesn't tell me",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-06T15:00:00.000Z",
+      "scheduledAt": "2026-08-07T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "mealplan ai tem clerk + stripe rodando mas a parte difícil foi decidir o que o usuário realmente queria gerar. stack foi fácil. produto foi o trabalho.",
+      "text": "cog-jackpot tá em 30+ usuários agora. app interno, nada fancy. nextjs + vercel, as pessoas usam todo dia. às vezes isso é suficiente.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-06T20:00:00.000Z",
+      "scheduledAt": "2026-08-07T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. context window got huge but i still lose the why behind a decision 10 min after i make it. no model was in that tab with me.",
+      "text": "this. context window ficou gigante mas meu problema ainda é qual prompt não vai regredir o brewra em prod",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-06T23:00:00.000Z",
+      "scheduledAt": "2026-08-07T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
