@@ -1,16 +1,16 @@
 {
-  "date": "2026-08-07",
-  "createdAt": "2026-08-07T10:50:00.613Z",
+  "date": "2026-08-08",
+  "createdAt": "2026-08-08T10:28:50.398Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been rebuilding the brewra onboarding flow this week. small thing but first-time users were dropping before they even picked a brew method. fixed the empty state, added one prompt. retention looks better already.",
+      "text": "been adding streaming to brewra this week. small thing but the app feels way more alive. loading spinners were hiding how slow the responses actually were.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-07T11:00:00.000Z",
+      "scheduledAt": "2026-08-08T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah same. i have a mealplan ai user who's been on the free tier for 3 months. never converted. opened the app 40+ times. no idea what they're waiting for and the data doesn't tell me",
+      "text": "yeah this. claude writes the commit, i write the comment above the function explaining why we didn't go the obvious route. that part doesn't survive context window.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-07T15:00:00.000Z",
+      "scheduledAt": "2026-08-08T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot tá em 30+ usuários agora. app interno, nada fancy. nextjs + vercel, as pessoas usam todo dia. às vezes isso é suficiente.",
+      "text": "cog-jackpot tá em 30+ usuários agora. app interno, nada fancy. nextjs + vercel, pessoas reais usando todo dia. às vezes o projeto mais simples é o que fica.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-07T20:00:00.000Z",
+      "scheduledAt": "2026-08-08T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "this. context window ficou gigante mas meu problema ainda é qual prompt não vai regredir o brewra em prod",
+      "text": "same. mealplan ai usa clerk + stripe e eu ainda abro a docs toda vez que mexo em webhooks. some apis just don't stick no matter how many times you wire them up.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-07T23:00:00.000Z",
+      "scheduledAt": "2026-08-08T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
