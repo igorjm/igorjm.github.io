@@ -1,6 +1,6 @@
 # Igor Melo — Career Profile
 
-> Auto-generated factual sections. Last synced: 2026-07-14
+> Auto-generated factual sections. Last synced: 2026-08-08
 > Run `node .cursor/career/scripts/sync-career-profile.mjs` after portfolio updates.
 > Narrative voice and STAR stories live in `voice.md` and `achievements.md`.
 
@@ -83,9 +83,18 @@ Antes disso, modelei experiências EdTech na Konviva e fluxos de saúde na Anima
 - **Tags:** Java, Go, AWS, Microservices, Serverless
 - **Language:** Java
 - **Repo:** https://github.com/igorjm/levecare
-- **Live:** —
+- **Live:** https://dc5s9mmmdrudy.cloudfront.net/
 - **EN:** Brazilian telehealth demo on AWS serverless — Java (Spring Boot + Lambda SnapStart) and Go microservices, event-driven with EventBridge, plus a productization study covering CFM/ANVISA/LGPD.
 - **PT-BR:** Demo de telessaúde brasileira em AWS serverless — microsserviços em Java (Spring Boot + Lambda SnapStart) e Go, arquitetura orientada a eventos com EventBridge, e estudo de produtização cobrindo CFM/ANVISA/LGPD.
+
+### Lobisomem Monstros
+
+- **Tags:** Next.js, Supabase, Realtime, PWA
+- **Language:** TypeScript
+- **Repo:** https://github.com/igorjm/monster-card-game
+- **Live:** https://lobisomem-monstros.vercel.app
+- **EN:** Online multiplayer social-deduction card game in pt-BR — Next.js + Supabase realtime, server-authoritative night actions, LiveKit voice, and installable PWA.
+- **PT-BR:** Jogo multiplayer online de dedução social em pt-BR — Next.js + Supabase realtime, ações da noite no servidor, voz LiveKit e PWA instalável.
 
 ### brewra
 

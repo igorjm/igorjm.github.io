@@ -104,6 +104,9 @@
     },
     "headshotsAi": {
       "description": "Gerador de headshots profissionais com IA — envie selfies e receba retratos em HD em minutos."
+    },
+    "monsterCardGame": {
+      "description": "Jogo multiplayer online de dedução social em pt-BR — Next.js + Supabase realtime, ações da noite no servidor, voz LiveKit e PWA instalável."
     }
   },
   "contact": {

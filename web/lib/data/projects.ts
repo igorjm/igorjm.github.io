@@ -19,6 +19,17 @@ export const projects: Project[] = [
     tags: ["Java", "Go", "AWS", "Microservices", "Serverless"],
   },
   {
+    id: "monster-card-game",
+    name: "Lobisomem Monstros",
+    descriptionKey: "projects.monsterCardGame.description",
+    repoUrl: "https://github.com/igorjm/monster-card-game",
+    deployedUrl: "https://lobisomem-monstros.vercel.app",
+    previewImage: getLocalPreviewPath("monster-card-game"),
+    screenshotUrl: getLivePreviewUrl("https://lobisomem-monstros.vercel.app"),
+    language: "TypeScript",
+    tags: ["Next.js", "Supabase", "Realtime", "PWA"],
+  },
+  {
     id: "brewra",
     name: "brewra",
     descriptionKey: "projects.brewra.description",

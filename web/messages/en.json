@@ -104,6 +104,9 @@
     },
     "headshotsAi": {
       "description": "AI-powered professional headshot generator — upload selfies and receive HD portraits in minutes."
+    },
+    "monsterCardGame": {
+      "description": "Online multiplayer social-deduction card game in pt-BR — Next.js + Supabase realtime, server-authoritative night actions, LiveKit voice, and installable PWA."
     }
   },
   "contact": {
