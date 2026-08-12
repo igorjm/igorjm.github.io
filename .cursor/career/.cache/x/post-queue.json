@@ -1,16 +1,16 @@
 {
-  "date": "2026-08-11",
-  "createdAt": "2026-08-11T10:48:10.497Z",
+  "date": "2026-08-12",
+  "createdAt": "2026-08-12T10:58:27.149Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been adding memory to brewra this week. not fancy — just storing what the user likes across sessions. but the app finally feels like it knows you. small thing, big diff in feel.",
+      "text": "been adding memory to brewra this week. not fancy — just storing user preferences between sessions. but the app finally feels like it knows you. small thing, big difference.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-11T11:00:00.000Z",
+      "scheduledAt": "2026-08-12T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah. i hit this with mealplan ai — users drop off not because the ai is bad, but because it asks the same questions every time. memory is a ux problem before it's a model problem.",
+      "text": "yeah this. i have copilot, cursor, claude open at the same time. my planning doc is still a mess of bullet points i wrote myself at 11pm.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-11T15:00:00.000Z",
+      "scheduledAt": "2026-08-12T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot tá em 30+ usuários. app interno, nada sofisticado. next.js + vercel, pessoas reais usando todo dia. às vezes é isso — resolver um problema chato de um time pequeno.",
+      "text": "cog-jackpot tá em 30+ usuários. app interno de bolão, nada especial. next.js + vercel, pessoas reais usando todo dia. às vezes simples funciona.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-11T20:00:00.000Z",
+      "scheduledAt": "2026-08-12T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. context window ficou gigante mas o modelo ainda não sabe o que eu quis dizer ontem. são problemas diferentes e a galera tá confundindo os dois.",
+      "text": "yeah. mealplan ai usa clerk + stripe e ainda perco tempo configurando webhook local toda vez que mudo alguma coisa. tooling evoluiu, o loop de dev local não.",
       "type": "quote_take",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-11T23:00:00.000Z",
+      "scheduledAt": "2026-08-12T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
