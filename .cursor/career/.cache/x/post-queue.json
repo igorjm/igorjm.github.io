@@ -1,16 +1,16 @@
 {
-  "date": "2026-08-19",
-  "createdAt": "2026-08-19T10:24:39.629Z",
+  "date": "2026-08-20",
+  "createdAt": "2026-08-20T10:25:55.088Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been refactoring mealplan ai auth this week. clerk makes the happy path stupid easy. then you hit edge cases and you're reading docs at midnight like everyone else.",
+      "text": "spent the weekend wiring up persistent sessions on brewra. nothing fancy, just redis + a user id. but the app finally feels like it knows you. small thing, big difference in how it feels to use.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-19T11:00:00.000Z",
+      "scheduledAt": "2026-08-20T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah. i have this exact problem on brewra. the model picks the right tool but the reasoning for why is gone 10 min later. no log survives that.",
+      "text": "yeah. i hit this building mealplan ai — stripe + clerk works until you need custom billing logic and then you're reading docs at 1am wondering why you thought saas was a good idea",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-19T15:00:00.000Z",
+      "scheduledAt": "2026-08-20T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot tá em 30+ usuários. app interno, nada bonito. mas é next.js rodando com gente real todo dia — isso vale mais que qualquer side project que nunca saiu do localhost.",
+      "text": "cog-jackpot tá em 30+ usuários. app interno de bolão, nextjs + vercel, zero hype. as pessoas simplesmente usam. isso é o que importa.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-19T20:00:00.000Z",
+      "scheduledAt": "2026-08-20T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. headshots ai usa supabase storage e até hoje não sei se escolhi certo. funciona, mas cada nova feature me faz questionar. stack decisions não envelhecem bem.",
+      "text": "same. model benchmarks mudam toda semana mas meu eval set do brewra ainda tem 40 exemplos e um prompt ruim derruba prod. benchmark nenhum resolve isso",
       "type": "quote_take",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-19T23:00:00.000Z",
+      "scheduledAt": "2026-08-20T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
