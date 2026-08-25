@@ -7,6 +7,7 @@ web/node_modules/
 out/
 web/.next/
 web/out/
+web/coverage/
 
 # Build & cache
 *.tsbuildinfo
