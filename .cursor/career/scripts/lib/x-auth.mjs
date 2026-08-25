@@ -1,6 +1,12 @@
 import { createServer } from "http";
 import { createHash, randomBytes } from "crypto";
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
+import {
+  chmodSync,
+  existsSync,
+  mkdirSync,
+  readFileSync,
+  writeFileSync,
+} from "fs";
 import { createConnection } from "net";
 import {
   OAUTH_SCOPES,
@@ -88,12 +94,15 @@ export async function refreshAccessToken(refreshToken) {
 }
 
 export function saveTokenCache(tokens) {
-  mkdirSync(X_CACHE_DIR, { recursive: true });
+  mkdirSync(X_CACHE_DIR, { recursive: true, mode: 0o700 });
   const payload = {
     ...tokens,
     savedAt: new Date().toISOString(),
   };
-  writeFileSync(TOKEN_CACHE_FILE, JSON.stringify(payload, null, 2));
+  writeFileSync(TOKEN_CACHE_FILE, JSON.stringify(payload, null, 2), {
+    mode: 0o600,
+  });
+  chmodSync(TOKEN_CACHE_FILE, 0o600);
   return payload;
 }
 
@@ -138,6 +147,11 @@ export async function getAccessToken() {
   });
 
   return cache.access_token;
+}
+
+function maskToken(token) {
+  if (!token) return "(none)";
+  return `${token.slice(0, 4)}…${token.slice(-4)}`;
 }
 
 function isPortFree(port) {
@@ -270,7 +284,13 @@ export async function runOAuthSetup() {
   });
 
   console.log("\n--- Save these secrets (GitHub Actions / .env.local) ---\n");
-  console.log(`X_REFRESH_TOKEN=${tokens.refresh_token}`);
+  if (process.argv.includes("--show-refresh-token")) {
+    console.log(`X_REFRESH_TOKEN=${tokens.refresh_token}`);
+  } else {
+    console.log(
+      `X_REFRESH_TOKEN=${maskToken(tokens.refresh_token)} (masked — read it from ${TOKEN_CACHE_FILE}, or re-run with --show-refresh-token)`,
+    );
+  }
   console.log("\nToken cache written to:", TOKEN_CACHE_FILE);
   console.log("\nNext: set X_DRY_RUN=true && npm run career:x:brief\n");
 }
