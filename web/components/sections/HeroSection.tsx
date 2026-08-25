@@ -8,6 +8,8 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ASSETS } from "@/lib/constants/assets";
 import { profile } from "@/lib/data/profile";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { ctaBaseClassName } from "@/lib/constants/styles";
+import { cn } from "@/lib/utils";
 
 export function HeroSection() {
   const t = useTranslations("hero");
@@ -51,7 +53,10 @@ export function HeroSection() {
               <div className="flex flex-col gap-6 sm:flex-row">
                 <a
                   href="#projects"
-                  className="text-label-mono inline-flex items-center justify-center rounded bg-cta px-12 py-4 text-white transition-transform hover:-translate-y-1"
+                  className={cn(
+                    ctaBaseClassName,
+                    "bg-cta text-white transition-transform hover:-translate-y-1"
+                  )}
                 >
                   {t("cta_primary")}
                 </a>
@@ -59,13 +64,19 @@ export function HeroSection() {
                   <a
                     href={profile.resumeUrl}
                     download
-                    className="text-label-mono inline-flex items-center justify-center rounded border border-section px-12 py-4 text-on-surface transition-colors hover:bg-surface-container-high/50"
+                    className={cn(
+                      ctaBaseClassName,
+                      "border border-section text-on-surface transition-colors hover:bg-surface-container-high/50"
+                    )}
                   >
                     {t("cta_secondary")}
                   </a>
                 ) : (
                   <span
-                    className="text-label-mono inline-flex cursor-not-allowed items-center justify-center rounded border border-section px-12 py-4 text-on-surface-variant opacity-60"
+                    className={cn(
+                      ctaBaseClassName,
+                      "cursor-not-allowed border border-section text-on-surface-variant opacity-60"
+                    )}
                     title={t("resume_unavailable")}
                   >
                     {t("cta_secondary")}

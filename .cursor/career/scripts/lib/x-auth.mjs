@@ -1,14 +1,13 @@
 import { createServer } from "http";
 import { createHash, randomBytes } from "crypto";
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
 import { createConnection } from "net";
 import {
   OAUTH_SCOPES,
   TOKEN_CACHE_FILE,
-  X_CACHE_DIR,
   X_OAUTH_AUTHORIZE_URL,
   X_OAUTH_TOKEN_URL,
 } from "./x-paths.mjs";
+import { readJson, writeJson } from "./fs-json.mjs";
 
 function base64Url(buf) {
   return buf
@@ -37,15 +36,9 @@ function getCredentials() {
   return { clientId, clientSecret };
 }
 
-async function exchangeCode({ code, verifier, redirectUri }) {
+/** POST to the OAuth2 token endpoint with basic-auth client credentials. */
+async function requestToken(params, errorLabel) {
   const { clientId, clientSecret } = getCredentials();
-  const body = new URLSearchParams({
-    grant_type: "authorization_code",
-    code,
-    redirect_uri: redirectUri,
-    code_verifier: verifier,
-    client_id: clientId,
-  });
 
   const res = await fetch(X_OAUTH_TOKEN_URL, {
     method: "POST",
@@ -53,53 +46,46 @@ async function exchangeCode({ code, verifier, redirectUri }) {
       "Content-Type": "application/x-www-form-urlencoded",
       Authorization: `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString("base64")}`,
     },
-    body,
+    body: new URLSearchParams({ ...params, client_id: clientId }),
   });
 
   const data = await res.json();
   if (!res.ok) {
-    throw new Error(`Token exchange failed: ${JSON.stringify(data)}`);
+    throw new Error(`${errorLabel}: ${JSON.stringify(data)}`);
   }
   return data;
 }
 
-export async function refreshAccessToken(refreshToken) {
-  const { clientId, clientSecret } = getCredentials();
-  const body = new URLSearchParams({
-    grant_type: "refresh_token",
-    refresh_token: refreshToken,
-    client_id: clientId,
-  });
-
-  const res = await fetch(X_OAUTH_TOKEN_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-      Authorization: `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString("base64")}`,
+function exchangeCode({ code, verifier, redirectUri }) {
+  return requestToken(
+    {
+      grant_type: "authorization_code",
+      code,
+      redirect_uri: redirectUri,
+      code_verifier: verifier,
     },
-    body,
-  });
+    "Token exchange failed",
+  );
+}
 
-  const data = await res.json();
-  if (!res.ok) {
-    throw new Error(`Token refresh failed: ${JSON.stringify(data)}`);
-  }
-  return data;
+export function refreshAccessToken(refreshToken) {
+  return requestToken(
+    { grant_type: "refresh_token", refresh_token: refreshToken },
+    "Token refresh failed",
+  );
 }
 
 export function saveTokenCache(tokens) {
-  mkdirSync(X_CACHE_DIR, { recursive: true });
   const payload = {
     ...tokens,
     savedAt: new Date().toISOString(),
   };
-  writeFileSync(TOKEN_CACHE_FILE, JSON.stringify(payload, null, 2));
+  writeJson(TOKEN_CACHE_FILE, payload);
   return payload;
 }
 
 export function loadTokenCache() {
-  if (!existsSync(TOKEN_CACHE_FILE)) return null;
-  return JSON.parse(readFileSync(TOKEN_CACHE_FILE, "utf8"));
+  return readJson(TOKEN_CACHE_FILE);
 }
 
 export async function getAccessToken() {

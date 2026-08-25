@@ -8,6 +8,9 @@ import { ASSETS } from "@/lib/constants/assets";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { navSectionMap, useActiveSection } from "@/hooks/useActiveSection";
+import { ActiveIndicator } from "@/components/ui/ActiveIndicator";
+import { Icon } from "@/components/ui/Icon";
+import { containerClassName, navLinkClassName } from "@/lib/constants/styles";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -17,6 +20,15 @@ const navItems = [
   { key: "work" as const, href: "#projects" },
   { key: "contact" as const, href: "#contact" },
 ];
+
+function NavControls({ className }: { className?: string }) {
+  return (
+    <div className={cn("flex items-center gap-3", className)}>
+      <LanguageSwitcher />
+      <ThemeToggle />
+    </div>
+  );
+}
 
 export function Navbar() {
   const t = useTranslations("nav");
@@ -48,7 +60,12 @@ export function Navbar() {
           : "border-transparent bg-nav"
       )}
     >
-      <div className="mx-auto flex max-w-container-max items-center justify-between px-gutter py-4">
+      <div
+        className={cn(
+          containerClassName,
+          "flex items-center justify-between py-4"
+        )}
+      >
         <a
           href="#hero"
           className="flex items-center gap-3 transition-opacity hover:opacity-80"
@@ -74,18 +91,15 @@ export function Navbar() {
                 <a
                   href={item.href}
                   className={cn(
-                    "text-label-mono relative transition-colors hover:text-primary",
-                    isActive
-                      ? "font-bold text-primary"
-                      : "text-on-surface-variant"
+                    "text-label-mono relative transition-colors",
+                    navLinkClassName(isActive)
                   )}
                 >
                   {t(item.key)}
                   {isActive && (
-                    <motion.span
+                    <ActiveIndicator
                       layoutId="nav-indicator"
-                      className="absolute -bottom-1.5 left-0 h-0.5 w-full bg-primary"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      className="-bottom-1.5 left-0 w-full"
                     />
                   )}
                 </a>
@@ -94,10 +108,7 @@ export function Navbar() {
           })}
         </ul>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <LanguageSwitcher />
-          <ThemeToggle />
-        </div>
+        <NavControls className="hidden md:flex" />
 
         <button
           type="button"
@@ -106,15 +117,9 @@ export function Navbar() {
           aria-expanded={open}
           aria-label={open ? t("menu_close") : t("menu_open")}
         >
-          {open ? (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
-              <path d="M6 6l12 12M18 6 6 18" strokeLinecap="round" />
-            </svg>
-          ) : (
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden>
-              <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
-            </svg>
-          )}
+          <Icon>
+            <path d={open ? "M6 6l12 12M18 6 6 18" : "M4 7h16M4 12h16M4 17h16"} />
+          </Icon>
         </button>
       </div>
 
@@ -125,7 +130,7 @@ export function Navbar() {
               <li key={item.key}>
                 <a
                   href={item.href}
-                  className="text-label-mono text-on-surface-variant hover:text-primary"
+                  className={cn("text-label-mono", navLinkClassName(false))}
                   onClick={() => setOpen(false)}
                 >
                   {t(item.key)}
@@ -133,10 +138,7 @@ export function Navbar() {
               </li>
             ))}
           </ul>
-          <div className="mt-4 flex items-center gap-3">
-            <LanguageSwitcher />
-            <ThemeToggle />
-          </div>
+          <NavControls className="mt-4" />
         </div>
       )}
     </motion.nav>

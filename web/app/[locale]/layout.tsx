@@ -7,7 +7,7 @@ import {
   JetBrains_Mono,
   Plus_Jakarta_Sans,
 } from "next/font/google";
-import { routing } from "@/i18n/routing";
+import { isSupportedLocale, localeStaticParams } from "@/i18n/routing";
 import { ASSETS } from "@/lib/constants/assets";
 import { Providers } from "@/components/layout/Providers";
 import "../globals.css";
@@ -65,13 +65,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
+export const generateStaticParams = localeStaticParams;
 
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
-  if (!routing.locales.includes(locale as (typeof routing.locales)[number])) {
+  if (!isSupportedLocale(locale)) {
     notFound();
   }
   setRequestLocale(locale);

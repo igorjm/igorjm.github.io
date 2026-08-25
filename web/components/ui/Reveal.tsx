@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useInView, type Variants } from "framer-motion";
 import type { ReactNode } from "react";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { revealEase, revealInViewOptions } from "@/lib/motion";
 
 type RevealDirection = "up" | "down" | "left" | "right" | "none";
 
@@ -32,7 +33,7 @@ export function Reveal({
 }: RevealProps) {
   const ref = useRef(null);
   const reducedMotion = usePrefersReducedMotion();
-  const isInView = useInView(ref, { once: true, margin: "-60px", amount });
+  const isInView = useInView(ref, { ...revealInViewOptions, amount });
 
   const offset = offsets[direction];
 
@@ -49,7 +50,7 @@ export function Reveal({
           ? { opacity: 1, x: 0, y: 0, filter: "blur(0px)" }
           : { opacity: 0, x: offset.x, y: offset.y, filter: "blur(6px)" }
       }
-      transition={{ duration: 0.75, delay, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.75, delay, ease: revealEase }}
       className={className}
     >
       {children}
@@ -66,7 +67,7 @@ interface StaggerProps {
 export function Stagger({ children, className, stagger = 0.1 }: StaggerProps) {
   const ref = useRef(null);
   const reducedMotion = usePrefersReducedMotion();
-  const isInView = useInView(ref, { once: true, margin: "-60px", amount: 0.1 });
+  const isInView = useInView(ref, { ...revealInViewOptions, amount: 0.1 });
 
   if (reducedMotion) {
     return <div className={className}>{children}</div>;
@@ -98,7 +99,7 @@ export const staggerItemVariants: Variants = {
     opacity: 1,
     y: 0,
     filter: "blur(0px)",
-    transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.65, ease: revealEase },
   },
 };
 

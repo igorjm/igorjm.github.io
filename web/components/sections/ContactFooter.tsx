@@ -2,7 +2,10 @@
 
 import { useTranslations } from "next-intl";
 import { Reveal } from "@/components/ui/Reveal";
+import { externalLinkPropsIf } from "@/lib/constants/links";
 import { socialLinks } from "@/lib/constants/social";
+import { containerClassName, sectionPaddingY } from "@/lib/constants/styles";
+import { cn } from "@/lib/utils";
 
 const links = [
   { key: "github" as const, href: socialLinks.github },
@@ -18,7 +21,7 @@ export function ContactFooter() {
   return (
     <footer
       id="contact"
-      className="mx-auto w-full max-w-container-max px-gutter py-14 md:py-16"
+      className={cn(containerClassName, sectionPaddingY)}
     >
       <Reveal direction="up">
         <div className="flex flex-col items-center justify-between gap-6 border-t border-section pt-14 md:flex-row md:pt-16">
@@ -29,8 +32,7 @@ export function ContactFooter() {
                 <Reveal direction="up" delay={0.08 * index}>
                   <a
                     href={link.href}
-                    target={link.key === "email" ? undefined : "_blank"}
-                    rel={link.key === "email" ? undefined : "noopener noreferrer"}
+                    {...externalLinkPropsIf(link.key !== "email")}
                     className="text-label-mono text-on-surface-variant transition-colors hover:text-primary"
                   >
                     {t(link.key)}

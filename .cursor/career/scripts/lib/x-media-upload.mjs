@@ -1,32 +1,8 @@
 import { readFileSync } from "fs";
-import { getAccessToken } from "./x-auth.mjs";
-import { X_API_BASE } from "./x-paths.mjs";
+import { xApiFetch } from "./x-http.mjs";
 
-async function mediaFetch(path, options = {}) {
-  const token = await getAccessToken();
-  const url = path.startsWith("http") ? path : `${X_API_BASE}${path}`;
-
-  const res = await fetch(url, {
-    ...options,
-    headers: {
-      Authorization: `Bearer ${token}`,
-      ...options.headers,
-    },
-  });
-
-  const text = await res.text();
-  let data;
-  try {
-    data = text ? JSON.parse(text) : {};
-  } catch {
-    data = { raw: text };
-  }
-
-  if (!res.ok) {
-    throw new Error(`X media API ${res.status}: ${JSON.stringify(data)}`);
-  }
-
-  return data;
+function mediaFetch(path, options = {}) {
+  return xApiFetch(path, options, { label: "X media API" });
 }
 
 export async function uploadImageFile(filePath) {

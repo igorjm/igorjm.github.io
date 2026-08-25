@@ -1,10 +1,19 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { containerClassName } from "@/lib/constants/styles";
+import { cn } from "@/lib/utils";
 
 type HeroBackgroundProps = {
   children: ReactNode;
 };
+
+const glowLayers = [
+  { radius: 900, color: "--color-inverse-primary", mix: 24, fade: 70 },
+  { radius: 600, color: "--color-primary", mix: 16, fade: 75 },
+  { radius: 320, color: "--color-tertiary", mix: 12, fade: 80 },
+];
 
 export function HeroBackground({ children }: HeroBackgroundProps) {
   const sectionRef = useRef<HTMLElement>(null);
@@ -12,15 +21,7 @@ export function HeroBackground({ children }: HeroBackgroundProps) {
   const targetRef = useRef({ x: 0, y: 0 });
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isActive, setIsActive] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setReducedMotion(media.matches);
-    update();
-    media.addEventListener("change", update);
-    return () => media.removeEventListener("change", update);
-  }, []);
+  const reducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -81,24 +82,15 @@ export function HeroBackground({ children }: HeroBackgroundProps) {
         className="pointer-events-none absolute inset-0 transition-opacity duration-500"
         style={{ opacity: glowOpacity }}
       >
-        <div
-          className="absolute inset-0"
-          style={{
-            background: `radial-gradient(900px circle at ${glowX} ${glowY}, color-mix(in srgb, var(--color-inverse-primary) 24%, transparent), transparent 70%)`,
-          }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background: `radial-gradient(600px circle at ${glowX} ${glowY}, color-mix(in srgb, var(--color-primary) 16%, transparent), transparent 75%)`,
-          }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background: `radial-gradient(320px circle at ${glowX} ${glowY}, color-mix(in srgb, var(--color-tertiary) 12%, transparent), transparent 80%)`,
-          }}
-        />
+        {glowLayers.map((layer) => (
+          <div
+            key={layer.color}
+            className="absolute inset-0"
+            style={{
+              background: `radial-gradient(${layer.radius}px circle at ${glowX} ${glowY}, color-mix(in srgb, var(${layer.color}) ${layer.mix}%, transparent), transparent ${layer.fade}%)`,
+            }}
+          />
+        ))}
       </div>
 
       <div
@@ -113,7 +105,12 @@ export function HeroBackground({ children }: HeroBackgroundProps) {
         }}
       />
 
-      <div className="relative z-10 mx-auto max-w-container-max px-gutter pb-12 pt-32 md:pt-[120px]">
+      <div
+        className={cn(
+          containerClassName,
+          "relative z-10 pb-12 pt-32 md:pt-[120px]"
+        )}
+      >
         {children}
       </div>
     </section>

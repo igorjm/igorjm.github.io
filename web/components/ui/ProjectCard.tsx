@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import type { Project } from "@/lib/types/portfolio";
+import { externalLinkProps } from "@/lib/constants/links";
 import { cn } from "@/lib/utils";
 
 type ProjectCardProps = {
@@ -100,8 +101,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       )}
       <a
         href={primaryHref}
-        target="_blank"
-        rel="noopener noreferrer"
+        {...externalLinkProps}
         className="block"
         aria-label={
           opensLive
@@ -134,8 +134,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         {project.deployedUrl && (
           <a
             href={project.deployedUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            {...externalLinkProps}
             className="text-label-mono text-primary hover:underline"
           >
             {t("view_live")}
@@ -143,8 +142,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         )}
         <a
           href={project.repoUrl}
-          target="_blank"
-          rel="noopener noreferrer"
+          {...externalLinkProps}
           className={cn(
             "text-label-mono hover:underline",
             project.deployedUrl ? "text-on-surface-variant" : "text-primary"
