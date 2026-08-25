@@ -1,6 +1,6 @@
 import { createServer } from "http";
 import { createHash, randomBytes } from "crypto";
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
+import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { createConnection } from "net";
 import {
   OAUTH_SCOPES,
@@ -9,6 +9,7 @@ import {
   X_OAUTH_AUTHORIZE_URL,
   X_OAUTH_TOKEN_URL,
 } from "./x-paths.mjs";
+import { parseJsonBody, readJsonFile } from "./errors.mjs";
 
 function base64Url(buf) {
   return buf
@@ -56,11 +57,11 @@ async function exchangeCode({ code, verifier, redirectUri }) {
     body,
   });
 
-  const data = await res.json();
+  const text = await res.text();
   if (!res.ok) {
-    throw new Error(`Token exchange failed: ${JSON.stringify(data)}`);
+    throw new Error(`Token exchange failed (${res.status}): ${text.slice(0, 500)}`);
   }
-  return data;
+  return parseJsonBody(text, "Token exchange");
 }
 
 export async function refreshAccessToken(refreshToken) {
@@ -80,11 +81,11 @@ export async function refreshAccessToken(refreshToken) {
     body,
   });
 
-  const data = await res.json();
+  const text = await res.text();
   if (!res.ok) {
-    throw new Error(`Token refresh failed: ${JSON.stringify(data)}`);
+    throw new Error(`Token refresh failed (${res.status}): ${text.slice(0, 500)}`);
   }
-  return data;
+  return parseJsonBody(text, "Token refresh");
 }
 
 export function saveTokenCache(tokens) {
@@ -99,7 +100,7 @@ export function saveTokenCache(tokens) {
 
 export function loadTokenCache() {
   if (!existsSync(TOKEN_CACHE_FILE)) return null;
-  return JSON.parse(readFileSync(TOKEN_CACHE_FILE, "utf8"));
+  return readJsonFile(TOKEN_CACHE_FILE);
 }
 
 export async function getAccessToken() {

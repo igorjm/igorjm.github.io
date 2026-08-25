@@ -17,6 +17,7 @@ import {
   titleText,
   urlValue,
 } from "./x-notion.mjs";
+import { readJsonFile } from "./errors.mjs";
 
 function slotToBrt(iso) {
   if (!iso) return "";
@@ -34,8 +35,10 @@ function truncate(text, max = 1900) {
 function loadMediaIndex() {
   if (!existsSync(MEDIA_INDEX_FILE)) return {};
   try {
-    return JSON.parse(readFileSync(MEDIA_INDEX_FILE, "utf8"));
-  } catch {
+    return readJsonFile(MEDIA_INDEX_FILE);
+  } catch (err) {
+    // Media annotations are optional metadata; the sync still runs without them.
+    console.warn(`Ignoring media index: ${err.message}`);
     return {};
   }
 }
@@ -79,13 +82,11 @@ export function loadPublishedByDate() {
     f.endsWith(".json"),
   )) {
     try {
-      const data = JSON.parse(
-        readFileSync(join(X_PUBLISHED_DIR, file), "utf8"),
-      );
+      const data = readJsonFile(join(X_PUBLISHED_DIR, file));
       const date = data.date ?? file.replace(".json", "");
       map.set(date, data.posts ?? []);
-    } catch {
-      /* skip */
+    } catch (err) {
+      console.warn(`Skipping published log ${file}: ${err.message}`);
     }
   }
   return map;
@@ -155,7 +156,7 @@ export function parsePostingCalendar() {
 export function buildXContentRows({ dateStr, publishedOnly = false }) {
   if (!existsSync(POST_QUEUE_FILE)) return [];
 
-  const queue = JSON.parse(readFileSync(POST_QUEUE_FILE, "utf8"));
+  const queue = readJsonFile(POST_QUEUE_FILE);
   const queueDate = queue.date ?? dateStr;
   const publishedMap = loadPublishedByDate();
   const publishedToday = publishedMap.get(queueDate) ?? [];

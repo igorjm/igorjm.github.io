@@ -1,4 +1,5 @@
 import { envFlag } from "./x-paths.mjs";
+import { parseJsonBody } from "./errors.mjs";
 
 const NOTION_API = "https://api.notion.com/v1";
 const NOTION_VERSION = "2022-06-28";
@@ -56,7 +57,15 @@ async function notionFetchSafe(path, options = {}) {
     },
   });
 
-  const data = await res.json().catch(() => ({}));
+  // Diagnostics-only helper: a non-JSON body is reported, not thrown, so the
+  // caller can still describe what happened.
+  const text = await res.text();
+  let data;
+  try {
+    data = text ? JSON.parse(text) : {};
+  } catch {
+    data = { message: `non-JSON response: ${text.slice(0, 200)}` };
+  }
   return { ok: res.ok, status: res.status, data };
 }
 
@@ -124,11 +133,11 @@ async function notionFetch(path, options = {}) {
     },
   });
 
-  const data = await res.json().catch(() => ({}));
+  const text = await res.text();
   if (!res.ok) {
-    throw new Error(`Notion API ${res.status}: ${JSON.stringify(data)}`);
+    throw new Error(`Notion API ${res.status}: ${text.slice(0, 500)}`);
   }
-  return data;
+  return parseJsonBody(text, `Notion API ${path}`);
 }
 
 export function richText(value) {

@@ -8,6 +8,7 @@
 
 import "./lib/load-web-env.mjs";
 import { diagnoseNotionConnection } from "./lib/x-notion.mjs";
+import { fatal } from "./lib/errors.mjs";
 
 async function main() {
   const id = process.env.NOTION_DATABASE_ID?.trim();
@@ -65,7 +66,4 @@ async function main() {
   process.exit(1);
 }
 
-main().catch((err) => {
-  console.error(err.message);
-  process.exit(1);
-});
+main().catch(fatal);

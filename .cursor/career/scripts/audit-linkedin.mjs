@@ -25,6 +25,7 @@ import {
 } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
+import { fatal } from "./lib/errors.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, "../../..");
@@ -929,7 +930,4 @@ function looksLikeMarkdown(text) {
   return text.includes("## About") && text.includes("## Experience");
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
-});
+main().catch(fatal);
