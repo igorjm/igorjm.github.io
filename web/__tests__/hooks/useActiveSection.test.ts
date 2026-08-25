@@ -36,7 +36,7 @@ afterEach(() => {
 
 describe("useActiveSection", () => {
   it("defaults to hero and does not create an observer without sections", () => {
-    const observer = vi.fn(MockIntersectionObserver);
+    const observer = vi.fn();
     vi.stubGlobal("IntersectionObserver", observer);
 
     const { result } = renderHook(() => useActiveSection());

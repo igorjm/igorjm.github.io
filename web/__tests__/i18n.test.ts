@@ -1,5 +1,4 @@
-import { describe, expect, it } from "vitest";
-import { vi } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import en from "@/messages/en.json";
 import ptBr from "@/messages/pt-BR.json";
 import requestConfig from "@/i18n/request";
