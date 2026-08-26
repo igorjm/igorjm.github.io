@@ -1,16 +1,16 @@
 {
-  "date": "2026-08-25",
-  "createdAt": "2026-08-25T10:28:31.726Z",
+  "date": "2026-08-26",
+  "createdAt": "2026-08-26T10:31:41.597Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "spent the weekend wiring up persistent sessions on brewra. not glamorous. but the app finally feels like it knows you instead of starting over every time you open it.",
+      "text": "spent 2h debugging a mealplan ai webhook. stripe was fine. clerk was fine. it was my env var with a trailing space.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-25T11:00:00.000Z",
+      "scheduledAt": "2026-08-26T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah. i have copilot, cursor, claude open at the same time. the bottleneck is still me deciding what to actually build next. tools didn't fix that part.",
+      "text": "yeah. everyone ships the feature, nobody ships the context around the decision. i do the same thing and regret it a week later.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-25T15:00:00.000Z",
+      "scheduledAt": "2026-08-26T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "mealplan ai tá pegando usuários novos sem eu fazer nada essa semana. clerk + stripe + vercel, zero ops. lado bom de boring stack.",
+      "text": "cog-jackpot passou de 30 usuários. app interno, nada glamouroso. nextjs + vercel, pool de escritório. às vezes o projeto mais simples é o que as pessoas realmente usam.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-25T20:00:00.000Z",
+      "scheduledAt": "2026-08-26T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. every benchmark drop i check if my brewra eval set still holds. 40 examples. one bad prompt and prod regresses. not a vibe.",
+      "text": "same. i have three side projects with different auth setups and i still google clerk vs next-auth tradeoffs every single time",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-25T23:00:00.000Z",
+      "scheduledAt": "2026-08-26T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
