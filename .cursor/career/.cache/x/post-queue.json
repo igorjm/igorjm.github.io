@@ -1,16 +1,16 @@
 {
-  "date": "2026-08-26",
-  "createdAt": "2026-08-26T10:31:41.597Z",
+  "date": "2026-08-27",
+  "createdAt": "2026-08-27T20:08:26.395Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "spent 2h debugging a mealplan ai webhook. stripe was fine. clerk was fine. it was my env var with a trailing space.",
+      "text": "spent 2h last night debugging a mealplan ai edge case where the ai just... refused to suggest dinner. no error, no fallback, just silence. fixed it. but that 2h is not in any benchmark.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-26T11:00:00.000Z",
+      "scheduledAt": "2026-08-27T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah. everyone ships the feature, nobody ships the context around the decision. i do the same thing and regret it a week later.",
+      "text": "yeah. and the worst part is you fix the prompt, feel good, then realize you only tested the 3 examples you remember. brewra has the same problem. eval set is vibes disguised as coverage.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-26T15:00:00.000Z",
+      "scheduledAt": "2026-08-27T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot passou de 30 usuários. app interno, nada glamouroso. nextjs + vercel, pool de escritório. às vezes o projeto mais simples é o que as pessoas realmente usam.",
+      "text": "cog-jackpot tá em 30+ usuários. app interno, nada glamouroso. next.js + vercel, pessoas reais usando todo dia. às vezes side project simples é o melhor portfólio.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-26T20:00:00.000Z",
+      "scheduledAt": "2026-08-27T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. i have three side projects with different auth setups and i still google clerk vs next-auth tradeoffs every single time",
+      "text": "same. i keep a notes doc open while coding for exactly this. commit message gets the what. the doc gets the why i almost did it differently. models can't recover that 10 min window.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-26T23:00:00.000Z",
+      "scheduledAt": "2026-08-27T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
