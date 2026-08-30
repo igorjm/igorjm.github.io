@@ -7,15 +7,15 @@ import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { ContactFooter } from "@/components/sections/ContactFooter";
 import { ScrollEffects } from "@/components/layout/ScrollEffects";
-import { routing } from "@/i18n/routing";
+import { containerClassName } from "@/lib/constants/styles";
+import { cn } from "@/lib/utils";
+import { localeStaticParams } from "@/i18n/routing";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
 
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
+export const generateStaticParams = localeStaticParams;
 
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
@@ -26,7 +26,12 @@ export default async function HomePage({ params }: Props) {
       <ScrollEffects />
       <Navbar />
       <HeroSection />
-      <main className="mx-auto flex max-w-container-max flex-col gap-section px-gutter pb-14 md:pb-16">
+      <main
+        className={cn(
+          containerClassName,
+          "flex flex-col gap-section pb-14 md:pb-16"
+        )}
+      >
         <AboutSection />
         <TechStackSection />
         <ExperienceSection />

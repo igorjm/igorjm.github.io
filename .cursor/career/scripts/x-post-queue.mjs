@@ -9,39 +9,12 @@
  */
 
 import "./lib/load-web-env.mjs";
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
-import { join } from "path";
-import {
-  POST_QUEUE_FILE,
-  X_PUBLISHED_DIR,
-  todayDateStr,
-  envFlag,
-} from "./lib/x-paths.mjs";
+import { todayDateStr, envFlag } from "./lib/x-paths.mjs";
 import { createTweet, createRetweet } from "./lib/x-client.mjs";
 import { getDuePosts } from "./lib/x-schedule.mjs";
 import { preparePostMedia } from "./lib/x-media.mjs";
-
-function loadQueue() {
-  if (!existsSync(POST_QUEUE_FILE)) {
-    return null;
-  }
-  return JSON.parse(readFileSync(POST_QUEUE_FILE, "utf8"));
-}
-
-function saveQueue(queue) {
-  writeFileSync(POST_QUEUE_FILE, JSON.stringify(queue, null, 2));
-}
-
-function appendPublishedLog(dateStr, entry) {
-  mkdirSync(X_PUBLISHED_DIR, { recursive: true });
-  const path = join(X_PUBLISHED_DIR, `${dateStr}.json`);
-  let log = { date: dateStr, posts: [] };
-  if (existsSync(path)) {
-    log = JSON.parse(readFileSync(path, "utf8"));
-  }
-  log.posts.push(entry);
-  writeFileSync(path, JSON.stringify(log, null, 2));
-}
+import { appendPublishedLog } from "./lib/x-published.mjs";
+import { loadPostQueue, savePostQueue } from "./lib/x-queue.mjs";
 
 async function main() {
   const dryRun = envFlag("X_DRY_RUN", true);
@@ -49,7 +22,7 @@ async function main() {
   const mediaEnabled = envFlag("X_MEDIA_ENABLED", false);
   const dateStr = todayDateStr();
 
-  const queue = loadQueue();
+  const queue = loadPostQueue();
   if (!queue) {
     // Soft-skip: scheduled post slots must not fail the workflow when
     // morning brief hasn't run yet (or queue wasn't restored from git).
@@ -147,7 +120,7 @@ async function main() {
     }
   }
 
-  saveQueue(queue);
+  savePostQueue(queue);
 }
 
 main().catch((err) => {

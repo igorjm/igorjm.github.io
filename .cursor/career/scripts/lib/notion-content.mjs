@@ -1,15 +1,15 @@
 import { existsSync, readdirSync, readFileSync } from "fs";
-import { join } from "path";
 import {
   BRT_OFFSET_HOURS,
   GITHUB_BRIEFING_BASE,
   LINKEDIN_POSTS_MD,
   MEDIA_DIR,
   MEDIA_INDEX_FILE,
-  POST_QUEUE_FILE,
   POSTING_CALENDAR_MD,
-  X_PUBLISHED_DIR,
 } from "./x-paths.mjs";
+import { readJsonSafe } from "./fs-json.mjs";
+import { loadPostQueue } from "./x-queue.mjs";
+import { loadPublishedByDate } from "./x-published.mjs";
 import {
   dateValue,
   richText,
@@ -32,12 +32,7 @@ function truncate(text, max = 1900) {
 }
 
 function loadMediaIndex() {
-  if (!existsSync(MEDIA_INDEX_FILE)) return {};
-  try {
-    return JSON.parse(readFileSync(MEDIA_INDEX_FILE, "utf8"));
-  } catch {
-    return {};
-  }
+  return readJsonSafe(MEDIA_INDEX_FILE, {}) ?? {};
 }
 
 function listMediaFiles() {
@@ -69,26 +64,6 @@ function mediaForXProject(text, mediaIndex) {
     }
   }
   return hits.join(", ");
-}
-
-export function loadPublishedByDate() {
-  const map = new Map();
-  if (!existsSync(X_PUBLISHED_DIR)) return map;
-
-  for (const file of readdirSync(X_PUBLISHED_DIR).filter((f) =>
-    f.endsWith(".json"),
-  )) {
-    try {
-      const data = JSON.parse(
-        readFileSync(join(X_PUBLISHED_DIR, file), "utf8"),
-      );
-      const date = data.date ?? file.replace(".json", "");
-      map.set(date, data.posts ?? []);
-    } catch {
-      /* skip */
-    }
-  }
-  return map;
 }
 
 export function parseLinkedInPosts() {
@@ -153,9 +128,9 @@ export function parsePostingCalendar() {
 }
 
 export function buildXContentRows({ dateStr, publishedOnly = false }) {
-  if (!existsSync(POST_QUEUE_FILE)) return [];
+  const queue = loadPostQueue();
+  if (!queue) return [];
 
-  const queue = JSON.parse(readFileSync(POST_QUEUE_FILE, "utf8"));
   const queueDate = queue.date ?? dateStr;
   const publishedMap = loadPublishedByDate();
   const publishedToday = publishedMap.get(queueDate) ?? [];

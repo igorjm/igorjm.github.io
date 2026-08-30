@@ -9,12 +9,11 @@
  */
 
 import "./lib/load-web-env.mjs";
-import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "fs";
+import { mkdirSync, writeFileSync } from "fs";
 import { join } from "path";
 import {
   X_CACHE_DIR,
   X_DAILY_DIR,
-  X_PUBLISHED_DIR,
   POST_QUEUE_FILE,
   DEFAULT_WOEID,
   todayDateStr,
@@ -28,28 +27,8 @@ import {
 import { parseWatchlistHandles } from "./lib/x-watchlist.mjs";
 import { curateTweets, formatBriefingMarkdown } from "./lib/x-curate.mjs";
 import { filterTweetBatch } from "./lib/x-safety.mjs";
-
-function loadRecentPublishedTexts() {
-  if (!existsSync(X_PUBLISHED_DIR)) return [];
-
-  const files = readdirSync(X_PUBLISHED_DIR)
-    .filter((f) => f.endsWith(".json"))
-    .sort()
-    .slice(-7);
-
-  const texts = [];
-  for (const file of files) {
-    try {
-      const data = JSON.parse(readFileSync(join(X_PUBLISHED_DIR, file), "utf8"));
-      for (const p of data.posts ?? []) {
-        if (p.text) texts.push(p.text);
-      }
-    } catch {
-      /* skip */
-    }
-  }
-  return texts;
-}
+import { loadRecentPublishedTexts } from "./lib/x-published.mjs";
+import { savePostQueue } from "./lib/x-queue.mjs";
 
 async function main() {
   const dateStr = todayDateStr();
@@ -114,7 +93,7 @@ async function main() {
     dryRun,
     tweets,
   };
-  writeFileSync(POST_QUEUE_FILE, JSON.stringify(queue, null, 2));
+  savePostQueue(queue);
 
   console.log(`Wrote briefing: ${briefingPath}`);
   console.log(`Wrote queue: ${POST_QUEUE_FILE} (${tweets.length} tweets)`);

@@ -1,39 +1,12 @@
-import { getAccessToken } from "./x-auth.mjs";
-import { X_API_BASE } from "./x-paths.mjs";
+import { xApiFetch } from "./x-http.mjs";
 
 let cachedUserId = null;
 
-async function xFetch(path, options = {}) {
-  const token = await getAccessToken();
-  const url = path.startsWith("http") ? path : `${X_API_BASE}${path}`;
-
-  const res = await fetch(url, {
+function xFetch(path, options = {}) {
+  return xApiFetch(path, {
     ...options,
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-      ...options.headers,
-    },
+    headers: { "Content-Type": "application/json", ...options.headers },
   });
-
-  if (res.status === 429) {
-    const retryAfter = res.headers.get("retry-after") ?? "60";
-    throw new Error(`Rate limited. Retry after ${retryAfter}s`);
-  }
-
-  const text = await res.text();
-  let data;
-  try {
-    data = text ? JSON.parse(text) : {};
-  } catch {
-    data = { raw: text };
-  }
-
-  if (!res.ok) {
-    throw new Error(`X API ${res.status}: ${JSON.stringify(data)}`);
-  }
-
-  return data;
 }
 
 export async function searchRecent(query, maxResults = 10) {

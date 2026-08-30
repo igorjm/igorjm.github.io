@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Icon } from "@/components/ui/Icon";
 import type { SkillIconKey } from "@/lib/types/portfolio";
 import { cn } from "@/lib/utils";
 
@@ -130,19 +131,8 @@ type SkillIconProps = {
 
 export function SkillIcon({ name, className }: SkillIconProps) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      width="14"
-      height="14"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-      className={cn("shrink-0", className)}
-    >
+    <Icon size={14} strokeWidth={1.5} className={cn("shrink-0", className)}>
       {iconPaths[name]}
-    </svg>
+    </Icon>
   );
 }

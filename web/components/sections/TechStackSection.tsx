@@ -3,11 +3,13 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, LayoutGroup, motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { ActiveIndicator } from "@/components/ui/ActiveIndicator";
 import { SectionGrid } from "@/components/ui/SectionGrid";
 import { SkillBadge } from "@/components/ui/SkillBadge";
 import { Reveal } from "@/components/ui/Reveal";
 import { skillGroups } from "@/lib/data/skills";
-import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { navLinkClassName } from "@/lib/constants/styles";
+import { layoutSpring } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 type FilterId = "all" | (typeof skillGroups)[number]["id"];
@@ -17,7 +19,6 @@ const filterIds: FilterId[] = ["all", ...skillGroups.map((group) => group.id)];
 export function TechStackSection() {
   const t = useTranslations("tech");
   const [active, setActive] = useState<FilterId>("all");
-  const reducedMotion = usePrefersReducedMotion();
 
   const visibleGroups = useMemo(
     () =>
@@ -42,22 +43,16 @@ export function TechStackSection() {
                 onClick={() => setActive(id)}
                 className={cn(
                   "text-label-mono relative shrink-0 cursor-pointer pb-1.5 transition-colors",
-                  isActive
-                    ? "font-bold text-primary"
-                    : "text-on-surface-variant hover:text-primary"
+                  navLinkClassName(isActive)
                 )}
               >
                 {t(id as "all" | "languages" | "frameworks" | "tools" | "ai")}
-                {isActive &&
-                  (reducedMotion ? (
-                    <span className="absolute inset-x-0 -bottom-0.5 h-0.5 bg-primary" />
-                  ) : (
-                    <motion.span
-                      layoutId="tech-filter-indicator"
-                      className="absolute inset-x-0 -bottom-0.5 h-0.5 bg-primary"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                    />
-                  ))}
+                {isActive && (
+                  <ActiveIndicator
+                    layoutId="tech-filter-indicator"
+                    className="inset-x-0 -bottom-0.5"
+                  />
+                )}
               </button>
             );
           })}
@@ -81,7 +76,7 @@ export function TechStackSection() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 8 }}
                   transition={{
-                    layout: { type: "spring", stiffness: 380, damping: 30 },
+                    layout: layoutSpring,
                     opacity: { duration: 0.2 },
                   }}
                 >

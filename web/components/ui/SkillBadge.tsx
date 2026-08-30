@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import type { SkillIconKey } from "@/lib/types/portfolio";
 import { SkillIcon } from "@/components/ui/SkillIcon";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import { layoutSpring } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 type SkillBadgeProps = {
@@ -37,7 +38,7 @@ export function SkillBadge({ name, icon, className, layoutId }: SkillBadgeProps)
       exit={{ opacity: 0, scale: 0.92 }}
       whileHover={{ y: -2, scale: 1.04 }}
       transition={{
-        layout: { type: "spring", stiffness: 380, damping: 30 },
+        layout: layoutSpring,
         opacity: { duration: 0.2 },
         scale: { duration: 0.2 },
         y: { type: "spring", stiffness: 420, damping: 22 },
