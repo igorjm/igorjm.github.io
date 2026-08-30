@@ -1,16 +1,16 @@
 {
-  "date": "2026-08-29",
-  "createdAt": "2026-08-29T14:55:09.820Z",
+  "date": "2026-08-30",
+  "createdAt": "2026-08-30T14:40:03.686Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been rebuilding the brewra onboarding flow this week. every new screen i add i ask: would i actually fill this out at 11pm on my phone? cut 3 steps already.",
+      "text": "spent saturday wiring up persistent chat history on brewra. tiny thing. but now the app actually feels like it knows you instead of starting cold every time.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-29T11:00:00.000Z",
+      "scheduledAt": "2026-08-30T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah. i have the same problem with mealplan ai — added clerk in a weekend, stripe in another. the infra is fine. nobody cares about the infra.",
+      "text": "yeah this. i hit the same wall on mealplan ai — clerk + stripe wired up in a weekend, then two weeks just making the billing edge cases not embarrassing",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-29T15:00:00.000Z",
+      "scheduledAt": "2026-08-30T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot tá em 30+ usuários agora. app interno, nada de especial. next.js + vercel, pessoas reais usando todo dia. é isso que eu quero pros meus outros projetos.",
+      "text": "cog-jackpot tá em 30+ usuários. app interno, nada de especial. next.js + vercel, zero infra pra gerenciar. as vezes boring stack é a stack certa mesmo.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-29T20:00:00.000Z",
+      "scheduledAt": "2026-08-30T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. context window grande não resolve contexto errado. meu eval set do brewra tem 40 exemplos e um prompt ruim ainda quebra tudo em prod",
+      "text": "same. model picker fatigue is real. i have a notes doc just for which api to call for which feature on brewra. that doc shouldn't exist",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-08-29T23:00:00.000Z",
+      "scheduledAt": "2026-08-30T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
