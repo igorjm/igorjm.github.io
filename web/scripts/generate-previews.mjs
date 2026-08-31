@@ -20,7 +20,7 @@
  */
 
 import { execFile } from "node:child_process";
-import { mkdir, readFile, rm, writeFile } from "node:fs/promises";
+import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -84,9 +84,10 @@ async function generate(project) {
     return { ...project, status: "failed (not an image)" };
   }
 
-  const tmpPng = join(tmpdir(), `preview-${project.id}.png`);
+  const tmpDir = await mkdtemp(join(tmpdir(), "preview-"));
+  const tmpPng = join(tmpDir, `${project.id}.png`);
   const outWebp = join(OUT_DIR, `${project.id}.webp`);
-  await writeFile(tmpPng, buf);
+  await writeFile(tmpPng, buf, { mode: 0o600 });
   try {
     await exec("cwebp", [
       "-quiet",
@@ -100,7 +101,7 @@ async function generate(project) {
       outWebp,
     ]);
   } finally {
-    await rm(tmpPng, { force: true });
+    await rm(tmpDir, { force: true, recursive: true });
   }
 
   const { size } = await readFile(outWebp).then((b) => ({ size: b.length }));
