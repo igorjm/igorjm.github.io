@@ -1,16 +1,16 @@
 {
-  "date": "2026-09-01",
-  "createdAt": "2026-09-01T14:30:03.888Z",
+  "date": "2026-09-02",
+  "createdAt": "2026-09-02T14:03:54.348Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been rebuilding the onboarding flow on brewra this week. small stuff — better empty states, clearer first action. but retention on day 2 actually moved. boring fixes > new features sometimes",
+      "text": "been refactoring brewra's api layer this week. nothing shipped yet but the code finally makes sense to me again. sometimes that's the whole win.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-01T11:00:00.000Z",
+      "scheduledAt": "2026-09-02T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah. i have the same problem on mealplan ai — clerk handles auth perfectly and i still spent a week debugging session edge cases i didn't need to touch",
+      "text": "yeah. i have the same problem on mealplan ai — stripe webhook hits, clerk user exists, but the db row is just... not there yet. race conditions in saas are unglamorous",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-01T15:00:00.000Z",
+      "scheduledAt": "2026-09-02T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot tá em 30+ usuários. app interno de bolão, nada sofisticado. nextjs + vercel, deploy em minuto. às vezes o melhor produto é o que você faz pra resolver o seu próprio problema",
+      "text": "cog-jackpot tá em 30+ usuários. app interno, nada sofisticado. mas é next.js rodando pra valer com gente real usando todo dia. isso vale mais que qualquer side project que ficou no readme",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-01T20:00:00.000Z",
+      "scheduledAt": "2026-09-02T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. context window ficou gigante mas o problema real é o que você não sabe que esqueceu de colocar no prompt. o modelo não estava lá quando você tomou a decisão",
+      "text": "same. context window ficou gigante mas eu ainda copio e colo o erro manualmente no chat como um animal",
       "type": "quote_take",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-01T23:00:00.000Z",
+      "scheduledAt": "2026-09-02T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
