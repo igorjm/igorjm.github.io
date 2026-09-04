@@ -1,16 +1,16 @@
 {
-  "date": "2026-09-03",
-  "createdAt": "2026-09-03T14:06:46.581Z",
+  "date": "2026-09-04",
+  "createdAt": "2026-09-04T13:58:57.885Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been rebuilding the mealplan ai onboarding this week. clerk + stripe flows are smooth until they're not. spent 3h on a webhook timing bug that was just... my local clock being off.",
+      "text": "been refactoring brewra's api layer this week. nothing exciting, just cleaning up routes that made sense 3 months ago and make zero sense now. boring work but the next feature will be easier. probably.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-03T11:00:00.000Z",
+      "scheduledAt": "2026-09-04T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah. everyone ships the feature, nobody ships the why it was built that way. future me always pays for that.",
+      "text": "yeah this. i have the same problem with mealplan ai — clerk + stripe both have their own user concept and reconciling them is always the annoying part nobody talks about",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-03T15:00:00.000Z",
+      "scheduledAt": "2026-09-04T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot tá em 30+ usuários. app interno, nada glamouroso. mas é next.js rodando com gente real todo dia e isso vale mais que qualquer side project que ficou só no vercel preview.",
+      "text": "cog-jackpot tá em 30+ usuários. app interno, nada especial. mas é a primeira vez que construí algo que pessoas reais usam todo dia sem eu pedir. diferente de side project pra portfólio.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-03T20:00:00.000Z",
+      "scheduledAt": "2026-09-04T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. headshots ai tem um pipeline que funciona até o modelo mudar de versão e eu descobrir pelo erro em prod.",
+      "text": "same. every model release i check if my brewra prompts still behave. sometimes they don't and i didn't change anything. that's the part that's hard to explain to people not building with llms",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-03T23:00:00.000Z",
+      "scheduledAt": "2026-09-04T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
