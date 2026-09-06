@@ -1,16 +1,16 @@
 {
-  "date": "2026-09-05",
-  "createdAt": "2026-09-05T13:14:15.620Z",
+  "date": "2026-09-06",
+  "createdAt": "2026-09-06T13:23:04.487Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been refactoring brewra's prompt layer this week. every time i think it's clean, one edge case in the eval set breaks something obvious. 40 examples is not enough. but it's what i have.",
+      "text": "been adding memory to brewra this week. not rag, just storing what the user likes and surfacing it next session. small thing but now the app actually feels like it knows you.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-05T11:00:00.000Z",
+      "scheduledAt": "2026-09-06T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah. i hit this with mealplan ai — clerk + stripe wired up in a day, but the actual meal logic took 3x longer because i kept second-guessing the prompt structure instead of just shipping",
+      "text": "yeah. everyone ships the feature, nobody ships the context around it. i have comments in brewra that are just \"don't change this\" with zero explanation why",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-05T15:00:00.000Z",
+      "scheduledAt": "2026-09-06T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot tá em 30+ usuários. app interno, nada fancy. mas é estranho ver pessoas reais usando algo que você fez num fim de semana. next.js + vercel, zero drama.",
+      "text": "mealplan ai tá rodando faz uns meses. clerk + stripe + ai, nada fancy. mas é meu projeto que mais parece produto de verdade. às vezes boring stack é o ponto.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-05T20:00:00.000Z",
+      "scheduledAt": "2026-09-06T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. i have a notes doc called 'why i didn't use X' for brewra decisions. never looked at it again. but writing it once saved me from re-litigating the same tradeoff 4 times",
+      "text": "same. picking a model rn feels like picking a cloud region in 2012. too many options, unclear tradeoffs, and you just want the thing to work for one feature",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-05T23:00:00.000Z",
+      "scheduledAt": "2026-09-06T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
