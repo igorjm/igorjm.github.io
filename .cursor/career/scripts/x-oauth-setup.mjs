@@ -10,8 +10,6 @@
 
 import "./lib/load-web-env.mjs";
 import { runOAuthSetup } from "./lib/x-auth.mjs";
+import { fatal } from "./lib/errors.mjs";
 
-runOAuthSetup().catch((err) => {
-  console.error(err.message);
-  process.exit(1);
-});
+runOAuthSetup().catch(fatal);

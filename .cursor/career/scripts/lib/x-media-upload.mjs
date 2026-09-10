@@ -1,5 +1,6 @@
 import { readFileSync } from "fs";
 import { getAccessToken } from "./x-auth.mjs";
+import { parseJsonBody } from "./errors.mjs";
 import { X_API_BASE } from "./x-paths.mjs";
 
 async function mediaFetch(path, options = {}) {
@@ -15,18 +16,12 @@ async function mediaFetch(path, options = {}) {
   });
 
   const text = await res.text();
-  let data;
-  try {
-    data = text ? JSON.parse(text) : {};
-  } catch {
-    data = { raw: text };
-  }
 
   if (!res.ok) {
-    throw new Error(`X media API ${res.status}: ${JSON.stringify(data)}`);
+    throw new Error(`X media API ${res.status}: ${text.slice(0, 500)}`);
   }
 
-  return data;
+  return parseJsonBody(text, `X media API ${path}`);
 }
 
 export async function uploadImageFile(filePath) {

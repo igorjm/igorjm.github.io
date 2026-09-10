@@ -69,19 +69,23 @@ function microlinkUrl(deployedUrl) {
 
 async function generate(project) {
   if (!project.url) {
-    return { ...project, status: "skipped (no deployedUrl)" };
+    return { ...project, ok: true, status: "skipped (no deployedUrl)" };
   }
 
   const res = await fetch(microlinkUrl(project.url), {
     headers: { accept: "image/png,image/*" },
   });
   if (!res.ok) {
-    return { ...project, status: `failed (HTTP ${res.status})` };
+    return { ...project, ok: false, status: `failed (HTTP ${res.status})` };
   }
   const buf = Buffer.from(await res.arrayBuffer());
   // PNG magic number guard — Microlink returns JSON on error.
   if (buf.length < 8 || buf[0] !== 0x89 || buf[1] !== 0x50) {
-    return { ...project, status: "failed (not an image)" };
+    return {
+      ...project,
+      ok: false,
+      status: `failed (not an image: ${buf.toString("utf8", 0, 120)})`,
+    };
   }
 
   const tmpPng = join(tmpdir(), `preview-${project.id}.png`);
@@ -99,12 +103,19 @@ async function generate(project) {
       "-o",
       outWebp,
     ]);
+  } catch (err) {
+    if (err.code === "ENOENT") {
+      throw new Error("cwebp not found — install it (brew install webp)", {
+        cause: err,
+      });
+    }
+    throw err;
   } finally {
     await rm(tmpPng, { force: true });
   }
 
   const { size } = await readFile(outWebp).then((b) => ({ size: b.length }));
-  return { ...project, status: `ok (${(size / 1024).toFixed(0)} KB)` };
+  return { ...project, ok: true, status: `ok (${(size / 1024).toFixed(0)} KB)` };
 }
 
 async function main() {
@@ -117,20 +128,35 @@ async function main() {
     : all;
 
   if (targets.length === 0) {
-    console.log("No matching projects.");
-    return;
+    throw new Error(
+      filters.length
+        ? `No projects matched: ${filters.join(", ")}`
+        : `No projects parsed from ${PROJECTS_TS}`
+    );
   }
 
   console.log(`Generating ${targets.length} preview(s) → public/projects/\n`);
+  const failures = [];
   for (const project of targets) {
     process.stdout.write(`  ${project.id.padEnd(28)} `);
     try {
       const result = await generate(project);
       console.log(result.status);
+      if (!result.ok) failures.push({ id: project.id, reason: result.status });
     } catch (err) {
-      console.log(`error: ${err.message}`);
+      console.log("error");
+      console.error(`  ${project.id}:`, err);
+      failures.push({ id: project.id, reason: err.message });
     }
   }
+
+  if (failures.length) {
+    throw new Error(
+      `${failures.length}/${targets.length} preview(s) failed:\n` +
+        failures.map((f) => `  ${f.id}: ${f.reason}`).join("\n")
+    );
+  }
+
   console.log("\nDone. Commit the .webp files under public/projects/.");
 }
 

@@ -7,9 +7,10 @@ const scriptsRequire = createRequire(join(SCRIPTS_DIR, "package.json"));
 export function requireScriptDep(name) {
   try {
     return scriptsRequire(name);
-  } catch {
+  } catch (err) {
     throw new Error(
       `${name} not found. Run: cd .cursor/career/scripts && npm install`,
+      { cause: err },
     );
   }
 }

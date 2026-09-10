@@ -9,7 +9,7 @@
  */
 
 import "./lib/load-web-env.mjs";
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "fs";
+import { existsSync, mkdirSync, writeFileSync } from "fs";
 import { join } from "path";
 import {
   POST_QUEUE_FILE,
@@ -18,6 +18,7 @@ import {
   envFlag,
 } from "./lib/x-paths.mjs";
 import { createTweet, createRetweet } from "./lib/x-client.mjs";
+import { fatal, readJsonFile } from "./lib/errors.mjs";
 import { getDuePosts } from "./lib/x-schedule.mjs";
 import { preparePostMedia } from "./lib/x-media.mjs";
 
@@ -25,7 +26,7 @@ function loadQueue() {
   if (!existsSync(POST_QUEUE_FILE)) {
     return null;
   }
-  return JSON.parse(readFileSync(POST_QUEUE_FILE, "utf8"));
+  return readJsonFile(POST_QUEUE_FILE);
 }
 
 function saveQueue(queue) {
@@ -37,7 +38,7 @@ function appendPublishedLog(dateStr, entry) {
   const path = join(X_PUBLISHED_DIR, `${dateStr}.json`);
   let log = { date: dateStr, posts: [] };
   if (existsSync(path)) {
-    log = JSON.parse(readFileSync(path, "utf8"));
+    log = readJsonFile(path);
   }
   log.posts.push(entry);
   writeFileSync(path, JSON.stringify(log, null, 2));
@@ -67,10 +68,18 @@ async function main() {
     `Due posts: ${due.length} (dryRun=${dryRun}, autoPost=${autoPost}, media=${mediaEnabled})`,
   );
 
+  const failures = [];
+
   for (const item of due) {
     const idx = queue.tweets.findIndex(
       (t) => t.scheduledAt === item.scheduledAt && t.text === item.text,
     );
+    if (idx < 0) {
+      // Without an index the outcome cannot be recorded, so never post blind.
+      console.error(`Queue entry vanished for slot ${item.scheduledAt} — skipping`);
+      failures.push(`${item.scheduledAt}: queue entry not found`);
+      continue;
+    }
 
     const typeNote = item.type === "retweet" ? " [retweet]" : "";
     const imageNote =
@@ -114,6 +123,9 @@ async function main() {
         });
 
         tweetId = res?.data?.id;
+        if (!tweetId) {
+          throw new Error(`X API accepted the post but returned no tweet id: ${JSON.stringify(res)}`);
+        }
       }
       queue.tweets[idx].posted = true;
       queue.tweets[idx].tweetId = tweetId;
@@ -142,15 +154,20 @@ async function main() {
         console.log(`Posted: https://x.com/i/web/status/${tweetId}`);
       }
     } catch (err) {
-      console.error(`Failed to post: ${err.message}`);
+      console.error(`Failed to post slot ${item.scheduledAt}:`, err);
       queue.tweets[idx].error = err.message;
+      failures.push(`${item.scheduledAt}: ${err.message}`);
     }
   }
 
   saveQueue(queue);
+
+  if (failures.length) {
+    throw new Error(
+      `${failures.length}/${due.length} due post(s) failed:\n` +
+        failures.map((f) => `  ${f}`).join("\n"),
+    );
+  }
 }
 
-main().catch((err) => {
-  console.error(err.message);
-  process.exit(1);
-});
+main().catch(fatal);

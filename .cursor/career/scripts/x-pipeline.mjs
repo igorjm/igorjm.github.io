@@ -9,6 +9,7 @@
 import { spawn } from "child_process";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
+import { fatal } from "./lib/errors.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -18,9 +19,12 @@ function run(script) {
       stdio: "inherit",
       env: process.env,
     });
-    child.on("close", (code) => {
+    child.on("error", (err) =>
+      reject(new Error(`${script} failed to start: ${err.message}`, { cause: err })),
+    );
+    child.on("close", (code, signal) => {
       if (code === 0) resolve();
-      else reject(new Error(`${script} exited ${code}`));
+      else reject(new Error(`${script} exited ${code ?? `on signal ${signal}`}`));
     });
   });
 }
@@ -30,7 +34,4 @@ async function main() {
   await run("x-post-queue.mjs");
 }
 
-main().catch((err) => {
-  console.error(err.message);
-  process.exit(1);
-});
+main().catch(fatal);

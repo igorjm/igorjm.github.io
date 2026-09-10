@@ -9,7 +9,7 @@
  */
 
 import "./lib/load-web-env.mjs";
-import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "fs";
+import { existsSync, mkdirSync, readdirSync, writeFileSync } from "fs";
 import { join } from "path";
 import {
   X_CACHE_DIR,
@@ -28,6 +28,7 @@ import {
 import { parseWatchlistHandles } from "./lib/x-watchlist.mjs";
 import { curateTweets, formatBriefingMarkdown } from "./lib/x-curate.mjs";
 import { filterTweetBatch } from "./lib/x-safety.mjs";
+import { fatal, readJsonFile } from "./lib/errors.mjs";
 
 function loadRecentPublishedTexts() {
   if (!existsSync(X_PUBLISHED_DIR)) return [];
@@ -40,12 +41,13 @@ function loadRecentPublishedTexts() {
   const texts = [];
   for (const file of files) {
     try {
-      const data = JSON.parse(readFileSync(join(X_PUBLISHED_DIR, file), "utf8"));
+      const data = readJsonFile(join(X_PUBLISHED_DIR, file));
       for (const p of data.posts ?? []) {
         if (p.text) texts.push(p.text);
       }
-    } catch {
-      /* skip */
+    } catch (err) {
+      // Deduplication is best-effort, but a broken log must be visible.
+      console.warn(`Skipping published log ${file}: ${err.message}`);
     }
   }
   return texts;
@@ -124,7 +126,4 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  console.error(err.message);
-  process.exit(1);
-});
+main().catch(fatal);
