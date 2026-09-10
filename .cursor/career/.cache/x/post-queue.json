@@ -1,16 +1,16 @@
 {
-  "date": "2026-09-09",
-  "createdAt": "2026-09-09T14:08:35.465Z",
+  "date": "2026-09-10",
+  "createdAt": "2026-09-10T14:02:57.975Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been rebuilding the mealplan ai onboarding this week. clerk + stripe flow was janky for new users. small ux fix, but signups feel less like a checkout form now.",
+      "text": "spent saturday wiring up stripe webhooks on mealplan ai again. third time i've done this across projects and i still google the signature verification every single time.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-09T11:00:00.000Z",
+      "scheduledAt": "2026-09-10T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah. and the worst part is you fix the prompt, re-run, and something unrelated breaks. eval sets feel like whack-a-mole when they're small. brewra is stuck at like 40 examples for the same reason.",
+      "text": "yeah. and the worst part is the model that was \"best\" last month isn't the one i'm calling today. brewra has switched default models twice this quarter.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-09T15:00:00.000Z",
+      "scheduledAt": "2026-09-10T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot tá em 30+ usuários. app interno, nada especial. next.js + vercel, funciona todo dia. às vezes simples é o suficiente.",
+      "text": "cog-jackpot tá em 30+ usuários. app interno, nada sofisticado. mas é o projeto que mais me ensinou sobre o que usuário real faz com sua UI quando você não tá olhando.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-09T20:00:00.000Z",
+      "scheduledAt": "2026-09-10T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. i added a model config dropdown to brewra last month thinking it'd help. nobody touched it. people just want the output to work, not to pick the engine.",
+      "text": "same. i built the headshots ai pipeline thinking inference would be the hard part. turned out to be image storage naming conventions. always the boring thing.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-09T23:00:00.000Z",
+      "scheduledAt": "2026-09-10T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
