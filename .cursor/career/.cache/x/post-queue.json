@@ -1,16 +1,16 @@
 {
-  "date": "2026-09-10",
-  "createdAt": "2026-09-10T14:02:57.975Z",
+  "date": "2026-09-11",
+  "createdAt": "2026-09-11T14:02:27.316Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "spent saturday wiring up stripe webhooks on mealplan ai again. third time i've done this across projects and i still google the signature verification every single time.",
+      "text": "been rebuilding the brewra onboarding flow this week. small thing: moved the coffee preference step earlier. retention on day 2 went up. sometimes the fix is just asking the right question sooner.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-10T11:00:00.000Z",
+      "scheduledAt": "2026-09-11T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah. and the worst part is the model that was \"best\" last month isn't the one i'm calling today. brewra has switched default models twice this quarter.",
+      "text": "yeah this. i have a mealplan ai user who's been on the free tier for 3 months. never converted. opened the app 40+ times. no idea what's blocking them and no way to ask.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-10T15:00:00.000Z",
+      "scheduledAt": "2026-09-11T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot tá em 30+ usuários. app interno, nada sofisticado. mas é o projeto que mais me ensinou sobre o que usuário real faz com sua UI quando você não tá olhando.",
+      "text": "cog-jackpot tá em 30+ usuários essa semana. app interno, nada de especial. nextjs + vercel, pessoas reais usando todo dia. às vezes o melhor side project é o que resolve um problema chato do trabalho.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-10T20:00:00.000Z",
+      "scheduledAt": "2026-09-11T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. i built the headshots ai pipeline thinking inference would be the hard part. turned out to be image storage naming conventions. always the boring thing.",
+      "text": "same. context window grande não resolve contexto errado. meu eval set do brewra tem 40 exemplos e um prompt ruim ainda quebra prod.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-10T23:00:00.000Z",
+      "scheduledAt": "2026-09-11T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
