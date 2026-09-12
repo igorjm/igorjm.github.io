@@ -1,16 +1,16 @@
 {
-  "date": "2026-09-11",
-  "createdAt": "2026-09-11T14:02:27.316Z",
+  "date": "2026-09-12",
+  "createdAt": "2026-09-12T13:20:25.590Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been rebuilding the brewra onboarding flow this week. small thing: moved the coffee preference step earlier. retention on day 2 went up. sometimes the fix is just asking the right question sooner.",
+      "text": "been rebuilding the brewra onboarding flow this week. realized the first 3 screens asked for stuff i don't even use. cut them. app feels less like a form now.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-11T11:00:00.000Z",
+      "scheduledAt": "2026-09-12T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah this. i have a mealplan ai user who's been on the free tier for 3 months. never converted. opened the app 40+ times. no idea what's blocking them and no way to ask.",
+      "text": "yeah. you ship the feature, the tradeoff lives in your head for 20 min, then it's gone. no pr description survives that.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-11T15:00:00.000Z",
+      "scheduledAt": "2026-09-12T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot tá em 30+ usuários essa semana. app interno, nada de especial. nextjs + vercel, pessoas reais usando todo dia. às vezes o melhor side project é o que resolve um problema chato do trabalho.",
+      "text": "mealplan ai tá rodando faz uns meses mas nunca falei muito sobre ele aqui. clerk + stripe + ai, full-stack do zero. aprendi mais nesse projeto do que em 6 meses de trabalho normal.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-11T20:00:00.000Z",
+      "scheduledAt": "2026-09-12T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. context window grande não resolve contexto errado. meu eval set do brewra tem 40 exemplos e um prompt ruim ainda quebra prod.",
+      "text": "same. every new model drop i check if my brewra prompts still behave. sometimes they don't and nothing changed on my end.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-11T23:00:00.000Z",
+      "scheduledAt": "2026-09-12T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
