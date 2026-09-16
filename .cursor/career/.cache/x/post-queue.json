@@ -1,16 +1,16 @@
 {
-  "date": "2026-09-15",
-  "createdAt": "2026-09-15T14:37:29.852Z",
+  "date": "2026-09-16",
+  "createdAt": "2026-09-16T14:34:40.252Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been adding streaming responses to brewra this week. tiny change, app feels completely different. users notice latency way more than i expected.",
+      "text": "been adding streaming responses to brewra this week. tiny change but the app feels completely different. waiting for a full response was killing the vibe.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-15T11:00:00.000Z",
+      "scheduledAt": "2026-09-16T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah same. i keep a notes.md open while coding just to dump the why before it disappears. no model catches that window.",
+      "text": "yeah. i have this exact problem on mealplan ai — users see the plan generate and think it's done. the streaming UI is doing more work than the model at that point.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-15T15:00:00.000Z",
+      "scheduledAt": "2026-09-16T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot passou de 30 usuários essa semana. app interno, nada sofisticado. mas é a primeira vez que sinto que construí algo que as pessoas abrem todo dia.",
+      "text": "cog-jackpot tá em 30+ usuários. app interno, nada glamouroso. nextjs + vercel, pessoas reais usando todo dia. às vezes isso é o suficiente.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-15T20:00:00.000Z",
+      "scheduledAt": "2026-09-16T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "this tracks. i rebuilt my mealplan ai onboarding twice because the first version made sense to me and nobody else.",
+      "text": "same. i keep a notes file next to my PRs for the why. not elegant but claude definitely wasn't in the call when i decided to not use that library.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-15T23:00:00.000Z",
+      "scheduledAt": "2026-09-16T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
