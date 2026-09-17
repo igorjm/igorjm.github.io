@@ -1,16 +1,16 @@
 {
-  "date": "2026-09-16",
-  "createdAt": "2026-09-16T14:34:40.252Z",
+  "date": "2026-09-17",
+  "createdAt": "2026-09-17T14:39:55.726Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been adding streaming responses to brewra this week. tiny change but the app feels completely different. waiting for a full response was killing the vibe.",
+      "text": "been rebuilding the onboarding flow on brewra this week. small stuff — better empty states, clearer first action. no new AI feature. just made it less confusing for someone opening it cold.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-16T11:00:00.000Z",
+      "scheduledAt": "2026-09-17T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah. i have this exact problem on mealplan ai — users see the plan generate and think it's done. the streaming UI is doing more work than the model at that point.",
+      "text": "yeah. i hit this with mealplan ai — added three ai features before fixing the signup drop-off. wrong order every time.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-16T15:00:00.000Z",
+      "scheduledAt": "2026-09-17T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot tá em 30+ usuários. app interno, nada glamouroso. nextjs + vercel, pessoas reais usando todo dia. às vezes isso é o suficiente.",
+      "text": "cog-jackpot tá em 30+ usuários. app interno, nada sofisticado. next.js + vercel, pessoas reais usando todo dia. às vezes o projeto mais simples é o que mais roda.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-16T20:00:00.000Z",
+      "scheduledAt": "2026-09-17T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. i keep a notes file next to my PRs for the why. not elegant but claude definitely wasn't in the call when i decided to not use that library.",
+      "text": "same. headshots ai tem pipeline de imagem que funciona mas o modelo que eu escolhi mês passado já parece desatualizado. nem mudei nada no código.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-09-16T23:00:00.000Z",
+      "scheduledAt": "2026-09-17T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
