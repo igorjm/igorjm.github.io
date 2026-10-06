@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-05",
-  "createdAt": "2026-10-05T19:02:39.176Z",
+  "date": "2026-10-06",
+  "createdAt": "2026-10-06T16:28:52.724Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been adding streaming responses to brewra this week. tiny ux change but the app feels completely different. waiting for a full response is 2022.",
+      "text": "been rebuilding the brewra onboarding flow. small thing: moved the coffee preference step earlier. retention on day 2 went up. product intuition > a/b tests when you have 0 budget lol",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-05T11:00:00.000Z",
+      "scheduledAt": "2026-10-06T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah. i hit this on mealplan ai — clerk + stripe wired up in a day, then spent two weeks on the actual product decisions nobody talks about",
+      "text": "yeah. everyone ships the feature, nobody ships the reason it was built that way. future you is just guessing.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-05T15:00:00.000Z",
+      "scheduledAt": "2026-10-06T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot tá em 30+ usuários essa semana. app interno, nada fancy. nextjs + vercel, pessoas reais usando todo dia. side project que virou ferramenta de verdade.",
+      "text": "cog-jackpot tá em 30+ usuários. app interno de bolão, nada fancy. nextjs + vercel, pessoas reais usando todo dia. às vezes o melhor side project é o que você fez pra resolver seu próprio problema",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-05T20:00:00.000Z",
+      "scheduledAt": "2026-10-06T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. benchmarks mudaram de novo mas meu eval set do brewra ainda tem 40 exemplos e um prompt ruim quebra tudo em prod",
+      "text": "same. i added clerk to mealplan ai in like 2h. auth is a solved problem now. the hard part is still what happens after login",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-05T23:00:00.000Z",
+      "scheduledAt": "2026-10-06T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
