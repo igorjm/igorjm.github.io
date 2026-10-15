@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-14",
-  "createdAt": "2026-10-14T14:52:17.897Z",
+  "date": "2026-10-15",
+  "createdAt": "2026-10-15T14:39:14.867Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "spent 2h debugging a mealplan ai webhook. stripe was fine. clerk was fine. it was my env var with a trailing space.",
+      "text": "been rebuilding the onboarding flow on brewra this week. small ux stuff — but the drop-off was happening in the first 2 screens. fixing boring things before adding features is underrated.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-14T11:00:00.000Z",
+      "scheduledAt": "2026-10-15T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah. i have 40 eval examples on brewra and one bad prompt still sneaks into prod. benchmarks don't help with that.",
+      "text": "yeah. i hit this on mealplan ai — had clerk + stripe wired perfectly, zero users knew what the app actually did on the landing page. infra confidence ≠ product clarity",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-14T15:00:00.000Z",
+      "scheduledAt": "2026-10-15T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot tá com 30+ usuários. app interno, nada de especial. next.js + vercel, pessoas reais usando todo dia. às vezes simples funciona.",
+      "text": "cog-jackpot tá em 30+ usuários agora. app interno de bolão, nada sofisticado. nextjs + vercel, pessoas reais usando todo dia. às vezes o projeto mais simples é o que fica.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-14T20:00:00.000Z",
+      "scheduledAt": "2026-10-15T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. context window não resolve saber o que era importante salvar. headshots ai tem esse problema — pipeline longo, estado confuso no meio.",
+      "text": "same. context window ficou enorme mas o problema virou: o que você joga fora. meu brewra prompt tá gordo demais e eu sei disso",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-14T23:00:00.000Z",
+      "scheduledAt": "2026-10-15T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
