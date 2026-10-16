@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-15",
-  "createdAt": "2026-10-15T14:39:14.867Z",
+  "date": "2026-10-16",
+  "createdAt": "2026-10-16T14:30:20.627Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been rebuilding the onboarding flow on brewra this week. small ux stuff — but the drop-off was happening in the first 2 screens. fixing boring things before adding features is underrated.",
+      "text": "been rebuilding the mealplan ai onboarding this week. clerk + stripe flow was janky on mobile. small fix, but first impressions matter more than i give them credit for mid-build.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-15T11:00:00.000Z",
+      "scheduledAt": "2026-10-16T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah. i hit this on mealplan ai — had clerk + stripe wired perfectly, zero users knew what the app actually did on the landing page. infra confidence ≠ product clarity",
+      "text": "yeah. i hit this exact thing on brewra. the model gave me a confident answer, wrong context, no way to know until a real user complained.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-15T15:00:00.000Z",
+      "scheduledAt": "2026-10-16T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot tá em 30+ usuários agora. app interno de bolão, nada sofisticado. nextjs + vercel, pessoas reais usando todo dia. às vezes o projeto mais simples é o que fica.",
+      "text": "headshots ai tá rodando mas o pipeline de imagem ainda me dá trabalho. supabase + next.js segura bem, o problema mesmo é prompt consistency entre runs.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-15T20:00:00.000Z",
+      "scheduledAt": "2026-10-16T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. context window ficou enorme mas o problema virou: o que você joga fora. meu brewra prompt tá gordo demais e eu sei disso",
+      "text": "same. benchmarks trocam toda semana. meu eval do brewra ainda tem 40 exemplos e um prompt ruim quebra prod. número do leaderboard não ajuda nisso.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-15T23:00:00.000Z",
+      "scheduledAt": "2026-10-16T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
