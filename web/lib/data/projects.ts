@@ -8,6 +8,19 @@ import type { Project } from "@/lib/types/portfolio";
 /** Sourced from GitHub — https://github.com/igorjm pinned repos */
 export const projects: Project[] = [
   {
+    id: "ninolu",
+    name: "Ninolu",
+    descriptionKey: "projects.ninolu.description",
+    repoUrl: "https://github.com/igorjm/ninolu",
+    privateRepo: true,
+    featured: true,
+    deployedUrl: "https://www.ninolu.com/landing",
+    previewImage: getLocalPreviewPath("ninolu"),
+    screenshotUrl: getLivePreviewUrl("https://www.ninolu.com/landing"),
+    language: "TypeScript",
+    tags: ["Next.js", "TypeScript", "Cloudflare", "Offline-first PWA", "AI"],
+  },
+  {
     id: "levecare",
     name: "LeveCare",
     descriptionKey: "projects.levecare.description",

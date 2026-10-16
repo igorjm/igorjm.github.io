@@ -107,7 +107,11 @@
     },
     "monsterCardGame": {
       "description": "Jogo multiplayer online de dedução social em pt-BR — Next.js + Supabase realtime, ações da noite no servidor, voz LiveKit e PWA instalável."
-    }
+    },
+    "ninolu": {
+      "description": "Uma PWA offline-first para preparar o enxoval em família: checklists de compras, armário com fotos e planejamento entre Brasil e EUA. Nino, o assistente de IA, ajuda a organizar cada etapa, enquanto alterações locais sincronizam quando a conexão volta."
+    },
+    "featured": "Projeto em destaque"
   },
   "contact": {
     "headline": "Vamos construir algo remarkable.",

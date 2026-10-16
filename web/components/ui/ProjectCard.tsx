@@ -62,7 +62,7 @@ function ProjectThumbnail({
       <Image
         key={src}
         src={src}
-        alt={project.name}
+        alt={`${project.name} — landing page`}
         width={640}
         height={360}
         className={cn(
@@ -91,7 +91,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
   const opensLive = Boolean(project.deployedUrl);
 
   return (
-    <article className="group relative overflow-hidden rounded-lg border border-section bg-surface-container-low transition-transform duration-300 hover:-translate-y-1">
+    <article className={cn(
+      "group relative overflow-hidden rounded-lg border bg-surface-container-low transition-transform duration-300 hover:-translate-y-1",
+      project.featured ? "border-primary/40" : "border-section"
+    )}>
       {project.status === "wip" && (
         <span className="text-label-mono absolute right-3 top-3 z-10 flex items-center gap-1.5 rounded-full border border-tertiary/40 bg-surface-container/90 px-2.5 py-1 text-tertiary backdrop-blur-sm">
           <span className="size-1.5 animate-pulse rounded-full bg-tertiary" aria-hidden />
@@ -102,7 +105,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         href={primaryHref}
         target="_blank"
         rel="noopener noreferrer"
-        className="block"
+        className={cn("block", project.featured && "md:grid md:grid-cols-2 md:items-center")}
         aria-label={
           opensLive
             ? `${project.name} — ${t("view_live")}`
@@ -117,6 +120,11 @@ export function ProjectCard({ project }: ProjectCardProps) {
           />
         </div>
         <div className="p-6">
+          {project.featured && (
+            <p className="text-label-mono mb-3 uppercase tracking-widest text-primary">
+              {t("featured")}
+            </p>
+          )}
           <h3 className="text-headline-sm mb-2 text-on-surface">{project.name}</h3>
           <p className="text-body-md mb-4 text-on-surface-variant">
             {t(`${descKey}.description`)}
@@ -141,17 +149,20 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {t("view_live")}
           </a>
         )}
-        <a
-          href={project.repoUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={cn(
-            "text-label-mono hover:underline",
-            project.deployedUrl ? "text-on-surface-variant" : "text-primary"
-          )}
+        {!project.privateRepo && (
+          <a
+            href={project.repoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(
+              "text-label-mono hover:underline",
+              project.deployedUrl ? "text-on-surface-variant" : "text-primary"
+    
+        )}
         >
           {t("view_code")}
         </a>
+        )}
       </div>
     </article>
   );

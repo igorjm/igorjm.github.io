@@ -21,7 +21,7 @@ export function ProjectsSection() {
       </div>
       <Stagger className="grid grid-cols-1 gap-12 md:grid-cols-2" stagger={0.1}>
         {projects.map((project) => (
-          <StaggerItem key={project.id}>
+          <StaggerItem key={project.id} className={project.featured ? "md:col-span-2" : undefined}>
             <ProjectCard project={project} />
           </StaggerItem>
         ))}

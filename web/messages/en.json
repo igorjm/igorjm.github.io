@@ -107,7 +107,11 @@
     },
     "monsterCardGame": {
       "description": "Online multiplayer social-deduction card game in pt-BR — Next.js + Supabase realtime, server-authoritative night actions, LiveKit voice, and installable PWA."
-    }
+    },
+    "ninolu": {
+      "description": "An offline-first baby-planning PWA for families: smart shopping checklists, a photo wardrobe, and shared preparation across Brazil and the US. Nino, the AI assistant, helps organize each step, while local changes sync when connectivity returns."
+    },
+    "featured": "Featured project"
   },
   "contact": {
     "headline": "Let's build something remarkable.",

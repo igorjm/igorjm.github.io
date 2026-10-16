@@ -1,6 +1,6 @@
 # Igor Melo — Career Profile
 
-> Auto-generated factual sections. Last synced: 2026-08-08
+> Auto-generated factual sections. Last synced: 2026-10-16
 > Run `node .cursor/career/scripts/sync-career-profile.mjs` after portfolio updates.
 > Narrative voice and STAR stories live in `voice.md` and `achievements.md`.
 
@@ -77,6 +77,15 @@ Antes disso, modelei experiências EdTech na Konviva e fluxos de saúde na Anima
 - **PT-BR:** Contribuí para a evolução de plataforma de radiologia com Java, Spring MVC, PostgreSQL e JavaScript. Desenvolvi relatórios, modelos de impressão e novas funcionalidades para fluxos de imagens médicas.
 
 ## Projects
+
+### Ninolu
+
+- **Tags:** Next.js, TypeScript, Cloudflare, Offline-first PWA, AI
+- **Language:** TypeScript
+- **Repo:** https://github.com/igorjm/ninolu
+- **Live:** https://www.ninolu.com/landing
+- **EN:** An offline-first baby-planning PWA for families: smart shopping checklists, a photo wardrobe, and shared preparation across Brazil and the US. Nino, the AI assistant, helps organize each step, while local changes sync when connectivity returns.
+- **PT-BR:** Uma PWA offline-first para preparar o enxoval em família: checklists de compras, armário com fotos e planejamento entre Brasil e EUA. Nino, o assistente de IA, ajuda a organizar cada etapa, enquanto alterações locais sincronizam quando a conexão volta.
 
 ### LeveCare
 

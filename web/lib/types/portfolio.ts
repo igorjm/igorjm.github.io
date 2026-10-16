@@ -3,6 +3,8 @@ export type Project = {
   name: string;
   descriptionKey: string;
   repoUrl: string;
+  privateRepo?: boolean;
+  featured?: boolean;
   deployedUrl: string | null;
   screenshotUrl: string | null;
   previewImage?: string | null;
