@@ -157,11 +157,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
             className={cn(
               "text-label-mono hover:underline",
               project.deployedUrl ? "text-on-surface-variant" : "text-primary"
-    
-        )}
-        >
-          {t("view_code")}
-        </a>
+            )}
+          >
+            {t("view_code")}
+          </a>
         )}
       </div>
     </article>
