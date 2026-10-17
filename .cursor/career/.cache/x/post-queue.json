@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-16",
-  "createdAt": "2026-10-16T14:30:20.627Z",
+  "date": "2026-10-17",
+  "createdAt": "2026-10-17T13:26:48.288Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been rebuilding the mealplan ai onboarding this week. clerk + stripe flow was janky on mobile. small fix, but first impressions matter more than i give them credit for mid-build.",
+      "text": "been adding streaming responses to brewra this week. tiny change but the app feels completely different. waiting for a full response was killing the vibe.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-16T11:00:00.000Z",
+      "scheduledAt": "2026-10-17T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah. i hit this exact thing on brewra. the model gave me a confident answer, wrong context, no way to know until a real user complained.",
+      "text": "yeah this. i have the same problem with mealplan ai — users don't read error messages, they just assume the ai is broken. ui feedback does more work than the model.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-16T15:00:00.000Z",
+      "scheduledAt": "2026-10-17T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "headshots ai tá rodando mas o pipeline de imagem ainda me dá trabalho. supabase + next.js segura bem, o problema mesmo é prompt consistency entre runs.",
+      "text": "cog-jackpot tá em 30+ usuários agora. app interno, nada glamouroso. nextjs + vercel, typescript. mas é real — pessoas usando todo dia. isso vale mais que qualquer demo.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-16T20:00:00.000Z",
+      "scheduledAt": "2026-10-17T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. benchmarks trocam toda semana. meu eval do brewra ainda tem 40 exemplos e um prompt ruim quebra prod. número do leaderboard não ajuda nisso.",
+      "text": "same. i keep adding evals to brewra and realizing the prompt wasn't the problem — the example data was just bad. garbage in, garbage regression.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-16T23:00:00.000Z",
+      "scheduledAt": "2026-10-17T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
