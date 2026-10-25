@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-24",
-  "createdAt": "2026-10-24T13:49:22.258Z",
+  "date": "2026-10-25",
+  "createdAt": "2026-10-25T14:05:10.275Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been rebuilding the brewra onboarding flow this week. small stuff — better empty states, clearer first prompt. but retention on first session went up noticeably. boring ux work hits different when you see it in the numbers.",
+      "text": "been adding streaming responses to brewra this week. tiny change but the app feels 10x more alive. weird how much perceived speed matters more than actual speed.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-24T11:00:00.000Z",
+      "scheduledAt": "2026-10-25T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah this. i have 40 eval examples on brewra and one weird edge case prompt just tanks the whole vibe. scaling evals is the actual hard part nobody talks about",
+      "text": "yeah this. i have the same problem on mealplan ai — users churn before the good part loads. skeleton screens only go so far.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-24T15:00:00.000Z",
+      "scheduledAt": "2026-10-25T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot tá em 30+ usuários agora. começou como um poolzinho interno, nextjs + vercel, zero hype. às vezes o projeto mais simples é o que as pessoas realmente usam todo dia.",
+      "text": "cog-jackpot tá em 30+ usuários agora. app interno, nada fancy. nextjs + vercel, pessoas reais usando todo dia. às vezes o projeto mais simples é o que vira produto de verdade.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-24T20:00:00.000Z",
+      "scheduledAt": "2026-10-25T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. context window ficou enorme mas o modelo ainda não sabe o *porquê* de nenhuma decisão. isso mora na cabeça do dev por uns 10 min e some pra sempre",
+      "text": "same. context window ficou enorme mas o problema ainda é o que você coloca lá. lixo entra, lixo sai — só mais rápido agora.",
       "type": "quote_take",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-24T23:00:00.000Z",
+      "scheduledAt": "2026-10-25T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
