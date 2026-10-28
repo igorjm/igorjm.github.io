@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-27",
-  "createdAt": "2026-10-27T15:42:10.729Z",
+  "date": "2026-10-28",
+  "createdAt": "2026-10-28T16:25:20.050Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been adding streaming to brewra this week. tiny ux change but the app feels completely different when responses come in word by word. weird how much perceived speed matters more than actual speed.",
+      "text": "spent the weekend wiring up persistent chat history on brewra. tiny change. but the app finally feels like it knows you instead of starting cold every time.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-27T11:00:00.000Z",
+      "scheduledAt": "2026-10-28T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah. i hit this with mealplan ai — users churned not because the ai was wrong, but because it felt slow. same latency, added streaming, retention went up. perception is the whole game.",
+      "text": "yeah. and the worst part is you fix it once, ship it, then the next sprint the same pattern is back because nobody updated the doc that nobody reads anyway",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-27T15:00:00.000Z",
+      "scheduledAt": "2026-10-28T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot tá em 30+ usuários agora. app interno, nada sofisticado. nextjs + vercel, pessoas reais usando todo dia. às vezes o projeto mais simples é o que mais ensina.",
+      "text": "mealplan ai tem clerk + stripe rodando faz semanas e eu ainda fico nervoso toda vez que vejo um webhook chegar. não é falta de confiança na stack, é respeito.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-27T20:00:00.000Z",
+      "scheduledAt": "2026-10-28T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. i have four ai side projects and i still open a new tab to check which model i should call for a given task. the naming situation is genuinely bad for building.",
+      "text": "same. benchmarks shifted again this week and my brewra eval set is still 40 examples held together with vibes. one bad prompt and prod regresses.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-27T23:00:00.000Z",
+      "scheduledAt": "2026-10-28T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
