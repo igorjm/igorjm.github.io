@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-30",
-  "createdAt": "2026-10-30T16:31:33.297Z",
+  "date": "2026-10-31",
+  "createdAt": "2026-10-31T15:36:19.908Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been rebuilding the brewra onboarding flow this week. small thing but first-time users were dropping before hitting their first ai response. fixed the empty state, added one prompt suggestion. retention looks better already.",
+      "text": "been adding memory to brewra this week. not rag, just simple user context that persists. small thing but the app finally feels like it knows you exist.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-30T11:00:00.000Z",
+      "scheduledAt": "2026-10-31T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah. i have the same problem with mealplan ai — stripe + clerk works fine until someone hits an edge case at 11pm and i'm the only oncall lol",
+      "text": "yeah this. spent 20 min last week picking between claude 3.5 and claude 3.7 for a single brewra feature. ended up just testing both and keeping the cheaper one",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-30T15:00:00.000Z",
+      "scheduledAt": "2026-10-31T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot tá em 30+ usuários agora. app interno, nada fancy. mas ver pessoas reais usando todo dia bate diferente do que qualquer side project que ficou só no readme.",
+      "text": "cog-jackpot ainda rodando com 30+ usuários internos. nextjs + vercel, zero infra pra gerenciar. às vezes boring stack é a decisão certa mesmo.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-30T20:00:00.000Z",
+      "scheduledAt": "2026-10-31T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. context window ficou gigante mas o problema virou: o que você joga dentro dele. garbage in ainda é garbage in.",
+      "text": "same. my mealplan ai has clerk + stripe wired up perfectly and the hardest part was still figuring out what the user actually wanted to see on screen",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-30T23:00:00.000Z",
+      "scheduledAt": "2026-10-31T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
