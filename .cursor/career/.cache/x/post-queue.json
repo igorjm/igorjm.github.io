@@ -1,16 +1,16 @@
 {
-  "date": "2026-10-31",
-  "createdAt": "2026-10-31T15:36:19.908Z",
+  "date": "2026-11-01",
+  "createdAt": "2026-11-01T16:34:38.686Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been adding memory to brewra this week. not rag, just simple user context that persists. small thing but the app finally feels like it knows you exist.",
+      "text": "been adding streaming responses to brewra this week. felt like overkill at first. now i can't imagine the app without it — waiting for a full AI reply feels broken.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-31T11:00:00.000Z",
+      "scheduledAt": "2026-11-01T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah this. spent 20 min last week picking between claude 3.5 and claude 3.7 for a single brewra feature. ended up just testing both and keeping the cheaper one",
+      "text": "yeah. everyone gets the copilot seat. almost nobody changed how they actually work. same standups, same jira, new autocomplete.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-31T15:00:00.000Z",
+      "scheduledAt": "2026-11-01T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot ainda rodando com 30+ usuários internos. nextjs + vercel, zero infra pra gerenciar. às vezes boring stack é a decisão certa mesmo.",
+      "text": "mealplan ai tá rodando há semanas sem eu tocar. clerk + stripe fazendo o trabalho. side project dream.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-31T20:00:00.000Z",
+      "scheduledAt": "2026-11-01T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. my mealplan ai has clerk + stripe wired up perfectly and the hardest part was still figuring out what the user actually wanted to see on screen",
+      "text": "this. context window got huge and i still paste the same 3 files every session on brewra. the problem was never length.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-10-31T23:00:00.000Z",
+      "scheduledAt": "2026-11-01T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
