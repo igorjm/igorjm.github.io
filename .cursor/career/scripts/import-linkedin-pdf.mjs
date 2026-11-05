@@ -15,7 +15,7 @@
 import { existsSync, readFileSync, writeFileSync, mkdirSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
-import { execSync } from "child_process";
+import { execFileSync } from "child_process";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = join(__dirname, "../../..");
@@ -48,8 +48,8 @@ function extractPdfText(pdfPath) {
   }
 
   try {
-    execSync("which pdftotext", { stdio: "ignore" });
-    const out = execSync(`pdftotext -layout "${pdfPath}" -`, {
+    execFileSync("which", ["pdftotext"], { stdio: "ignore" });
+    const out = execFileSync("pdftotext", ["-layout", pdfPath, "-"], {
       encoding: "utf-8",
       maxBuffer: 10 * 1024 * 1024,
     });

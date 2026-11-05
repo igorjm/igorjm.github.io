@@ -78,10 +78,14 @@ jobs:
 
       - name: Determine mode
         id: mode
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          INPUT_MODE: ${{ inputs.mode }}
+          SCHEDULE: ${{ github.event.schedule }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "mode=${{ inputs.mode }}" >> "$GITHUB_OUTPUT"
-          elif [ "${{ github.event.schedule }}" = "0 10 * * *" ]; then
+          if [ "$EVENT_NAME" = "workflow_dispatch" ]; then
+            echo "mode=$INPUT_MODE" >> "$GITHUB_OUTPUT"
+          elif [ "$SCHEDULE" = "0 10 * * *" ]; then
             echo "mode=brief" >> "$GITHUB_OUTPUT"
           else
             echo "mode=post" >> "$GITHUB_OUTPUT"
