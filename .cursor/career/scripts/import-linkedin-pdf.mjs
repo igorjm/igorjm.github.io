@@ -39,6 +39,9 @@ Requires 'pdftotext' (poppler) OR an existing .cache/linkedin-snapshot.txt from 
   return args;
 }
 
+/** pdftotext being absent is a soft skip; anything else is a real failure. */
+class MissingPdftotextError extends Error {}
+
 function extractPdfText(pdfPath) {
   const txtSidecar = pdfPath.replace(/\.pdf$/i, ".txt");
 
@@ -49,14 +52,22 @@ function extractPdfText(pdfPath) {
 
   try {
     execSync("which pdftotext", { stdio: "ignore" });
-    const out = execSync(`pdftotext -layout "${pdfPath}" -`, {
+  } catch (err) {
+    throw new MissingPdftotextError(
+      `pdftotext not found. Install it (brew install poppler) or save the text export as:\n  ${txtSidecar}`,
+      { cause: err }
+    );
+  }
+
+  try {
+    return execSync(`pdftotext -layout "${pdfPath}" -`, {
       encoding: "utf-8",
       maxBuffer: 10 * 1024 * 1024,
     });
-    return out;
-  } catch {
+  } catch (err) {
     throw new Error(
-      `Cannot extract PDF text. Either install pdftotext (brew install poppler) or save text export as:\n  ${txtSidecar}`
+      `pdftotext failed on ${pdfPath}: ${err.message}. Save the text export as:\n  ${txtSidecar}`,
+      { cause: err }
     );
   }
 }
@@ -266,9 +277,9 @@ function main() {
   try {
     text = extractPdfText(args.pdf);
   } catch (err) {
+    if (!(err instanceof MissingPdftotextError)) throw err;
     console.warn(err.message);
     console.warn("\nUsing pre-built snapshot from manual sync (PDF present but not parsed).");
-    console.warn("To enable auto-parse: brew install poppler");
     process.exit(0);
   }
 

@@ -1,4 +1,5 @@
 import { getAccessToken } from "./x-auth.mjs";
+import { parseJsonBody } from "./errors.mjs";
 import { X_API_BASE } from "./x-paths.mjs";
 
 let cachedUserId = null;
@@ -22,18 +23,12 @@ async function xFetch(path, options = {}) {
   }
 
   const text = await res.text();
-  let data;
-  try {
-    data = text ? JSON.parse(text) : {};
-  } catch {
-    data = { raw: text };
-  }
 
   if (!res.ok) {
-    throw new Error(`X API ${res.status}: ${JSON.stringify(data)}`);
+    throw new Error(`X API ${res.status}: ${text.slice(0, 500)}`);
   }
 
-  return data;
+  return parseJsonBody(text, `X API ${path}`);
 }
 
 export async function searchRecent(query, maxResults = 10) {
@@ -62,10 +57,16 @@ export async function getUserTweets(userId, maxResults = 5) {
   return xFetch(`/2/users/${userId}/tweets?${params}`);
 }
 
+/**
+ * Trends need elevated API access, so a failure here is expected on some
+ * plans and callers fall back to recent search. The reason is still logged so
+ * a broken token never looks like "no trends available".
+ */
 export async function getTrends(woeid = "1") {
   try {
     return await xFetch(`/2/trends/by/woeid/${woeid}`);
-  } catch {
+  } catch (err) {
+    console.warn(`Trends unavailable (${err.message}) — falling back to search`);
     return null;
   }
 }
@@ -104,8 +105,10 @@ export async function createTweet({ text, quoteTweetId, mediaIds }) {
 
 export async function fetchWatchlistSignal(handles) {
   const signals = [];
+  const errors = [];
+  const targets = handles.slice(0, 6);
 
-  for (const handle of handles.slice(0, 6)) {
+  for (const handle of targets) {
     try {
       const userRes = await getUserByUsername(handle);
       const user = userRes?.data;
@@ -130,11 +133,17 @@ export async function fetchWatchlistSignal(handles) {
         });
       }
     } catch (err) {
+      console.warn(`Watchlist fetch failed for ${handle}: ${err.message}`);
       signals.push({
         handle,
         error: err.message,
       });
+      errors.push(`${handle}: ${err.message}`);
     }
+  }
+
+  if (targets.length && errors.length === targets.length) {
+    throw new Error(`All watchlist fetches failed — ${errors.join("; ")}`);
   }
 
   return signals;

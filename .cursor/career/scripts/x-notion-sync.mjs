@@ -13,6 +13,7 @@ import "./lib/load-web-env.mjs";
 import { todayDateStr } from "./lib/x-paths.mjs";
 import { collectNotionRows, listAvailableMedia } from "./lib/notion-content.mjs";
 import { isNotionEnabled, upsertPages } from "./lib/x-notion.mjs";
+import { fatal } from "./lib/errors.mjs";
 
 async function main() {
   const publishedOnly = process.argv.includes("--published");
@@ -50,7 +51,4 @@ async function main() {
   );
 }
 
-main().catch((err) => {
-  console.error(err.message);
-  process.exit(1);
-});
+main().catch(fatal);
