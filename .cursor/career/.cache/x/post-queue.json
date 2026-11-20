@@ -1,16 +1,16 @@
 {
-  "date": "2026-11-19",
-  "createdAt": "2026-11-19T18:50:53.819Z",
+  "date": "2026-11-20",
+  "createdAt": "2026-11-20T18:16:40.932Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been adding streaming to brewra this week. tiny ux change but the app feels completely different when it stops feeling like it's thinking and starts feeling like it's talking.",
+      "text": "been adding streaming responses to brewra this week. tiny ux change but it makes the app feel way more alive. buffered responses felt like waiting for a fax.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-11-19T11:00:00.000Z",
+      "scheduledAt": "2026-11-20T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah. everyone ships the feature, nobody ships the why it was built that way. i feel this every time i open old brewra code i wrote 3 months ago",
+      "text": "yeah this. i have the same problem with mealplan ai — clerk + stripe + three ai providers and i'm still manually tracking which model handles which route in a notion doc",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-11-19T15:00:00.000Z",
+      "scheduledAt": "2026-11-20T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "mealplan ai tá rodando faz um tempo mas semana passada o primeiro usuário pagou sem eu precisar falar com ele. diferente de tudo que já senti num side project",
+      "text": "cog-jackpot tá em 30+ usuários. app interno, nada de especial. next.js + vercel, pessoas reais usando todo dia. às vezes o projeto mais feio é o que mais roda.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-11-19T20:00:00.000Z",
+      "scheduledAt": "2026-11-20T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. context window ficou enorme e eu ainda to colando o arquivo errado no prompt igual 2023",
+      "text": "same. context window grande não resolve não saber o que perguntar. meu eval set do brewra ainda tem 40 exemplos e um prompt ruim derruba tudo",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-11-19T23:00:00.000Z",
+      "scheduledAt": "2026-11-20T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
