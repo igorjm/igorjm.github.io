@@ -1,16 +1,16 @@
 {
-  "date": "2026-11-21",
-  "createdAt": "2026-11-21T17:05:48.334Z",
+  "date": "2026-11-22",
+  "createdAt": "2026-11-22T17:36:24.913Z",
   "dryRun": true,
   "tweets": [
     {
-      "text": "been rebuilding the brewra onboarding flow this week. realized the old version assumed users already cared. they don't. now it earns it faster.",
+      "text": "been adding streaming responses to brewra this week. felt like overkill at first. now i can't imagine the app without it. users notice when the ui feels alive.",
       "type": "original",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-11-21T11:00:00.000Z",
+      "scheduledAt": "2026-11-22T11:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -19,13 +19,13 @@
       "mediaId": null
     },
     {
-      "text": "yeah. i hit this with mealplan ai — stripe webhook fires, db write fails, user sees success. fun debug at midnight.",
+      "text": "yeah. i hit this exact thing on mealplan ai — clerk + stripe wired up in a day, spent the next week figuring out why users weren't converting. the auth was never the hard part.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-11-21T15:00:00.000Z",
+      "scheduledAt": "2026-11-22T15:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -34,13 +34,13 @@
       "mediaId": null
     },
     {
-      "text": "cog-jackpot tá em 30+ usuários. app interno, nada demais. mas ver pessoa real usando toda semana é diferente de qualquer side project que ficou no readme.",
+      "text": "cog-jackpot tá em 30+ usuários agora. app interno, nada fancy. mas é o projeto que mais me ensinou sobre o que as pessoas realmente usam vs o que você acha que vão usar.",
       "type": "project",
       "language": "pt-BR",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-11-21T20:00:00.000Z",
+      "scheduledAt": "2026-11-22T20:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
@@ -49,13 +49,13 @@
       "mediaId": null
     },
     {
-      "text": "same. context window ficou enorme mas eu ainda quebro em chunks porque não confio que o modelo vai prestar atenção no meio. talvez seja skill issue meu idk",
+      "text": "same. every time i pick a model for a new brewra feature i open three tabs and still feel like i'm guessing.",
       "type": "quote_take",
       "language": "en",
       "quoteTweetId": null,
       "retweetTweetId": null,
       "sourceInspiration": null,
-      "scheduledAt": "2026-11-21T23:00:00.000Z",
+      "scheduledAt": "2026-11-22T23:00:00.000Z",
       "posted": false,
       "imageStrategy": "none",
       "imageSource": null,
